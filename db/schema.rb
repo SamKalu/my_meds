@@ -10,10 +10,51 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_06_131845) do
+ActiveRecord::Schema.define(version: 2021_09_06_143329) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "contacts", force: :cascade do |t|
+    t.string "full_name"
+    t.text "description"
+    t.string "phone"
+    t.string "email"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_contacts_on_user_id"
+  end
+
+  create_table "meds", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.integer "stock"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_meds_on_user_id"
+  end
+
+  create_table "schedules", force: :cascade do |t|
+    t.text "times", default: [], array: true
+    t.text "weekdays", default: [], array: true
+    t.integer "status", default: 1
+    t.bigint "med_id", null: false
+    t.bigint "treatment_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["med_id"], name: "index_schedules_on_med_id"
+    t.index ["treatment_id"], name: "index_schedules_on_treatment_id"
+  end
+
+  create_table "treatments", force: :cascade do |t|
+    t.string "name"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_treatments_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -27,4 +68,9 @@ ActiveRecord::Schema.define(version: 2021_09_06_131845) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "contacts", "users"
+  add_foreign_key "meds", "users"
+  add_foreign_key "schedules", "meds"
+  add_foreign_key "schedules", "treatments"
+  add_foreign_key "treatments", "users"
 end
