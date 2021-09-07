@@ -1,2 +1,14 @@
 <h1>Meds#index</h1>
-<p>Find me in app/views/meds/index.html.erb</p>
+
+<div>
+<% @meds.each do |med| %>
+    <%= link_to med_path(med) do  %>
+    <p><%= med.name%></p>
+  <% end %>
+  <p><%= med.description %></p>
+  <small><%= med.stock %></small>
+<% end %>
+</div>
+<br>
+
+<%= link_to "NEW MED", new_med_path%>
