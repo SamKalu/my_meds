@@ -1,0 +1,53 @@
+.card-schedule {
+  background-color: $light-gray;
+  color: $black;
+  border-radius: 8px;
+  width: 100%;
+}
+
+.card-dashboard {
+  background-color: $light-gray;
+  color: $black;
+  border-radius: 8px;
+  padding: 16px;
+  margin-top: 16px;
+  height: 160px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.medcard {
+  width: 250px;
+  height: 300px;
+  display: flex;
+  overflow: hidden;
+  background: white;
+  align-items: center;
+  text-align: center;
+  border-radius: 20px;
+  display: flex;
+  flex-wrap: wrap;
+
+  img {
+    height: 100px;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  .textbox {
+    font-size: 25px;
+    flex-basis: 100%;
+    color: black;
+  }
+
+  .textbold {
+    font-weight: bold;
+  }
+
+  &:hover {
+     box-shadow: 1px 4px 10px rgba(0,0,0,0.2);
+  }
+
+}
+

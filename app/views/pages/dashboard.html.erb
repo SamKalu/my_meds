@@ -1,28 +1,36 @@
-<div class="container">
-  <div>
-  <h1> Hello <%= @user.first_name %> <%= @user.last_name %> </h1>
-  </div>
-
-  <div class="dash-infos">
-    <h2>Your Schedules</h2>
-
+<div class="main">
+ <div class="container main-container dashboard-container">
     <div>
-      <p><% @user.schedules.each do |schedule| %></p>
-        <div class="card-schedule">
-          <%= schedule.status%>
+    <h1> Hello <%= @user.first_name %> <%= @user.last_name %> </h1>
+    </div>
+
+    <div class="dashboard-general">
+      <div class="dashboard-schedules">
+      <h2>Your Schedules</h2>
+        <p><% @user.schedules.each do |schedule| %></p>
+          <div class="card-schedule">
+            <i class="fas fa-hand-holding-heart"></i>
+            <%= schedule.status%>
+            <i class="fas fa-check-circle"></i>
+          </div>
+        <% end  %>
+      </div>
+
+
+
+      <div class="dashboard-infos">
+        <div class="dashboard-status card-dashboard">
+          <h3>You survived!!!</h3>
         </div>
-      <% end  %>
+        <div class="dashboard-quote card-dashboard">
+          <small>“No experience is a cause of success or failure. We do not suffer from the shock of our experiences”</small>
+        </div>
+        <div class="dashboard-weather card-dashboard">
+          <h3>The wheather today:</h3>
+          <p>COLD AS F*CK ❅ </p>
+          <small>-23 Degreesº</small>
+        </div>
+      </div>
     </div>
-
-
-
-    <div>
-      <h3>The wheather today:</h3>
-      <p>COLD AS F*CK ❅ </p>
-      <small>-23 Degreesº</small>
-    </div>
-
-    <br>
-    <br>
   </div>
 </div>

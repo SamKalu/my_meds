@@ -1,9 +1,8 @@
 <%= simple_form_for(@med) do |f| %>
-<%= f.input :name%>
-<%= f.input :description%>
-<%= f.input :stock%>
-<%= f.submit  %>
+  <%= f.input :name %>
+  <%= f.input :description %>
+  <%= f.input :stock %>
+  <%= f.submit  %>
 <% end %>
-
 
 <%= link_to "BACK", meds_path  %>
