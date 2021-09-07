@@ -6,4 +6,5 @@ class User < ApplicationRecord
   has_many :meds, dependent: :destroy
   has_many :treatments, dependent: :destroy
   has_many :contacts, dependent: :destroy
+  has_many :schedules, through: :meds
 end
