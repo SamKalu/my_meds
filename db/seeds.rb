@@ -5,8 +5,13 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-@med_names = ["levothyroxine", "rosuvastatin", "albuterol", "esomeprazole", "fluticasone", "lisdexamfetamine", "rivotril", "xanax", "viagra"]
-@treatment_names = ["cancer", "alzheimer's", "parkinson", "blood pressure"]
+med_names = ["levothyroxine", "rosuvastatin", "albuterol", "esomeprazole", "fluticasone", "lisdexamfetamine", "rivotril", "xanax", "viagra"]
+treatment_names = ["cancer", "alzheimer's", "parkinson", "blood pressure"]
+
+puts "Destroying DB..."
+User.destroy_all
+puts "Destroyed DB"
+puts "Creating new DB..."
 
 5.times do
   test_user = User.create!(
@@ -22,7 +27,7 @@
 
   5.times do
     Med.create!(
-      name: @med_names.sample,
+      name: med_names.sample,
       description: Faker::Quotes::Shakespeare.romeo_and_juliet_quote,
       stock: rand(5..200),
       user_id: test_user.id
@@ -45,7 +50,7 @@
 
   3.times do
     Treatment.create!(
-      name: @treatment_names.sample,
+      name: treatment_names.sample,
       user_id: test_user.id
     )
   end
@@ -61,3 +66,4 @@
 
   puts "Created schedules for #{test_user.first_name}"
 end
+puts "DB Created succesfully!"
