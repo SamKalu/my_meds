@@ -1,2 +1,22 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<%# <h1>Pages#home</h1>
+<p>Find me in app/views/pages/home.html.erb</p> %>
+<div class="main p-0">
+  <div class="container main-container px-0 d-flex justify-content-between">
+    <div class="text-box d-flex flex-column justify-content-between p-5">
+      <div class="">
+        <h3>Welcome to</h3>
+        <h1>My Meds</h1>
+        <p><strong>Never</strong> forget about taking your <strong>meds again</strong></p>
+      </div>
+
+        <div class="button-wraper d-flex justify-content-between">
+          <div class="btn test-button align-self-end">LogIn</div>
+          <div class="btn test-button">Create an account</div>
+        </div>
+    </div>
+    <div class="image-box bg-white d-flex flex-column align-items-center p-5">
+      <%= image_tag("notification.svg", class:"svg-landing") %>
+      <%= image_tag("confirmed.svg", class:"svg-landing p-3")%>
+    </div>
+  </div>
+</div>
