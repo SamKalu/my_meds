@@ -4,4 +4,5 @@
  <small><%= @med.stock %><small>
 
 <%= link_to "Edit", edit_med_path %>
+<%= link_to "Delete", med_path(@med), method: :delete, data: {confirm: "Are you sure?"} %>
 <%= link_to "All Meds", meds_path %>

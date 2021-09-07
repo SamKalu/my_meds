@@ -6,7 +6,6 @@ class MedsController < ApplicationController
   end
 
   def show
-    authorize @med
   end
 
   def new
@@ -27,16 +26,19 @@ class MedsController < ApplicationController
   end
 
   def edit
-    authorize @med
   end
 
   def update
-    authorize @med
     if @med.update(med_params)
       redirect_to @med
     else
       render :edit
     end
+  end
+
+  def destroy
+    @med.destroy
+    redirect_to meds_path
   end
 
   private
@@ -47,5 +49,6 @@ class MedsController < ApplicationController
 
   def set_med
     @med = Med.find(params[:id])
+    authorize @med
   end
 end
