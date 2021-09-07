@@ -15,6 +15,20 @@
     <%= f.input :password_confirmation,
                 required: true,
                 input_html: { autocomplete: "new-password" } %>
+    <%= f.input :first_name,
+                required: true,
+                input_html: { autocomplete: "first-name" } %>
+    <%= f.input :last_name,
+                required: true,
+                input_html: { autocomplete: "last-name" } %>
+    <%= f.input :birthday, label: 'Date of Birth',
+                required: false,
+                input_html: { autocomplete: "date-of-birth" } %>
+    <%= f.input :blood_type, 
+                :collection => %w[O- O+ A- A+ B- B+ AB- AB+],
+                prompt: "Choose your blood type",
+                required: false,
+                input_html: { autocomplete: "blood-type" } %>
   </div>
 
   <div class="form-actions">
