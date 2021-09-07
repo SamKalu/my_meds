@@ -1,20 +1,29 @@
-<h2>Log in</h2>
+<div class="main p-0">
+  <div class="container main-container black px-0 login text-center d-flex justify-content-between">
+    <div class="text-box p-5">
+        <h2>Login</h2>
 
-<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="form-inputs">
-    <%= f.input :email,
-                required: false,
-                autofocus: true,
-                input_html: { autocomplete: "email" } %>
-    <%= f.input :password,
-                required: false,
-                input_html: { autocomplete: "current-password" } %>
-    <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+        <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+          <div class="form-inputs short-inputs text-left">
+            <%= f.input :email,
+                        required: false,
+                        autofocus: true,
+                        input_html: { autocomplete: "email" } %>
+            <%= f.input :password,
+                        required: false,
+                        input_html: { autocomplete: "current-password" } %>
+            <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+          </div>
+
+          <div class="form-actions">
+            <%= f.button :submit, "Log in", class: "primary-btn-white mb-3" %>
+          </div>
+        <% end %>
+
+        <%= render "devise/shared/links", class: "" %>
+      </div>
+      <div class="image-box bg-white d-flex justify-content-center align-items-center">
+       <%= image_tag("confirmed.svg", class:"svg-landing")%>
+      </div>
   </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, "Log in" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>
