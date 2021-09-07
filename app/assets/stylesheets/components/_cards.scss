@@ -1,3 +1,22 @@
+.card-schedule {
+  background-color: $light-gray;
+  color: $black;
+  border-radius: 8px;
+  width: 100%;
+}
+
+.card-dashboard {
+  background-color: $light-gray;
+  color: $black;
+  border-radius: 8px;
+  padding: 16px;
+  margin-top: 16px;
+  height: 160px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
 .medcard {
   width: 250px;
   height: 300px;
@@ -31,3 +50,4 @@
   }
 
 }
+
