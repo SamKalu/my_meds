@@ -1,7 +1,7 @@
 class MedPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      scope.all
+      scope.where(user: user)
     end
   end
 
@@ -14,6 +14,7 @@ class MedPolicy < ApplicationPolicy
   end
 
   def show?
-    true
+    record.user == user
   end
+
 end

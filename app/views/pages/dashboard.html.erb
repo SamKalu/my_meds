@@ -1,1 +1,28 @@
-<h1> <%= @user.first_name %></h1>
+<div class="container">
+  <div>
+  <h1> Hello <%= @user.first_name %> <%= @user.last_name %> </h1>
+  </div>
+
+  <div class="dash-infos">
+    <h2>Your Schedules</h2>
+
+    <div>
+      <p><% @user.schedules.each do |schedule| %></p>
+        <div class="card-schedule">
+          <%= schedule.status%>
+        </div>
+      <% end  %>
+    </div>
+
+
+
+    <div>
+      <h3>The wheather today:</h3>
+      <p>COLD AS F*CK ❅ </p>
+      <small>-23 Degreesº</small>
+    </div>
+
+    <br>
+    <br>
+  </div>
+</div>
