@@ -1,0 +1,15 @@
+.primary-btn-white {
+  padding: 18px 50px;
+  text-align: center;
+  color: black;
+  background: white;
+  text-decoration: none !important;
+  border-radius: 8px;
+  opacity: 0.6;
+
+  &:hover {
+    color: black;
+    opacity: 1;
+     box-shadow: 1px 4px 10px rgba(0,0,0,0.2);
+  }
+}
