@@ -12,4 +12,12 @@ class SchedulePolicy < ApplicationPolicy
   def create?
     true
   end
+
+  def edit?
+    record.med.user == user
+  end
+
+  def update?
+    record.med.user == user
+  end
 end

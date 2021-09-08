@@ -1,0 +1,12 @@
+<%= simple_form_for(@schedule) do |f| %>
+  <%= f.input :times,
+              input_html: { autocomplete: "times" } %>
+  <%= f.input :weekdays,
+              input_html: { autocomplete: "weekdays" },
+              label_html: { class: "don-ramon"} %>
+  <%= f.collection_radio_buttons :status, [[0, 'Inactive'], [1, 'Active']], :first, :last %>
+  <%= f.association :med, collection: @meds %>
+  <%= f.submit  %>
+<% end %>
+
+<%# <%= link_to "BACK", treatment_path(@treatment)  %>

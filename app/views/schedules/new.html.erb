@@ -1,6 +1,8 @@
 <%= simple_form_for [ @treatment, @schedule ] do |f| %>
-  <%= f.input :times %>
-  <%= f.input :weekdays %>
+  <%= f.input :times,
+              input_html: { autocomplete: "times" } %>
+  <%= f.input :weekdays,
+              input_html: { autocomplete: "weekdays" } %>
   <%= f.association :med, collection: @meds %>
   <%= f.submit  %>
 <% end %>
