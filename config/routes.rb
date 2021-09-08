@@ -1,7 +1,20 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: 'pages#landing_page'
-  get "/dashboard", to: "pages#dashboard"
+  root to: 'pages#home'
   resources :meds
-  resources :treatments, only: [:index, :new, :create, :show, :destroy, :edit, :update]
+
+  resources :treatments do
+    resources :schedules, only: %i[new create]
+  end
+  
+  resource :dashboard, only: [:show] do 
+    collection do
+      get :treatments
+      get :inventory
+      get :docs
+      get :profile
+    end
+  end
+  
+  resources :schedules, only: %i[edit update destroy]
 end

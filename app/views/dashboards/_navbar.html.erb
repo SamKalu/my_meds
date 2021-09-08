@@ -1,0 +1,17 @@
+<div class="db-navbar">
+  <%= link_to dashboard_path,  class:"db-menubtn btn-left #{'btn-active' if action_name == 'show'}" do %>
+    <i class="fas fa-street-view"></i> Home 
+  <% end %>
+  <%= link_to treatments_dashboard_path,  class:"db-menubtn #{'btn-active' if action_name == 'treatments'}" do %>
+    <i class="fas fa-hand-holding-medical"></i> Treatments  
+  <% end %>
+  <%= link_to inventory_dashboard_path,  class:"db-menubtn #{'btn-active' if action_name == 'inventory'}" do %>
+    <i class="fas fa-th"></i> Inventory
+  <% end %>
+  <%= link_to docs_dashboard_path,  class:"db-menubtn #{'btn-active' if action_name == 'docs'}" do %>
+    <i class="fas fa-notes-medical"></i> Docs
+  <%end %>
+  <%= link_to profile_dashboard_path,  class:"db-menubtn #{'btn-active' if action_name == 'profile'}" do %>
+    <i class="fas fa-address-card"></i> Profile
+  <% end %>
+</div>

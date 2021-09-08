@@ -9,8 +9,12 @@
         <p><strong>Never</strong> forget about taking your <strong>meds again</strong></p>
       </div>
       <div class="button-wraper d-flex justify-content-between">
-        <div class="primary-btn-white"><i class="fas fa-hand-holding-heart"></i> LogIn</div>
-        <div class="primary-btn-white"><i class="fas fa-user-plus"></i> Create an account</div>
+        <%= link_to new_user_session_path do  %>
+          <div class="primary-btn-white"><i class="fas fa-hand-holding-heart"></i> LogIn</div>
+        <% end %>
+        <%= link_to new_user_registration_path do %>
+          <div class="primary-btn-white"><i class="fas fa-user-plus"></i> Create an account</div>
+        <% end %>
       </div>
     </div>
     <div class="image-box bg-white d-flex flex-column align-items-center p-5">

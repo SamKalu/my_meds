@@ -1,0 +1,46 @@
+.db-container{
+  margin: auto;
+  height: 80vh;
+  width: 90vw;
+}
+
+.db-navbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.db-menubtn {
+  padding: 9px 20px;
+  text-align: center;
+  color: black;
+  background: white;
+  text-decoration: none !important;
+  opacity: 0.6;
+  width: 200px;
+
+  &:hover {
+    color: black;
+    opacity: 1;
+  }
+}
+
+.btn-left {
+  border-top-left-radius: 20px;
+}
+
+.btn-right {
+  border-top-right-radius: 20px;
+}
+
+.btn-active {
+  opacity: 1;
+}
+
+.db-card-content {
+  margin: 0 auto;
+  width: 95%;
+  height: 80vh;
+  border-radius: 20px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.5) 97.4%, rgba(226, 240, 249, 0) 100%);
+}
