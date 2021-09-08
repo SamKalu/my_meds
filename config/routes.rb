@@ -3,9 +3,9 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   resources :meds
   resources :treatments do
-    resources :schedules
+    resources :schedules, only: %i[new create]
   end
-
+  
   resource :dashboard, only: [:show] do 
     collection do
       get :treatments
@@ -14,4 +14,6 @@ Rails.application.routes.draw do
       get :profile
     end
   end
+  
+  resources :schedules, only: %i[edit update destroy]
 end
