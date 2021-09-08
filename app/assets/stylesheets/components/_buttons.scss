@@ -7,10 +7,70 @@
   border-radius: 8px;
   opacity: 0.6;
   width: 260px;
+  transition: opacity 0.3s ease;
 
   &:hover {
     color: black;
     opacity: 1;
     box-shadow: 1px 4px 10px rgba(0,0,0,0.2);
   }
+}
+
+.primary-btn-white-sm {
+  padding: 10px 20px;
+  text-align: center;
+  color: black;
+  background: white;
+  text-decoration: none !important;
+  border-radius: 8px;
+  opacity: 0.6;
+  width: 180px;
+  transition: opacity 0.3s ease;
+
+   &:hover {
+    color: black;
+    opacity: 1;
+    box-shadow: 1px 4px 10px rgba(0,0,0,0.2);
+  }
+}
+.primary-btn-blue {
+  padding: 18px 50px;
+  text-align: center;
+  color: black;
+  background: $blue-main;
+  text-decoration: none !important;
+  border-radius: 8px;
+  opacity: 0.6;
+  width: 260px;
+  transition: opacity 0.3s ease;
+
+  &:hover {
+    color: black;
+    opacity: 1;
+    box-shadow: 1px 4px 10px rgba(0,0,0,0.2);
+  }
+
+
+}
+
+.btn-small {
+  width: 100px;
+  color: black;
+  background: $blue-main;
+  opacity: 0.6;
+  padding: 10px 20px;
+  border-radius: $border-radius;
+  font-size: 15px;
+  text-decoration: none !important;
+    transition: opacity 0.3s ease;
+
+&:hover {
+    color: black;
+    opacity: 1;
+    box-shadow: 1px 4px 10px rgba(0,0,0,0.2);
+  }
+}
+
+.text-black {
+  color: $black;
 }

@@ -18,29 +18,29 @@
 }
 
 .medcard {
-  width: 200px;
-  height: 250px;
+  width: 130px;
+  height: 200px;
   display: flex;
+  flex-direction: column;
   overflow: hidden;
   background: white;
   align-items: center;
   text-align: center;
   border-radius: 20px;
-  display: flex;
-  flex-wrap: wrap;
+  margin: 0px;
 
   img {
-    height: 100px;
+    height: 60px;
     width: 100%;
     object-fit: cover;
   }
 
   .textbox {
-    flex-basis: 100%;
     position: relative;
 
+
     p{
-      font-size: 25px;
+      font-size: 20px;
       color: black;
     }
 
@@ -63,3 +63,43 @@
 
 }
 
+.long-card {
+  box-shadow: $box-shadow;
+  border-radius: $border-radius;
+  background-color: white;
+  width: 600px;
+  opacity: 0.9;
+  transition: opacity 0.3s ease;
+
+  &:hover {
+  opacity: 1;
+
+  }
+
+  i {
+    font-size: 40px;
+    color: $black;
+  }
+
+  p {
+    margin: 0px;
+  }
+}
+
+
+.treatment-container {
+
+ border-radius: $border-radius;
+  box-shadow: $box-shadow;
+  background-color: white;
+  width: 60%;
+
+  h1, h2 {
+    font-size: 25px;
+  }
+}
+
+
+ .textbold {
+    font-weight: bold;
+  }
