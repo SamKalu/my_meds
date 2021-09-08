@@ -1,0 +1,8 @@
+<%= simple_form_for [ @treatment, @schedule ] do |f| %>
+  <%= f.input :times %>
+  <%= f.input :weekdays %>
+  <%= f.association :med, collection: @meds %>
+  <%= f.submit  %>
+<% end %>
+
+<%# <%= link_to "BACK", treatment_path(@treatment)  %>

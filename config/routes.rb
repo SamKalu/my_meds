@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: 'pages#landing_page'
-  # get "/dashboard", to: "pages#dashboard"
+  root to: 'pages#home'
   resources :meds
+  resources :treatments do
+    resources :schedules
+  end
 
   resource :dashboard, only: [:show] do 
     collection do
