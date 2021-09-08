@@ -1,6 +1,6 @@
 .medcard {
-  width: 250px;
-  height: 300px;
+  width: 200px;
+  height: 250px;
   display: flex;
   overflow: hidden;
   background: white;
@@ -17,9 +17,21 @@
   }
 
   .textbox {
-    font-size: 25px;
     flex-basis: 100%;
-    color: black;
+    position: relative;
+
+    p{
+      font-size: 25px;
+      color: black;
+    }
+
+    .icon {
+      position: absolute;
+      right: 8px;
+      color: red;
+      bottom: 30px;
+      width: 40px;
+    }
   }
 
   .textbold {
