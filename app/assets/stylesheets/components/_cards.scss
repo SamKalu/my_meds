@@ -18,8 +18,8 @@
 }
 
 .medcard {
-  width: 130px;
-  height: 200px;
+  // width: 130px;
+  height: 230px;
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -41,7 +41,7 @@
 
     p{
       font-size: 20px;
-      color: black;
+      color: $black;
     }
 
     .icon {
@@ -53,6 +53,10 @@
     }
   }
 
+
+      .med-name {
+      font-size: 22px;
+      }
   .textbold {
     font-weight: bold;
   }
@@ -132,4 +136,8 @@
 .notifications-container {
     width: 30%;
 
+}
+
+.scroll {
+  overflow: auto;
 }

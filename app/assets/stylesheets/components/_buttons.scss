@@ -1,7 +1,7 @@
 .primary-btn-white {
   padding: 18px 50px;
   text-align: center;
-  color: black;
+  color: $black;
   background: white;
   text-decoration: none !important;
   border-radius: 8px;
@@ -10,7 +10,7 @@
   transition: opacity 0.3s ease;
 
   &:hover {
-    color: black;
+    color: $black;
     opacity: 1;
  box-shadow: $box-shadow;  }
 }
@@ -18,7 +18,7 @@
 .primary-btn-white-sm {
   padding: 10px 20px;
   text-align: center;
-  color: black;
+  color: $black;
   background: white;
   text-decoration: none !important;
   border-radius: 8px;
@@ -27,7 +27,7 @@
   transition: opacity 0.3s ease;
 
    &:hover {
-    color: black;
+    color: $black;
     opacity: 1;
     box-shadow: $box-shadow;
   }
@@ -35,7 +35,7 @@
 .primary-btn-blue {
   padding: 18px 50px;
   text-align: center;
-  color: black;
+  color: $black;
   background: $blue-main;
   text-decoration: none !important;
   border-radius: 8px;
@@ -44,7 +44,7 @@
   transition: opacity 0.3s ease;
 
   &:hover {
-    color: black;
+    color: $black;
     opacity: 1;
     box-shadow: $box-shadow;
   }
@@ -54,7 +54,7 @@
 
 .btn-small {
   width: 100px;
-  color: black;
+  color: $black;
   background: $blue-main;
   opacity: 0.6;
   padding: 10px 20px;
@@ -64,7 +64,7 @@
     transition: opacity 0.3s ease;
 
 &:hover {
-    color: black;
+    color: $black;
     opacity: 1;
     box-shadow: $box-shadow;
     // 1px 4px 10px rgba(0,0,0,0.2);
@@ -73,4 +73,27 @@
 
 .text-black {
   color: $black;
+}
+
+.icon-btn {
+  width: 50px;
+  color: $black;
+  background: $blue-main;
+  opacity: 0.6;
+  padding: 5px 5px;
+  border-radius: $border-radius;
+  font-size: 15px;
+  text-decoration: none !important;
+    transition: opacity 0.3s ease;
+
+&:hover {
+    color: $black;
+    opacity: 1;
+    box-shadow: $box-shadow;
+    // 1px 4px 10px rgba(0,0,0,0.2);
+  }
+}
+
+.wider {
+  width: auto;
 }
