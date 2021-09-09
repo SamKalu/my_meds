@@ -18,7 +18,7 @@
               item_label_class: "checkbox-label-weekdays",
               legend_tag: false %>
      <%= f.input :status, as: :boolean, :label => "Active",
-              input_html: { class: "status-toggle" },
+              input_html: { class: "status-toggle", checked: @schedule.status == 'active' },
               label_html: { class: "checkbox-label-status" } %>
      <%= f.association :med, collection: @meds %>
      <%= f.submit  %>
