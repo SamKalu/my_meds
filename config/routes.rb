@@ -9,8 +9,6 @@ Rails.application.routes.draw do
   
   resource :dashboard, only: [:show] do 
     collection do
-      get :treatments
-      get :inventory
       get :docs
       get :profile
     end

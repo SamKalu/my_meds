@@ -1,19 +1,25 @@
 class TreatmentsController < ApplicationController
   before_action :set_treatment, only: %i[show edit update destroy]
 
+  layout "dashboard", only: [:index, :new, :show, :edit, :create]
+
   def index
+    @tab = "treatments"
     @treatments = policy_scope(Treatment)
   end
 
   def new
+    @tab = "treatments"
     @treatment = Treatment.new
     authorize @treatment
   end
 
   def show
+    @tab = "treatments"
   end
 
   def create
+     @tab = "treatments"
     @treatment = Treatment.new(treatment_params)
     authorize @treatment
     @treatment.user = current_user
@@ -26,6 +32,7 @@ class TreatmentsController < ApplicationController
   end
 
   def edit
+    @tab = "treatments"
   end
 
   def update
