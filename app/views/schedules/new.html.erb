@@ -1,8 +1,11 @@
 <%= simple_form_for [ @treatment, @schedule ] do |f| %>
   <%= f.input :times,
               input_html: { autocomplete: "times" } %>
-  <%= f.input :weekdays,
-              input_html: { autocomplete: "weekdays" } %>
+  <%= f.input :weekdays, as: :check_boxes,
+              collection: Schedule::WEEKDAYS,
+              input_html: { class: "weekday-checkbox"},
+              item_label_class: "checkbox-label-weekdays",
+              legend_tag: false %>
   <%= f.association :med, collection: @meds %>
   <%= f.submit  %>
 <% end %>
