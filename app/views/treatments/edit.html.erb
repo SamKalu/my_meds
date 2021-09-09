@@ -1,14 +1,11 @@
-<div class="mt-5 mx-5">
-  <div class="treatment-container p-5">
+<div class="treatment-container p-5">
   <h2>Edit Treatment</h2>
-    <%= simple_form_for(@treatment) do |f| %>
+  <%= simple_form_for(@treatment) do |f| %>
     <%= f.input :name,
                 input_html: { autocomplete: "name"} %>
     <%= f.submit nil, class:"primary-btn-blue btn-sm" %>
     <%= link_to treatment_path(@treatment), class:"primary-btn-blue btn-sm" do %>
-          <i class="fas fa-arrow-circle-left"></i> Back
+      <i class="fas fa-arrow-circle-left"></i> Back
     <% end %>
-    <% end %>
-
-  </div>
+  <% end %>
 </div>
