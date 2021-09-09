@@ -7,4 +7,12 @@ class Schedule < ApplicationRecord
   def clean_arrays
     self.times = times.reject(&:empty?)
   end
+
+  WEEKDAYS = [['MO', 'monday'],
+              ['TU', 'tuesday'],
+              ['WE', 'wednesday'],
+              ['TH', 'thursday'],
+              ['FR', 'friday'],
+              ['SA', 'saturday'],
+              ['SU', 'sunday']]
 end

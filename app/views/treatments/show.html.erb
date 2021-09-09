@@ -1,73 +1,64 @@
-<div class="mt-5 mx-5">
-  <div class="treatment-container p-5">
-    <div class="header-treatments d-flex justify-content-between">
 
+<div class="treatment-container p-5">
+      <%= link_to treatments_path, class: "btn-small" do%>
+        <i class="fas fa-arrow-circle-left"></i> Back
+      <% end %>
+  <div class="header-treatments d-flex justify-content-between mt-4">
     <h2><%= @treatment.name %></h2>
     <div class="btn-wraper">
-      <%= link_to treatments_path, class: "btn-small" do%>
-      <i class="fas fa-arrow-circle-left"></i> Back to Treatments
-        <% end %>
-       <%= link_to edit_treatment_path, class:"btn-small mx-2" do%>
+      <%= link_to edit_treatment_path, class:"btn-small mx-2" do%>
         <i class="fas fa-edit"> </i> Edit
       <% end %>
       <%= link_to treatment_path(@treatment), method: :delete, data: {confirm: "Are you sure?"}, class:"btn-small" do%>
         <i class="fas fa-trash-alt"></i> Delete
-          <% end %>
-    </div>
-    </div>
-
-    <hr>
-    <div class="container text-center">
-        <div class="row justify-content-between">
-
-            <div class="col-md-2">
-              <div class="medcard border border-muted">
-                <%= image_tag("pills.jpg")%>
-                <div class="textbox mt-3">
-                  <h2>Rivotril</h2>
-                  <p>Take care</p>
-                  <p class="textbold">52</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-md-2">
-              <div class="medcard border border-muted">
-                <%= image_tag("pills.jpg")%>
-                <div class="textbox mt-3">
-                  <h2>Rivotril</h2>
-                  <p>Take care</p>
-                  <p class="textbold">52</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-md-2">
-              <div class="medcard border border-muted">
-                <%= image_tag("pills.jpg")%>
-                <div class="textbox mt-3">
-                  <h2>Rivotril</h2>
-                  <p>Take care</p>
-                  <p class="textbold">52</p>
-                </div>
-              </div>
-            </div>
-
-
-        <div class="col-md-2">
-              <div class="medcard border border-muted">
-                <%= image_tag("pills.jpg")%>
-                <div class="textbox mt-3">
-                  <h2>Rivotril</h2>
-                  <p>Take care</p>
-                  <p class="textbold">52</p>
-                </div>
-              </div>
-            </div>
-          </div>
-    </div>
-
-
+      <% end %>
     </div>
   </div>
+  <hr class="mb-5">
+  <div class="container text-center">
+    <div class="row justify-content-between">
+      <div class="col-md-2">
+        <div class="medcard border border-muted">
+          <%= image_tag("pills.jpg")%>
+          <div class="textbox mt-3">
+            <h2>Rivotril</h2>
+            <p>Take care</p>
+            <p class="textbold">52</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-2">
+        <div class="medcard border border-muted">
+          <%= image_tag("pills.jpg")%>
+          <div class="textbox mt-3">
+            <h2>Rivotril</h2>
+            <p>Take care</p>
+            <p class="textbold">52</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-2">
+        <div class="medcard border border-muted">
+          <%= image_tag("pills.jpg")%>
+          <div class="textbox mt-3">
+            <h2>Rivotril</h2>
+            <p>Take care</p>
+            <p class="textbold">52</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-2">
+        <div class="medcard border border-muted">
+          <%= image_tag("pills.jpg")%>
+          <div class="textbox mt-3">
+            <h2>Rivotril</h2>
+            <p>Take care</p>
+            <p class="textbold">52</p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 </div>

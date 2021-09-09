@@ -1,5 +1,4 @@
 <div data-controller ="new-schedule">
-
   <%= simple_form_for (@schedule), data: { new_schedule_target: 'form'} do |f| %>
     <label for="time"> Times </label>
     <div class="schedule-times d-flex align-items-center">
@@ -13,12 +12,16 @@
       <% end %>
       <i class="fas fa-plus-circle mx-1" data-action="click->new-schedule#addnewtime" ></i>
     </div>
-    <%= f.input :weekdays,
-                input_html: { autocomplete: "weekdays" },
-                label_html: { class: "don-ramon"} %>
-    <%= f.collection_radio_buttons :status, [[0, 'Inactive'], [1, 'Active']], :first, :last %>
-    <%= f.association :med, collection: @meds %>
-    <%= f.submit  %>
-  <% end %>
+    <%= f.input :weekdays, as: :check_boxes,
+              collection: Schedule::WEEKDAYS,
+              input_html: { class: "weekday-checkbox" },
+              item_label_class: "checkbox-label-weekdays",
+              legend_tag: false %>
+     <%= f.input :status, as: :boolean, :label => "Active",
+              input_html: { class: "status-toggle" },
+              label_html: { class: "checkbox-label-status" } %>
+     <%= f.association :med, collection: @meds %>
+     <%= f.submit  %>
+<% end %>
 </div>
 <%# <%= link_to "BACK", treatment_path(@treatment)  %>

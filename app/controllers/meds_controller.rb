@@ -1,31 +1,37 @@
 class MedsController < ApplicationController
   before_action :set_med, only: %i[show edit update destroy]
+  layout "dashboard", only: [:index, :new, :edit, :create]
 
   def index
+    @tab = "meds"
     @meds = policy_scope(Med).order(created_at: :desc)
   end
 
   def show
+    @tab = "meds"
   end
 
   def new
+    @tab = "meds"
     @med = Med.new
     authorize @med
   end
 
   def create
+    @tab = "meds"
     @med = Med.new(med_params)
     authorize @med
     @med.user = current_user
     @med.save
     if @med.save
-      redirect_to med_path(@med)
+      redirect_to meds_path
     else
       render :new
     end
   end
 
   def edit
+    @tab = "meds"
   end
 
   def update
