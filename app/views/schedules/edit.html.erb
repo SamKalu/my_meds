@@ -12,7 +12,6 @@
       <% end %>
       <i class="fas fa-plus-circle mx-1" data-action="click->new-schedule#addnewtime" ></i>
     </div>
-    <% console %>
     <%= f.input :weekdays, as: :check_boxes,
               collection: Schedule::WEEKDAYS,
               input_html: { class: "weekday-checkbox" },
