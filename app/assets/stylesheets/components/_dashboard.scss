@@ -50,3 +50,13 @@
   // background: linear-gradient(180deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.5) 97.4%, rgba(226, 240, 249, 0) 100%);
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0.7) 97.4%, rgba(226, 240, 249, 0) 100%);
 }
+
+.profile-form-field {
+  background-color: rgba($blue_selected, 0.1);
+  color: $black;
+  width: 30%;
+}
+
+.profile-form-input-field {
+  color: $black;
+}
