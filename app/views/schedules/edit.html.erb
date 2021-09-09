@@ -1,16 +1,27 @@
-<%= simple_form_for(@schedule) do |f| %>
-  <%= f.input :times,
-              input_html: { autocomplete: "times" } %>
-  <%= f.input :weekdays, as: :check_boxes,
+<div data-controller ="new-schedule">
+  <%= simple_form_for (@schedule), data: { new_schedule_target: 'form'} do |f| %>
+    <label for="time"> Times </label>
+    <div class="schedule-times d-flex align-items-center">
+      <div data-new-schedule-target="times">
+        <% @schedule.times.each do |time| %>
+          <input id="time" type="time" name="schedule[times][]" style="margin-left: 3px" class="datepicker" value="<%= time %>">
+        <% end %>
+      </div>
+      <% unless @schedule.times.empty? %>
+        <i class="fas fa-minus-circle mx-3" data-action="click->new-schedule#removetime" ></i>
+      <% end %>
+      <i class="fas fa-plus-circle mx-1" data-action="click->new-schedule#addnewtime" ></i>
+    </div>
+    <%= f.input :weekdays, as: :check_boxes,
               collection: Schedule::WEEKDAYS,
               input_html: { class: "weekday-checkbox" },
               item_label_class: "checkbox-label-weekdays",
               legend_tag: false %>
-  <%= f.input :status, as: :boolean, :label => "Active",
+     <%= f.input :status, as: :boolean, :label => "Active",
               input_html: { class: "status-toggle" },
               label_html: { class: "checkbox-label-status" } %>
-  <%= f.association :med, collection: @meds %>
-  <%= f.submit  %>
+     <%= f.association :med, collection: @meds %>
+     <%= f.submit  %>
 <% end %>
-
+</div>
 <%# <%= link_to "BACK", treatment_path(@treatment)  %>
