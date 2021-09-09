@@ -1,13 +1,16 @@
-  
-<div class="main-container p-5">
+<div class="main-container-treatment p-5">
   <div class="d-flex justify-content-between align-items-center">
-    <h2 class="m-0">Treatment Index</h2>
-    <%= link_to "+ Create treatment", new_treatment_path, class:"primary-btn-white-sm" %>
+    <h2 class="m-0">Treatments</h2>
+      <hr class="mb-5">
+    <% if ! @treatments.empty? %>
+       <%= link_to "+ Create treatment", new_treatment_path, class:"primary-btn-blue" %>
+    <% end %>
+
   </div>
   <% if @treatments.empty? %>
     <div class="mt-5 d-flex flex-column">
       <small class="text-black">Add your first treatment</small>
-      <%= link_to "+ Add a treatment", new_treatment_path, class:"primary-btn-white-sm mt-2" %>
+      <%= link_to "+ Add a treatment", new_treatment_path, class:"primary-btn-blue mt-2" %>
     </div>
   <% else %>
     <% @treatments.each do |treatment| %>
