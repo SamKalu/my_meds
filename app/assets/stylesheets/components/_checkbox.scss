@@ -43,9 +43,7 @@
   height: 40px;
   text-align: center;
   line-height: 40px;
-  content: 'Inactive';
   position: relative;
-
   &::after {
     position: absolute;
     top: 0;
