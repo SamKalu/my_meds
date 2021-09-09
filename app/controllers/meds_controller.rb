@@ -50,7 +50,7 @@ class MedsController < ApplicationController
   private
 
   def med_params
-    params.require(:med).permit(:name, :description, :stock)
+    params.require(:med).permit(:name, :description, :stock, :photo)
   end
 
   def set_med
