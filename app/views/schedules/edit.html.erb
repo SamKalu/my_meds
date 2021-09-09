@@ -1,10 +1,14 @@
 <%= simple_form_for(@schedule) do |f| %>
   <%= f.input :times,
               input_html: { autocomplete: "times" } %>
-  <%= f.input :weekdays,
-              input_html: { autocomplete: "weekdays" },
-              label_html: { class: "don-ramon"} %>
-  <%= f.collection_radio_buttons :status, [[0, 'Inactive'], [1, 'Active']], :first, :last %>
+  <%= f.input :weekdays, as: :check_boxes,
+              collection: Schedule::WEEKDAYS,
+              input_html: { class: "weekday-checkbox" },
+              item_label_class: "checkbox-label-weekdays",
+              legend_tag: false %>
+  <%= f.input :status, as: :boolean, :label => "Active",
+              input_html: { class: "status-toggle" },
+              label_html: { class: "checkbox-label-status" } %>
   <%= f.association :med, collection: @meds %>
   <%= f.submit  %>
 <% end %>
