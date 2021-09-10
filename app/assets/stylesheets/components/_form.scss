@@ -1,8 +1,16 @@
 .collection_check_boxes img {
   object-fit: cover;
   width: 200px;
+  border-radius: 5px;
 }
 
 .new_schedule {
   display: flex;
+}
+
+.form-check-label {
+  width: 200px;
+  background-color: $white;
+  margin-top: 8px;
+  border-radius: 5px;
 }
