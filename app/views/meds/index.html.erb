@@ -1,10 +1,14 @@
  <div class="container h-100 p-5 d-flex flex-column">
     <div class="d-flex justify-content-between mb-2 border-bottom border-muted pb-2">
-      <h2>Medicine Inventory</h2>
+      <h2>Medicine Inventory </h2>
       <%= link_to "+ New Med", new_med_path, class:"btn-small wider" %>
     </div>
     <div style="overflow-y: auto" class="container flex-grow-1">
-      <div class="row justify-content-between">
+    <% if @meds.count < 3 %>
+      <div class="row justify-content-center">
+        <% else %>
+                <div class="row justify-content-between">
+          <% end %>
                 <% @meds.each do |med| %>
                   <div class="col-md-3">
                   <%# <%= link_to med_path(med) do  %>
