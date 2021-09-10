@@ -1,9 +1,22 @@
 <div class="main-container-treatment p-5 d-flex">
   <div class="schedules-container">
-    <div class="long-card p-3 my-5">
+    <div class="long-card p-3 mt-5">
       <div class="d-flex justify-content-between align-items-center">
             <p> Morning</p>
             <i class="fas fa-mug-hot"></i>
+      </div>
+    </div>
+    <div class="extend-schedules-card">
+      <div class="schedules-morning d-flex justify-content-between">
+        <% @morning_schedules.each do |schedule| %>
+          <div class="medcard">
+            <%= cl_image_tag schedule.med.photo.key%>
+            <div class="med-info d-flex flex-column">
+              <p><%= schedule.med.name %></p>
+              <small><%= schedule.times %></small>
+            </div>
+          </div>
+        <% end %>
       </div>
     </div>
 

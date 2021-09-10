@@ -17,6 +17,34 @@
   flex-direction: column;
 }
 
+.med-long-card {
+  box-shadow: $box-shadow;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: $border-radius;
+  background-color: white;
+  width: 400px;
+  height: 100px;
+  opacity: 0.9;
+  margin-bottom: 16px;
+  img {
+    height: 100%;
+    width: 40%;
+    object-fit: cover;
+    border-radius: $border-radius;
+  }
+  p, h2 {
+    margin: 0;
+  }
+}
+
+.form-schedule-card {
+  background-color: $blue_main ;
+  width: 400px;
+  height: 200px;
+}
+
 .medcard {
   // width: 130px;
   height: 230px;
@@ -140,4 +168,21 @@
 
 .scroll {
   overflow: auto;
+}
+
+
+.extend-schedules-card {
+  box-shadow: $box-shadow;
+  border-radius: $border-radius;
+  background-color: $light-gray;
+  width: 400px;
+  opacity: 0.9;
+  transition: opacity 0.3s ease;
+  .medcard {
+    height: 160px;
+    margin: 0 8px;
+    p {
+      font-size: 16px;
+    }
+  }
 }

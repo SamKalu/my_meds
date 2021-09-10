@@ -6,6 +6,10 @@ class DashboardsController < ApplicationController
   def show
     @tab = "home" # this is to set the dashboard navtab-button get active
     @schedules = policy_scope(Schedule)
+    @morning_schedules = []
+    @afternoon_schedules = []
+    @evening_schedules = []
+    home_schedule
   end
 
   def treatments
@@ -31,5 +35,25 @@ class DashboardsController < ApplicationController
   def edit_profile
     @tab = "profile"
     skip_policy_scope # this should be deleted !!!!!!!
+  end
+
+  private
+
+  def home_schedule
+    midnight = Time.new("00:00")
+    midday = Time.new("12:00")
+    evening = Time.new("18:00")
+    @schedules.each do |schedule|
+      schedule.times.each do |time|
+        new_time = Time.new(time)
+        if new_time > midnight && new_time < midday
+          @morning_schedules << schedule
+        elsif new_time > midday && new_time < evening
+          @afternoon_schedules << schedule
+        else
+          @evening_schedules << schedule
+        end
+      end
+    end
   end
 end
