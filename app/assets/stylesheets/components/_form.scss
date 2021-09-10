@@ -1,7 +1,7 @@
 .collection_check_boxes img {
   object-fit: cover;
   width: 200px;
-  border-radius: 5px;
+  border-radius: 5px 5px 0 0;
 }
 
 .new_schedule {
@@ -19,4 +19,26 @@
 .med-cards {
   display: grid;
   grid-template-columns: 1fr 1fr;
+}
+
+.schedule_med .form-check {
+  padding-left: 0;
+}
+
+.form-date-time {
+  margin: 24px;
+  background-color: $blue_selected;
+  height: 127px;
+  width: 265px;
+  border-radius: 5px;
+}
+
+.times-input{
+  padding: 8px;
+}
+
+.schedule_weekdays{
+  padding: 8px 0 0 8px;
+  margin-bottom: 0;
+  justify-self: center;
 }

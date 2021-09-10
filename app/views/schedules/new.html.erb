@@ -6,7 +6,7 @@
     </div>
     <div class="form-date-time">
       <div class="schedule-times d-flex align-items-center">
-        <div data-new-schedule-target="times">
+        <div data-new-schedule-target="times" class="times-input">
           <% @schedule.times.each do |time| %>
             <input id="time" type="time" name="schedule[times][]" style="margin-right: -4px" class="datepicker" value="<%= time %>">
           <% end %>
