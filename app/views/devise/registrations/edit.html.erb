@@ -1,7 +1,6 @@
 <div class="main-container-treatment p-5">
-  <div class="d-flex justify-content-between align-items-center">
+  <div class="d-flex justify-content-between align-items-center border-bottom border-muted pb-2">
     <h2 class="m-0">Edit Profile <%#= resource_name.to_s.humanize %></h2>
-    <hr class="mb-5">
     <%#= link_to "Back", :back %>
     <%= link_to profile_dashboard_path, class:"btn-small" do%>
       <i class="fas fa-arrow-circle-left"></i> Back
@@ -11,7 +10,7 @@
     <%= f.error_notification %>
     <div class="form-inputs">
       <div class="profile-form-input-field">
-        <div class="row">
+        <div class="row pt-3">
           <div class="col-md-6">
             <%= f.input :email, required: true, autofocus: true %>
             <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>

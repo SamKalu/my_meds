@@ -53,6 +53,14 @@
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.7) 97.4%, rgba(226, 240, 249, 0) 100%);
 }
 
+.profile-field {
+  background-color: rgba($blue_selected, 0.1);
+  color: $black;
+  height: 35px;
+  width: 80%;
+  padding: 5px 10px;
+}
+
 .profile-form-field {
   background-color: rgba($blue_selected, 0.1);
   color: $black;
@@ -63,4 +71,8 @@
 
 .profile-form-input-field {
   color: $black;
+}
+
+.profile-avatar {
+  height: 200px;
 }
