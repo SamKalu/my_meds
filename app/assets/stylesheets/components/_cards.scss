@@ -173,13 +173,14 @@
 
 .extend-schedules-card {
   box-shadow: $box-shadow;
-  border-radius: $border-radius;
+  border-radius: 0 0 $border-radius  $border-radius;
   background-color: $light-gray;
-  width: 400px;
+  width: 550px;
+  margin-left: 25px;
   opacity: 0.9;
   transition: opacity 0.3s ease;
   .medcard {
-    height: 160px;
+    height: 120px;
     margin: 0 8px;
     p {
       font-size: 16px;

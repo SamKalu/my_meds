@@ -40,12 +40,14 @@ class DashboardsController < ApplicationController
   private
 
   def home_schedule
-    midnight = Time.new("00:00")
-    midday = Time.new("12:00")
-    evening = Time.new("18:00")
+    midnight = Time.parse("00:00")
+    midday = Time.parse("12:00")
+    evening = Time.parse("18:00")
     @schedules.each do |schedule|
       schedule.times.each do |time|
-        new_time = Time.new(time)
+        new_time = Time.parse(time)
+        schedule = schedule.dup
+        schedule.time = new_time
         if new_time > midnight && new_time < midday
           @morning_schedules << schedule
         elsif new_time > midday && new_time < evening
