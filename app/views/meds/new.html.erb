@@ -1,8 +1,16 @@
-<%= simple_form_for(@med) do |f| %>
-  <%= f.input :name %>
-  <%= f.input :description %>
-  <%= f.input :stock %>
-  <%= f.submit  %>
-<% end %>
+<div class="h-100" style="overflow-y:scroll">
+  <div class="treatment-container p-5 w-50">
+  <%= link_to meds_path, class:"btn-small" do%>
+        <i class="fas fa-arrow-circle-left"></i> Back
+      <% end %>
+        <h2 class="mt-4">Create a new Med</h2>
 
-<%= link_to "BACK", meds_path  %>
+    <%= simple_form_for(@med) do |f| %>
+      <%= f.input :name %>
+      <%= f.input :description %>
+      <%= f.input :stock %>
+      <%= f.input :photo, as: :file, class:"primary-btn-blue-sm" %>
+      <%= f.submit nil, class:"primary-btn-blue pb-3"  %>
+    <% end %>
+  </div>
+</div>

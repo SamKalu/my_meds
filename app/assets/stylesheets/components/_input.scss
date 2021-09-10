@@ -1,0 +1,16 @@
+.schedule-times input{
+  width: 56px;
+  border-radius: 15px;
+  border: none;
+  background-color: $light-gray;
+  box-shadow: 1px 2px 5px $blue_selected;
+  padding-left: 8px;
+}
+
+.schedule-times .fas {
+  cursor: pointer;
+}
+
+.hasTime{
+    width: 100px;
+  }

@@ -1,12 +1,31 @@
-<h1>Meds#index</h1>
-<div>
-  <% @meds.each do |med| %>
-    <%= link_to med_path(med) do  %>
-      <p><%= med.name%></p>
-    <% end %>
-    <p><%= med.description %></p>
-    <small><%= med.stock %></small>
-  <% end %>
+<div class="h-100" style="overflow-y:scroll">
+  <div class="container p-5">
+    <div class="d-flex justify-content-between mt-4">
+      <h2>Medicine Inventory</h2>
+      <%= link_to "+ New Med", new_med_path, class:"btn-small wider" %>
+    </div>
+    <hr class="mb-5">
+
+      <div class="row justify-content-between">
+                <% @meds.each do |med| %>
+                  <div class="col-md-2">
+                  <%# <%= link_to med_path(med) do  %>
+                  <div class="medcard text-center border border-muted my-3">
+                    <%= cl_image_tag med.photo.key %>
+                    <div class="text-box mt-3">
+                      <h3 class="med-name"><%= med.name%></h3>
+                      <%# <% end %>
+                      <p><%= med.description %></p>
+                      <small><%= med.stock %></small>
+                    </div>
+                    <%= link_to med,
+                    method: :delete, data: {confirm: "Are you sure?"},   class:"icon-btn" do %>
+                      <i class="far fa-trash-alt"></i>
+                      <% end %>
+                    </div>
+                  </div>
+                  <% end %>
+                </div>
+              </div>
+
 </div>
-<br>
-<%= link_to "NEW MED", new_med_path%>

@@ -9,7 +9,6 @@ class SchedulesController < ApplicationController
   end
 
   def create
-    clean_params
     @schedule = Schedule.new(schedules_params)
     @treatment = Treatment.find(params[:treatment_id])
     @schedule.treatment = @treatment
@@ -27,7 +26,6 @@ class SchedulesController < ApplicationController
 
   def update
     params[:schedule][:status] = params[:schedule][:status].to_i
-    clean_params
     if @schedule.update(schedules_params)
       redirect_to dashboard_path
     else
@@ -45,10 +43,5 @@ class SchedulesController < ApplicationController
   def set_schedule
     @schedule = Schedule.find(params[:id])
     authorize @schedule
-  end
-
-  def clean_params
-    params[:schedule][:times] = params[:schedule][:times].split(",")
-    params[:schedule][:weekdays] = params[:schedule][:weekdays].split(",")
   end
 end
