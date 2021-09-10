@@ -183,7 +183,7 @@
   opacity: 0.9;
   transition: opacity 0.3s ease;
   .medcard {
-    height: 120px;
+    height: 140px;
     margin: 0 8px;
     p {
       font-size: 16px;
@@ -192,4 +192,9 @@
 
 .stock {
   font-size: 18px;
+}
+}
+
+.schedules-container {
+  overflow-y: auto;
 }
