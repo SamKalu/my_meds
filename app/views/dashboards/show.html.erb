@@ -1,7 +1,8 @@
-<div class="main-container-treatment p-5 d-flex">
+<div class="p-5">
 <div class="d-flex justify-content-between align-items-center border-bottom border-muted pb-2">
     <h2 class="m-0">Your schedules</h2>
-  </div>
+</div>
+<div class="main-container-treatment d-flex">
   <div class="schedules-container">
     <div class="long-card p-3 mt-3">
       <div class="d-flex justify-content-between align-items-center">
@@ -43,14 +44,12 @@
       </div>
     </div>
 
-    <div class="long-card p-3 mt-5">
+    <div class="long-card p-3 mt-3">
       <div class="d-flex justify-content-between align-items-center">
             <p> Evening</p>
             <i class="fas fa-moon"></i>
           </div>
         </div>
-      </div>
-    </div>
      <div class="extend-schedules-card p-3">
       <div class="schedules-afternoon d-flex">
         <% @evening_schedules.each do |schedule| %>
@@ -77,4 +76,5 @@
       I feel useless...
     </div>
   </div>
+</div>
 </div>
