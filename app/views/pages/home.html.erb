@@ -1,12 +1,10 @@
-<%# <h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p> %>
 <div class="main p-0">
   <div class="container main-container px-0 d-flex justify-content-between">
     <div class="text-box d-flex flex-column justify-content-between p-5">
-      <div class="">
+      <div class="mt-5 mb-5">
         <h3>Welcome to</h3>
         <h1>My Meds</h1>
-        <p><strong>Never</strong> forget about taking your <strong>meds again</strong></p>
+        <p><strong>Never forget</strong><small> about taking your</small> <strong>meds again</strong></p>
       </div>
       <div class="button-wraper d-flex justify-content-between">
         <%= link_to new_user_session_path do  %>
@@ -17,9 +15,8 @@
         <% end %>
       </div>
     </div>
-    <div class="image-box bg-white d-flex flex-column align-items-center p-5">
+    <div class="image-box bg-white d-flex flex-column justify-content-center align-items-center">
       <%= image_tag("notification.svg", class:"svg-landing") %>
-      <%= image_tag("confirmed.svg", class:"svg-landing p-3")%>
     </div>
   </div>
 </div>
