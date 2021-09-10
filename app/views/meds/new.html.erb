@@ -1,27 +1,24 @@
 <%# <div class="h-100" style="overflow-y:scroll"> %>
   <div class="treatment-container p-5">
-  <%= link_to meds_path, class:"btn-small def-dark" do%>
-        <i class="fas fa-arrow-circle-left"></i> Back
-      <% end %>
-        <h2 class="mt-4">Create a new Med</h2>
-    <div class="row">
-      <div class="col-md-6">
-      <%= simple_form_for(@med) do |f| %>
-        <%= f.input :name %>
-        <%= f.input :description %>
-
+    <%= link_to meds_path, class:"btn-small def-dark" do%>
+      <i class="fas fa-arrow-circle-left"></i> Back
+    <% end %>
+    <h2 class="mt-4">Create a new Med</h2>
+    <%= simple_form_for(@med) do |f| %>
+      <div class="row">
+        <div class="col-md-6">
+          <%= f.input :name %>
+          <%= f.input :description %>
+        </div>
+        <div class="col-md-6">
+          <%= f.input :stock %>
+          <%= f.input :photo, as: :file %>
+        </div>
       </div>
-
-      <div class="col-md-6">
-        <%= f.input :stock %>
-        <%= f.input :photo, as: :file, class:"primary-btn-blue-sm" %>
-
-      </div>
-    </div>
       <div class="btn-wraper d-flex justify-content-center mt-3">
         <%= f.submit "+ Create Med", class:"primary-btn-blue pb-3 border-none"  %>
-       </div>
-      <% end %>
+      </div>
+    <% end %>
   </div>
 <%# </div> %>
     <%# <%= f.submit "+ Create Treatment" , class:"primary-btn-blue border-none" %>
