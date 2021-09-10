@@ -1,11 +1,10 @@
 <div class="treatment-container p-5 w-50">
-    <%= link_to treatments_path, class:"btn-small" do%>
+    <%= link_to treatments_path, class:"btn-small def-dark" do%>
       <i class="fas fa-arrow-circle-left"></i> Back
     <% end %>
-  <h2 class="mt-4">Create a new treatment</h2>
-    <hr class="mb-3">
+  <h2 class="mt-4 border-bottom border-muted pb-2">Create a new treatment</h2>
   <%= simple_form_for(@treatment) do |f| %>
     <%= f.input :name %>
-    <%= f.submit "+ Create Treatment" , class:"primary-btn-blue" %>
+    <%= f.submit "+ Create Treatment" , class:"primary-btn-blue border-none" %>
   <% end %>
 </div>

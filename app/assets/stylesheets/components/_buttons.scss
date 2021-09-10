@@ -39,13 +39,14 @@
   background: $blue-main;
   text-decoration: none !important;
   border-radius: 8px;
-  opacity: 0.6;
   width: 260px;
   transition: opacity 0.3s ease;
+  opacity: 1;
+  font-weight: bold;
 
   &:hover {
+    opacity: 0.6;
     color: $black;
-    opacity: 1;
     box-shadow: $box-shadow;
   }
 
@@ -56,16 +57,17 @@
   width: 100px;
   color: $black;
   background: $blue-main;
-  opacity: 0.6;
-  padding: 10px 20px;
+  padding: 12px 20px;
   border-radius: $border-radius;
   font-size: 15px;
   text-decoration: none !important;
-    transition: opacity 0.3s ease;
+  transition: opacity 0.3s ease;
+  opacity: 1;
+  font-weight: bold;
 
-&:hover {
+  &:hover {
+  opacity: 0.6;
     color: $black;
-    opacity: 1;
     box-shadow: $box-shadow;
     // 1px 4px 10px rgba(0,0,0,0.2);
   }
@@ -79,16 +81,16 @@
   width: 50px;
   color: $black;
   background: $blue-main;
-  opacity: 0.6;
   padding: 5px 5px;
   border-radius: $border-radius;
   font-size: 15px;
   text-decoration: none !important;
-    transition: opacity 0.3s ease;
+  transition: opacity 0.3s ease;
+  opacity: 1;
 
-&:hover {
+  &:hover {
+  opacity: 0.6;
     color: $black;
-    opacity: 1;
     box-shadow: $box-shadow;
     // 1px 4px 10px rgba(0,0,0,0.2);
   }
@@ -96,4 +98,27 @@
 
 .wider {
   width: auto;
+}
+
+.border-none {
+  border: none;
+}
+
+// .def-bright {
+//   opacity: 1;
+
+//   &:hover {
+
+//   }
+
+// }
+
+.def-dark {
+
+  opacity: 0.6;
+
+  &:hover {
+  opacity: 1;
+  }
+
 }
