@@ -15,3 +15,8 @@
   margin-top: 8px;
   border-radius: 5px;
 }
+
+.med-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
