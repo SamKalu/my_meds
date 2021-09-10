@@ -27,4 +27,9 @@ class DashboardsController < ApplicationController
     @tab = "profile"
     skip_policy_scope # this should be deleted !!!!!!!
   end
+
+  def edit_profile
+    @tab = "profile"
+    skip_policy_scope # this should be deleted !!!!!!!
+  end
 end
