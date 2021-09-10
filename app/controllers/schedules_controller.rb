@@ -9,15 +9,21 @@ class SchedulesController < ApplicationController
   end
 
   def create
-    @schedule = Schedule.new(schedules_params)
+    @meds = Med.where(id: params[:schedule][:med])
     @treatment = Treatment.find(params[:treatment_id])
-    @schedule.treatment = @treatment
-    authorize @schedule
-    if @schedule.save
-      redirect_to dashboard_path
-    else
-      render :new
+    @meds.each do |med|
+      @schedule = Schedule.new(schedules_params)
+      @schedule.treatment = @treatment
+      @schedule.med = med
+      authorize @schedule
+      @schedule.save
     end
+    redirect_to dashboard_path
+    # if @schedule.save
+    # else
+    #   @meds = policy_scope(Med)
+    #   render :new
+    # end
   end
 
   def edit

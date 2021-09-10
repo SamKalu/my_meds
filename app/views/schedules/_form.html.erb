@@ -1,0 +1,23 @@
+<div class="container">
+  <div data-controller ="new-schedule">
+    <%= simple_form_for [ @treatment, @schedule ],  data: { new_schedule_target: 'form'} do |f| %>
+    <label for="time"> Times </label>
+    <div class="schedule-times d-flex align-items-center">
+      <div data-new-schedule-target="times">
+        <% @schedule.times.each do |time| %>
+          <input id="time" type="time" name="schedule[times][]" style="margin-right: -4px" class="datepicker" value="<%= time %>">
+        <% end %>
+        <input id="time" type="time" name="schedule[times][]" style="margin-right: -4px" class="datepicker">
+      </div>
+      <i class="fas fa-plus-circle mx-3" data-action="click->new-schedule#addnewtime" ></i>
+    </div>
+        <%= f.input :weekdays, as: :check_boxes,
+                collection: Schedule::WEEKDAYS,
+                input_html: { class: "weekday-checkbox"},
+                item_label_class: "checkbox-label-weekdays",
+                legend_tag: false %>
+        <%= f.association :med, collection: @meds %>
+        <%= f.submit  %>
+    <% end %>
+  </div>
+</div>
