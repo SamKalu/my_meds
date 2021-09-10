@@ -31,13 +31,12 @@ class SchedulesController < ApplicationController
     else
       render :edit
     end
-
   end
 
   private
 
   def schedules_params
-    params.require(:schedule).permit(:status, :med_id, times: [], weekdays: [] )
+    params.require(:schedule).permit(:status, :med_id, times: [], weekdays: [])
   end
 
   def set_schedule

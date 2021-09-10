@@ -1,7 +1,7 @@
 class TreatmentsController < ApplicationController
   before_action :set_treatment, only: %i[show edit update destroy]
 
-  layout "dashboard", only: [:index, :new, :show, :edit, :create]
+  layout "dashboard", only: %i[index new show edit create]
 
   def index
     @tab = "treatments"
@@ -19,7 +19,7 @@ class TreatmentsController < ApplicationController
   end
 
   def create
-     @tab = "treatments"
+    @tab = "treatments"
     @treatment = Treatment.new(treatment_params)
     authorize @treatment
     @treatment.user = current_user
@@ -47,6 +47,7 @@ class TreatmentsController < ApplicationController
     @treatment.destroy
     redirect_to treatments_path
   end
+
   private
 
   def treatment_params

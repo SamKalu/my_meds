@@ -1,6 +1,6 @@
 class MedsController < ApplicationController
   before_action :set_med, only: %i[show edit update destroy]
-  layout "dashboard", only: [:index, :new, :edit, :create]
+  layout "dashboard", only: %i[index new edit create]
 
   def index
     @tab = "meds"
