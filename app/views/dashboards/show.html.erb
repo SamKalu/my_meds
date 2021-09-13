@@ -4,60 +4,66 @@
 </div>
 <div class="main-container-treatment d-flex">
   <div class="schedules-container">
-    <div class="long-card p-3 mt-3">
-      <div class="d-flex justify-content-between align-items-center">
-            <p> Morning</p>
-            <i class="fas fa-mug-hot"></i>
+
+    <%= link_to intakes_path(anchor: "time04") do %>
+      <div class="long-card p-3 mt-3">
+        <div class="d-flex justify-content-between align-items-center">
+              <p> Morning</p>
+              <i class="fas fa-mug-hot"></i>
+        </div>
       </div>
-    </div>
+    <% end %>
     <div class="extend-schedules-card p-3">
       <div class="schedules-morning d-flex">
-        <% @morning_schedules.each do |schedule| %>
-          <div class="medcard mr-2">
-            <%= cl_image_tag schedule.med.photo.key%>
+        <% @morning_intakes.each do |intake| %>
+          <div class="medcard-schedule mr-2">
+            <%= cl_image_tag intake.schedule.med.photo.key%>
             <div class="med-info d-flex flex-column">
-              <p><%= schedule.med.name %></p>
-              <small><%= schedule.time.strftime("%H:%M") %></small>
+              <p><%= intake.schedule.med.name %></p>
+              <small><%= intake.due_date.strftime("%H:%M") %></small>
             </div>
           </div>
         <% end %>
       </div>
     </div>
-
-    <div class="long-card p-3 mt-3">
-      <div class="d-flex justify-content-between align-items-center">
-            <p> Afternoon</p>
-            <i class="fas fa-sun"></i>
+    <%= link_to intakes_path(anchor: "time16") do %>
+      <div class="long-card p-3 mt-3">
+        <div class="d-flex justify-content-between align-items-center">
+              <p> Afternoon</p>
+              <i class="fas fa-sun"></i>
+        </div>
       </div>
-    </div>
+    <% end %>
     <div class="extend-schedules-card p-3">
       <div class="schedules-afternoon d-flex ">
-        <% @afternoon_schedules.each do |schedule| %>
-          <div class="medcard mr-2">
-            <%= cl_image_tag schedule.med.photo.key%>
+        <% @afternoon_intakes.each do |intake| %>
+          <div class="medcard-schedule mr-2">
+            <%= cl_image_tag intake.schedule.med.photo.key%>
             <div class="med-info d-flex flex-column">
-              <p><%= schedule.med.name %></p>
-              <small><%= schedule.time.strftime("%H:%M") %></small>
+              <p><%= intake.schedule.med.name %></p>
+              <small><%= intake.due_date.strftime("%H:%M") %></small>
             </div>
           </div>
         <% end %>
       </div>
-    </div>
+      </div>
 
-    <div class="long-card p-3 mt-3">
-      <div class="d-flex justify-content-between align-items-center">
-            <p> Evening</p>
-            <i class="fas fa-moon"></i>
+    <%= link_to intakes_path(anchor: "time22") do %>
+      <div class="long-card p-3 mt-3">
+        <div class="d-flex justify-content-between align-items-center">
+              <p> Evening</p>
+              <i class="fas fa-moon"></i>
+            </div>
           </div>
-        </div>
-     <div class="extend-schedules-card p-3">
+    <% end %>
+    <div class="extend-schedules-card p-3">
       <div class="schedules-afternoon d-flex">
-        <% @evening_schedules.each do |schedule| %>
-          <div class="medcard mr-2">
-            <%= cl_image_tag schedule.med.photo.key%>
+        <% @evening_intakes.each do |intake| %>
+          <div class="medcard-schedule mr-2">
+            <%= cl_image_tag intake.schedule.med.photo.key%>
             <div class="med-info d-flex flex-column">
-              <p><%= schedule.med.name %></p>
-              <small><%= schedule.time.strftime("%H:%M") %></small>
+              <p><%= intake.schedule.med.name %></p>
+              <small><%= intake.due_date.strftime("%H:%M") %></small>
             </div>
           </div>
         <% end %>

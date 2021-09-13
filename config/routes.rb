@@ -4,9 +4,7 @@ Rails.application.routes.draw do
   resources :meds
 
   resources :treatments do
-    resources :schedules, only: %i[new create] do
-      resources :intakes, only: %i[new create]
-    end
+    resources :schedules, only: %i[new create]
   end
 
   resource :dashboard, only: [:show] do
@@ -17,4 +15,5 @@ Rails.application.routes.draw do
   end
 
   resources :schedules, only: %i[edit update destroy]
+  resources :intakes, only: %i[index]
 end

@@ -118,6 +118,8 @@ GEM
     mime-types-data (3.2021.0901)
     mini_mime (1.1.1)
     minitest (5.14.4)
+    montrose (0.12.0)
+      activesupport (>= 5.2, <= 7.0)
     msgpack (1.4.2)
     netrc (0.11.0)
     nio4r (2.5.8)
@@ -251,6 +253,7 @@ DEPENDENCIES
   font-awesome-sass
   jbuilder (~> 2.7)
   listen (~> 3.3)
+  montrose
   pg (~> 1.1)
   pry-byebug
   pry-rails

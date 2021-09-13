@@ -1,0 +1,22 @@
+<h1> Your daily intakes</h1>
+
+  <h2> for <%= Time.now.strftime("%A, %b %d") %></h2>
+  <div class="calendar-scroll">
+  <% (0...24).map{ |h| Time.parse("#{h}:00")}.each do |hour| %>
+    <div id="time<%= hour.strftime("%H") %>" >
+      <h3>
+        <%= hour.strftime("%H:00") %>
+      </h3>
+      <div>
+          <% @intakes.each do |intake| %>
+            <% if intake.due_date.strftime("%H") == hour.strftime("%H") %>
+              <%= intake.schedule.med.name %>
+              <%= intake.schedule.med.photo.key %>
+              <%= intake.due_date.strftime("%H %M") %>
+            <% end %>
+        <% end %>
+      </div>
+      <hr>
+    </div>
+  <% end %>
+  </div>
