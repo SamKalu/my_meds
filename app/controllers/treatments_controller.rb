@@ -26,7 +26,7 @@ class TreatmentsController < ApplicationController
     @treatment.user = current_user
     @treatment.save
     if @treatment.save
-      redirect_to treatments_path
+      redirect_to treatment_path(@treatment)
     else
       render :new
     end

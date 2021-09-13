@@ -1,16 +1,18 @@
 <div class="main-container-treatment p-5">
-  <div class="d-flex justify-content-between align-items-center">
-    <h2 class="m-0">Treatments</h2>
+  <div class="d-flex justify-content-between justify-content-between border-bottom border-muted align-items-center pb-2">
+    <h2>Treatments</h2>
     <% if ! @treatments.empty? %>
-       <%= link_to "+ Create treatment", new_treatment_path, class:"primary-btn-blue" %>
+      <%= link_to new_treatment_path, class:"btn-small wider" do %>
+        <i class="fas fa-plus"></i> Create treatment
+      <%end %>
     <% end %>
-
   </div>
-      <hr class="mb-5">
   <% if @treatments.empty? %>
     <div class="mt-5 d-flex flex-column">
-      <small class="text-black">Add your first treatment</small>
-      <%= link_to "+ Add a treatment", new_treatment_path, class:"primary-btn-blue mt-2" %>
+      <p class="text-black prompt-user">Add your first treatment</p>
+      <%= link_to new_treatment_path, class:"primary-btn-blue mt-2" do %>
+        <i class="fas fa-plus"></i> Add a treatment
+      <% end %>
     </div>
   <% else %>
     <% @treatments.each do |treatment| %>
