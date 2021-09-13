@@ -1,25 +1,42 @@
-<div data-controller="new-schedule" class="form-container-meds">
-  <%= simple_form_for [ @treatment, @schedule ],  data: { new_schedule_target: 'form'} do |f| %>
-    <div class="med-cards">
-      <%= f.input :med, as: :check_boxes, collection: @meds, input_html: { multiple: true, class: "d-none" }, include_hidden: false,
-                  label_method: lambda { |med| "#{cl_image_tag med.photo.key} <div class=\"card-text\"> #{med.name} <br> #{med.description}</div> <div class=\"stock-card\"> #{med.stock} </div>".html_safe  } %>
-    </div>
-    <div class="form-date-time">
-      <div class="schedule-times d-flex align-items-center">
-        <div data-new-schedule-target="times" class="times-input">
-          <% @schedule.times.each do |time| %>
-            <input id="time" type="time" name="schedule[times][]" style="margin-right: -4px" class="datepicker" value="<%= time %>">
-          <% end %>
-          <input id="time" type="time" name="schedule[times][]" style="margin-right: -4px" class="datepicker">
-        </div>
-        <i class="fas fa-plus-circle mx-3" data-action="click->new-schedule#addnewtime" ></i>
-      </div>
-      <%= f.input :weekdays, as: :check_boxes,
-                  collection: Schedule::WEEKDAYS,
-                  input_html: { class: "weekday-checkbox"},
-                  item_label_class: "checkbox-label-weekdays",
-                  legend_tag: false %>
-      <%= f.submit  %>
-    </div>
+<div class="treatment-container p-5">
+  <%= link_to treatment_path(@treatment), class: "btn-small" do%>
+    <i class="fas fa-arrow-circle-left def-dark"></i> Back
   <% end %>
+  <div class="header-treatments d-flex justify-content-between mt-4">
+    <h2><%= @treatment.name %></h2>
+    <div class="btn-wraper">
+      <%= link_to treatment_path(@treatment), method: :delete, data: {confirm: "Are you sure?"}, class:"btn-small" do%>
+        <i class="fas fa-trash-alt"></i> Delete
+      <% end %>
+    </div>
+  </div>
+  <hr class="mb-5">
+
+  <div data-controller="new-schedule" class="form-container-meds">
+    <%= simple_form_for [ @treatment, @schedule ],  data: { new_schedule_target: 'form'} do |f| %>
+      <div class="med-cards">
+        <%= f.input :med, as: :check_boxes, collection: @meds, input_html: { multiple: true, class: "d-none med-checkbox" }, include_hidden: false,
+                    item_label_class: "checkbox-label-meds",
+                    label_method: lambda { |med| "#{cl_image_tag med.photo.key} <h2 class=\"med-name\">#{med.name}</h2>".html_safe },
+                    legend_tag: false  %>
+      </div>
+      <div class="form-date-time">
+        <div class="schedule-times d-flex align-items-center">
+          <div data-new-schedule-target="times" class="times-input">
+            <% @schedule.times.each do |time| %>
+              <input id="time" type="time" name="schedule[times][]" style="margin-right: -4px" class="datepicker" value="<%= time %>">
+            <% end %>
+            <input id="time" type="time" name="schedule[times][]" style="margin-right: -4px" class="datepicker">
+          </div>
+          <i class="fas fa-plus-circle mx-3" data-action="click->new-schedule#addnewtime" ></i>
+        </div>
+        <%= f.input :weekdays, as: :check_boxes,
+                    collection: Schedule::WEEKDAYS,
+                    input_html: { class: "weekday-checkbox"},
+                    item_label_class: "checkbox-label-weekdays",
+                    legend_tag: false %>
+        <%= f.submit "Create Schedule", class:"submit-schedule-button wider border-none" %>
+      </div>
+    <% end %>
+  </div>
 </div>

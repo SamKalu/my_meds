@@ -1,7 +1,8 @@
 .collection_check_boxes img {
   object-fit: cover;
-  width: 200px;
-  border-radius: 5px 5px 0 0;
+  width: 160px;
+  border-radius: 5px 0 0 5px;
+  height: 100%;
 }
 
 .new_schedule {
@@ -9,16 +10,16 @@
   justify-content: space-between;
 }
 
-.form-check-label {
-  width: 200px;
-  background-color: $white;
-  margin-top: 8px;
-  border-radius: 5px;
-}
-
-.med-cards {
+.med-cards .schedule_med{
   display: grid;
   grid-template-columns: 1fr 1fr;
+  overflow-y: scroll;
+  grid-gap: 16px;
+  height: 50vh;
+
+  &::-webkit-scrollbar {
+   display: none;
+  }
 }
 
 .schedule_med .form-check {
@@ -26,9 +27,8 @@
 }
 
 .form-date-time {
-  margin: 24px;
   background-color: $blue_selected;
-  height: 127px;
+  height: 144px;
   width: 265px;
   border-radius: 5px;
 }
@@ -42,3 +42,11 @@
   margin-bottom: 0;
   justify-self: center;
 }
+
+.med-name {
+  margin: 0 4px;
+}
+
+// .schedule_med {
+//   background-color: green;
+// }

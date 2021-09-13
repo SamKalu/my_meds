@@ -1,11 +1,13 @@
 class SchedulesController < ApplicationController
   before_action :set_schedule, only: %i[edit update destroy]
+  layout "dashboard", only: %i[new edit]
 
   def new
     @treatment = Treatment.find(params[:treatment_id])
     @meds = policy_scope(Med)
     @schedule = Schedule.new
     authorize @schedule
+    @tab = "treatments"
   end
 
   def create
@@ -18,7 +20,7 @@ class SchedulesController < ApplicationController
       authorize @schedule
       @schedule.save
     end
-    redirect_to dashboard_path
+    redirect_to treatment_path(@treatment)
     # if @schedule.save
     # else
     #   @meds = policy_scope(Med)
