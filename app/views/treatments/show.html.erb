@@ -1,11 +1,14 @@
 
 <div class="treatment-container p-5">
       <%= link_to treatments_path, class: "btn-small" do%>
-        <i class="fas fa-arrow-circle-left"></i> Back
+        <i class="fas fa-arrow-circle-left def-dark"></i> Back
       <% end %>
   <div class="header-treatments d-flex justify-content-between mt-4">
     <h2><%= @treatment.name %></h2>
     <div class="btn-wraper">
+     <%= link_to new_treatment_schedule_path(@treatment), class:"btn-small mx-2" do%>
+        <i class="fas fa-pills"></i> Add a Med
+      <% end %>
       <%= link_to edit_treatment_path, class:"btn-small mx-2" do%>
         <i class="fas fa-edit"> </i> Edit
       <% end %>
@@ -15,50 +18,35 @@
     </div>
   </div>
   <hr class="mb-5">
-  <div class="container text-center">
-    <div class="row justify-content-between">
-      <div class="col-md-2">
-        <div class="medcard border border-muted">
-          <%= image_tag("pills.jpg")%>
-          <div class="textbox mt-3">
-            <h2>Rivotril</h2>
-            <p>Take care</p>
-            <p class="textbold">52</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-2">
-        <div class="medcard border border-muted">
-          <%= image_tag("pills.jpg")%>
-          <div class="textbox mt-3">
-            <h2>Rivotril</h2>
-            <p>Take care</p>
-            <p class="textbold">52</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-2">
-        <div class="medcard border border-muted">
-          <%= image_tag("pills.jpg")%>
-          <div class="textbox mt-3">
-            <h2>Rivotril</h2>
-            <p>Take care</p>
-            <p class="textbold">52</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-2">
-        <div class="medcard border border-muted">
-          <%= image_tag("pills.jpg")%>
-          <div class="textbox mt-3">
-            <h2>Rivotril</h2>
-            <p>Take care</p>
-            <p class="textbold">52</p>
-          </div>
 
-        </div>
+  <div class="treatment-layout d-flex">
+    <div class="container text-center">
+      <div class="row justify-content-between">
+        <% @treatment.schedules.each do  |schedule|%>
+          <div class="col-6">
+            <div class="med-long-card border border-muted">
+              <%= cl_image_tag schedule.med.photo.key %>
+              <div class="textbox">
+                <h2><%= schedule.med.name %></h2>
+              </div>
+              <div class="p-3">
+                <p class="textbold"><%= schedule.med.stock %></p>
+                in Stock
+              </div>
+            </div>
+          </div>
+        <% end %>
       </div>
     </div>
+    <div class="form-schedule-card p-5 mx-3 rounded">
+      <% @treatment.schedules.each do |schedule| %>
+      <div class="time-align">
+        <i class="fas fa-bell"></i>
+        <% schedule.times.each do |time| %>
+          <%= time %>.
+        <% end %>
+      </div>
+      <% end %>
+    </div>
   </div>
-</div>
 </div>

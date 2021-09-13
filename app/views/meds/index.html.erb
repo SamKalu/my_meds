@@ -1,31 +1,32 @@
-<div class="h-100" style="overflow-y:scroll">
-  <div class="container p-5">
-    <div class="d-flex justify-content-between mt-4">
-      <h2>Medicine Inventory</h2>
+ <div class="container h-100 p-5 d-flex flex-column">
+    <div class="d-flex justify-content-between mb-2 border-bottom border-muted pb-2">
+      <h2>Medicine Inventory </h2>
       <%= link_to "+ New Med", new_med_path, class:"btn-small wider" %>
     </div>
-    <hr class="mb-5">
-
-      <div class="row justify-content-between">
+    <div style="overflow-y: auto" class="container flex-grow-1">
+    <% if @meds.count < 3 %>
+      <div class="row justify-content-center">
+        <% else %>
+                <div class="row justify-content-between">
+          <% end %>
                 <% @meds.each do |med| %>
-                  <div class="col-md-2">
+                  <div class="col-md-3">
                   <%# <%= link_to med_path(med) do  %>
                   <div class="medcard text-center border border-muted my-3">
                     <%= cl_image_tag med.photo.key %>
-                    <div class="text-box mt-3">
-                      <h3 class="med-name"><%= med.name%></h3>
+                    <div class="text-box mt-2">
+                      <h3 class="med-name textbold"><%= med.name%></h3>
                       <%# <% end %>
-                      <p><%= med.description %></p>
-                      <small><%= med.stock %></small>
+                      <p class="med-desc text-muted "><%= med.description %></p>
+                     <p class="border border-muted"><span class="text-muted">Stock:</span> <strong class="stock"><%= med.stock %> </strong></p>
                     </div>
                     <%= link_to med,
-                    method: :delete, data: {confirm: "Are you sure?"},   class:"icon-btn" do %>
+                    method: :delete, data: {confirm: "Are you sure?"},   class:"icon-btn def-dark" do %>
                       <i class="far fa-trash-alt"></i>
                       <% end %>
                     </div>
                   </div>
                   <% end %>
-                </div>
-              </div>
-
+             </div>
+        </div>
 </div>

@@ -11,6 +11,7 @@ class TreatmentsController < ApplicationController
   def new
     @tab = "treatments"
     @treatment = Treatment.new
+    @meds = policy_scope(Med)
     authorize @treatment
   end
 

@@ -1,24 +1,66 @@
-<div class="main-container-treatment p-5 d-flex">
+<div class="p-5">
+<div class="d-flex justify-content-between align-items-center border-bottom border-muted pb-2">
+    <h2 class="m-0">Your schedules</h2>
+</div>
+<div class="main-container-treatment d-flex">
   <div class="schedules-container">
-    <div class="long-card p-3 my-5">
+    <div class="long-card p-3 mt-3">
       <div class="d-flex justify-content-between align-items-center">
             <p> Morning</p>
             <i class="fas fa-mug-hot"></i>
       </div>
     </div>
-
-    <div class="long-card p-3 my-5">
-      <div class="d-flex justify-content-between align-items-center">
-            <p> Afternoon</p>
-                        <i class="fas fa-sun"></i>
-
+    <div class="extend-schedules-card p-3">
+      <div class="schedules-morning d-flex">
+        <% @morning_schedules.each do |schedule| %>
+          <div class="medcard mr-2">
+            <%= cl_image_tag schedule.med.photo.key%>
+            <div class="med-info d-flex flex-column">
+              <p><%= schedule.med.name %></p>
+              <small><%= schedule.time.strftime("%H:%M") %></small>
+            </div>
+          </div>
+        <% end %>
       </div>
     </div>
 
-    <div class="long-card p-3 my-5">
+    <div class="long-card p-3 mt-3">
+      <div class="d-flex justify-content-between align-items-center">
+            <p> Afternoon</p>
+            <i class="fas fa-sun"></i>
+      </div>
+    </div>
+    <div class="extend-schedules-card p-3">
+      <div class="schedules-afternoon d-flex ">
+        <% @afternoon_schedules.each do |schedule| %>
+          <div class="medcard mr-2">
+            <%= cl_image_tag schedule.med.photo.key%>
+            <div class="med-info d-flex flex-column">
+              <p><%= schedule.med.name %></p>
+              <small><%= schedule.time.strftime("%H:%M") %></small>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="long-card p-3 mt-3">
       <div class="d-flex justify-content-between align-items-center">
             <p> Evening</p>
             <i class="fas fa-moon"></i>
+          </div>
+        </div>
+     <div class="extend-schedules-card p-3">
+      <div class="schedules-afternoon d-flex">
+        <% @evening_schedules.each do |schedule| %>
+          <div class="medcard mr-2">
+            <%= cl_image_tag schedule.med.photo.key%>
+            <div class="med-info d-flex flex-column">
+              <p><%= schedule.med.name %></p>
+              <small><%= schedule.time.strftime("%H:%M") %></small>
+            </div>
+          </div>
+        <% end %>
       </div>
     </div>
   </div>
@@ -34,4 +76,5 @@
       I feel useless...
     </div>
   </div>
+</div>
 </div>
