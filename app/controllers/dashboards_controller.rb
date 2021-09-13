@@ -30,6 +30,7 @@ class DashboardsController < ApplicationController
   def profile
     @tab = "profile"
     skip_policy_scope # this should be deleted !!!!!!!
+    @user = current_user
   end
 
   def edit_profile
