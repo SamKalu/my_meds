@@ -1,4 +1,3 @@
-med_names = ["levothyroxine", "rosuvastatin", "albuterol", "esomeprazole", "fluticasone", "lisdexamfetamine", "rivotril", "xanax", "viagra"]
 treatment_names = ["cancer", "alzheimer's", "parkinson", "blood pressure"]
 
 puts "Destroying DB..."
@@ -18,13 +17,17 @@ puts "Creating new DB..."
 
   puts "Created a User called #{test_user.first_name}"
 
+  med_names = ["levothyroxine", "rosuvastatin", "albuterol", "esomeprazole", "fluticasone", "lisdexamfetamine", "rivotril", "xanax", "viagra"]
   5.times do
-    Med.create!(
-      name: med_names.sample,
+    med = Med.new(
+      name: med_names.shuffle!.pop,
       description: Faker::Quotes::Shakespeare.romeo_and_juliet_quote,
       stock: rand(5..200),
       user_id: test_user.id
     )
+    img_photo = URI.open("https://source.unsplash.com/1600x900/?pills")
+    med.photo.attach(io: img_photo, filename: 'pillphoto.png', content_type: 'image/png' )
+    med.save!
   end
 
   puts "Created #{test_user.meds.count} meds for #{test_user.first_name}"

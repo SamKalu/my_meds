@@ -78,4 +78,25 @@
     padding-left: 2px;
 }
 
+.checkbox-label-meds {
+  width: 100%;
+  background-color: $white;
+  margin-top: 8px;
+  border-radius: $border-radius;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: $box-shadow;
+  height: 100px;
+  border: 1px solid #dee2e6 !important;
+  transition: background-color 0.5s ease;
 
+  & h2 {
+    flex-grow: 1;
+    text-align: center;
+  }
+}
+
+.med-checkbox:checked + .checkbox-label-meds {
+  background-color: $green;
+}
