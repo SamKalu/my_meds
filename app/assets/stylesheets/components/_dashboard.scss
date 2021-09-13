@@ -39,8 +39,8 @@
 }
 
 .btn-active {
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0.7) 97.4%, rgba(226, 240, 249, 0) 100%);
-  color: $black;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.6) 50%, rgba(255, 255, 255, 0.7) 97.4%, rgba(226, 240, 249, 0) 100%);
+ color: $black;
   opacity: 1;
 }
 

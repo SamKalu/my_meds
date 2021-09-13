@@ -1,24 +1,22 @@
-
 <div class="treatment-container p-5">
-      <%= link_to treatments_path, class: "btn-small" do%>
-        <i class="fas fa-arrow-circle-left def-dark"></i> Back
-      <% end %>
+  <%= link_to treatments_path, class: "btn-small" do%>
+    <i class="fas fa-arrow-circle-left def-dark"></i> Back
+  <% end %>
   <div class="header-treatments d-flex justify-content-between mt-4">
     <h2><%= @treatment.name %></h2>
     <div class="btn-wraper">
-     <%= link_to new_treatment_schedule_path(@treatment), class:"btn-small mx-2" do%>
-        <i class="fas fa-pills"></i> Add a Med
+      <%= link_to new_treatment_schedule_path(@treatment), class:"btn-small mx-2" do%>
+        <i class="fas fa-plus"></i> Add a Med
       <% end %>
       <%= link_to edit_treatment_path, class:"btn-small mx-2" do%>
         <i class="fas fa-edit"> </i> Edit
       <% end %>
-      <%= link_to treatment_path(@treatment), method: :delete, data: {confirm: "Are you sure?"}, class:"btn-small" do%>
+      <%= link_to treatment_path(@treatment), method: :delete, data: {confirm: "Are you sure?"}, class:"btn-small mx-2" do%>
         <i class="fas fa-trash-alt"></i> Delete
       <% end %>
     </div>
   </div>
   <hr class="mb-5">
-
   <div class="treatment-layout d-flex">
     <div class="container text-center">
       <div class="row justify-content-between">
@@ -40,12 +38,12 @@
     </div>
     <div class="form-schedule-card p-5 mx-3 rounded">
       <% @treatment.schedules.each do |schedule| %>
-      <div class="time-align">
-        <i class="fas fa-bell"></i>
-        <% schedule.times.each do |time| %>
-          <%= time %>.
-        <% end %>
-      </div>
+        <div class="time-align">
+          <i class="fas fa-bell"></i>
+          <% schedule.times.each do |time| %>
+            <%= time %>.
+          <% end %>
+        </div>
       <% end %>
     </div>
   </div>
