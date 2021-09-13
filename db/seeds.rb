@@ -1,5 +1,3 @@
-med_names = ["levothyroxine", "rosuvastatin", "albuterol", "esomeprazole", "fluticasone", "lisdexamfetamine", "rivotril", "xanax", "viagra"]
-treatment_names = ["cancer", "alzheimer's", "parkinson", "blood pressure"]
 
 puts "Destroying DB..."
 User.destroy_all
@@ -15,20 +13,25 @@ puts "Creating new DB..."
     blood_type: Faker::Blood.group,
     birthday: Faker::Date.between(from: 80.years.ago, to: 52.years.ago)
   )
-
+  
   puts "Created a User called #{test_user.first_name}"
+  puts "Finding #{test_user.first_name}'s meds and pictures for them..."
 
-  5.times do
-    Med.create!(
-      name: med_names.sample,
+  med_names = ["levothyroxine", "rosuvastatin", "albuterol", "esomeprazole", "fluticasone", "lisdexamfetamine", "rivotril", "xanax", "viagra", "Simvastatin", "Omeprazole", "Metformin", "Azithromycin"]
+  10.times do
+    med = Med.new(
+      name: med_names.shuffle!.pop,
       description: Faker::Quotes::Shakespeare.romeo_and_juliet_quote,
       stock: rand(5..200),
       user_id: test_user.id
     )
+    img_photo = URI.open("https://source.unsplash.com/1600x900/?pills")
+    med.photo.attach(io: img_photo, filename: 'pillphoto.png', content_type: 'image/png' )
+    med.save!
   end
-
+  
   puts "Created #{test_user.meds.count} meds for #{test_user.first_name}"
-
+  
   2.times do
     Contact.create!(
       full_name: Faker::Name.name,
@@ -38,19 +41,20 @@ puts "Creating new DB..."
       user_id: test_user.id
     )
   end
-
+  
   puts "Created #{test_user.contacts.count} contacts for #{test_user.first_name}"
-
-  3.times do
+  
+  treatment_names = ["cancer", "alzheimer's", "parkinson", "blood pressure"]
+  1.times do
     Treatment.create!(
-      name: treatment_names.sample,
+      name: treatment_names.shuffle!.pop,
       user_id: test_user.id
     )
   end
 
   puts "Created #{test_user.treatments.count} treatments for #{test_user.first_name}"
 
-  3.times do
+  1.times do
     Schedule.create!(
       med: test_user.meds.sample,
       treatment: test_user.treatments.sample

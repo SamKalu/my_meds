@@ -69,8 +69,6 @@
     flex-direction: column;
     justify-content: center;
 
-
-
     .icon {
       position: absolute;
       right: 8px;
@@ -82,12 +80,18 @@
 
   .med-name {
   font-size: 22px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   }
 
   .med-desc {
     font-size: 20px;
     color: $black;
     margin-bottom: 5px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
   .textbold {
     font-weight: bold;
@@ -161,6 +165,13 @@
   }
 }
 
+.main-container-treatment-2 {
+
+  // width: 1250px;
+  overflow: hidden;
+
+}
+
 .schedules-container {
   width: 70%;
 }
@@ -199,4 +210,12 @@
 
 .schedules-container {
   overflow-y: auto;
+}
+
+.prompt-user {
+  font-size: $body-font-size !important;
+}
+
+.no-margin-main-row {
+  margin: 0;
 }

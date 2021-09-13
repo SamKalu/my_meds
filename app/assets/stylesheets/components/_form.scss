@@ -1,0 +1,52 @@
+.collection_check_boxes img {
+  object-fit: cover;
+  width: 160px;
+  border-radius: 5px 0 0 5px;
+  height: 100%;
+}
+
+.new_schedule {
+  display: flex;
+  justify-content: space-between;
+}
+
+.med-cards .schedule_med{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  overflow-y: scroll;
+  grid-gap: 16px;
+  height: 50vh;
+
+  &::-webkit-scrollbar {
+   display: none;
+  }
+}
+
+.schedule_med .form-check {
+  padding-left: 0;
+}
+
+.form-date-time {
+  background-color: $blue_selected;
+  height: 144px;
+  width: 265px;
+  border-radius: 5px;
+}
+
+.times-input{
+  padding: 8px;
+}
+
+.schedule_weekdays{
+  padding: 8px 0 0 8px;
+  margin-bottom: 0;
+  justify-self: center;
+}
+
+.med-name {
+  margin: 0 4px;
+}
+
+// .schedule_med {
+//   background-color: green;
+// }

@@ -1,9 +1,12 @@
 <div class="main-container-treatment p-5">
   <div class="d-flex justify-content-between align-items-center border-bottom border-muted pb-2">
-    <h2 class="m-0">Profile</h2>
-    <%= link_to edit_user_registration_path, class:"btn-small mx-2" do%>
-      <i class="fas fa-edit"> </i> Edit
+    <h2>Profile</h2>
+    <%= link_to edit_user_registration_path, class:"btn-small" do%>
+      <i class="fas fa-edit"></i> Edit
     <% end %>
+
+
+
   </div>
   <div class="row pt-3">
     <div class="col-md-6 d-flex flex-column justify-content-center align-items-center">
@@ -12,19 +15,19 @@
     <div class="col-md-6">
       <label for="Firstname" class="mt-0">Firstname</label>
       <li class="rounded list-group-item profile-field">
-        <%= current_user.first_name %>
+        <%= @user.first_name %>
       </li>
       <label for="Lastname" class="mt-4">Lastname</label>
       <li class="rounded list-group-item profile-field">
-        <%= current_user.last_name %>
+        <%= @user.last_name %>
       </li>
       <label for="Bloodtype" class="mt-4">Bloodtype</label>
       <li class="rounded list-group-item profile-field">
-        <%= current_user.blood_type %>
+        <%= @user.blood_type %>
       </li>
       <label for="Birhtday" class="mt-4">Birhtday</label>
       <li class="rounded list-group-item profile-field">
-        <%= current_user.birthday %>
+        <%= @user.birthday %>
       </li>
     </div>
   </div>
