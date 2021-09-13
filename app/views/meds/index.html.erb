@@ -7,7 +7,7 @@
       <% end %>
     <% end %>
   </div>
-  <div style="overflow-y: auto" class="container flex-grow-1 px-0 mx-0">
+  <div style="overflow-y: auto; overflow-x: hidden;" class="flex-grow-1 px-0 mx-0">
     <% if @meds.empty? %>
       <div class="mt-5 d-flex flex-column">
         <p class="text-black prompt-user">Add your first med here</p>
@@ -21,18 +21,21 @@
         <div class="row justify-content-between">
         <% end %>
         <% @meds.each do |med| %>
-          <div class="col-md-3">
+          <div class="col-md-3 col-xl-2">
             <%# <%= link_to med_path(med) do  %>
               <div class="medcard text-center border border-muted my-3">
-                <%= cl_image_tag med.photo.key %>
+                <%= med_img(med) %>
                 <div class="text-box mt-2">
                   <h3 class="med-name textbold"><%= med.name%></h3>
                   <%# <% end %>
                   <p class="med-desc text-muted "><%= med.description %></p>
                   <p class="border border-muted"><span class="text-muted">Stock:</span> <strong class="stock"><%= med.stock %> </strong></p>
                 </div>
+                <%= link_to edit_med_path(med), class:"icon-btn wider" do %>
+               <i class="fas fa-edit"></i> Manage
+               <% end %>
                 <%= link_to med,
-                    method: :delete, data: {confirm: "Are you sure?"},   class:"icon-btn def-dark wider p-2" do %>
+                    method: :delete, data: {confirm: "Are you sure?"},   class:"icon-btn wider" do %>
                   <i class="far fa-trash-alt"></i> Delete
                 <% end %>
               </div>

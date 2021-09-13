@@ -20,8 +20,9 @@
   <div class="treatment-layout d-flex">
     <div class="container text-center">
       <div class="row justify-content-between">
+        <ul style="list-style-type: none">
         <% @treatment.schedules.each do  |schedule|%>
-          <div class="col-6">
+        <li>
             <div class="med-long-card border border-muted">
               <%= cl_image_tag schedule.med.photo.key %>
               <div class="textbox">
@@ -32,8 +33,11 @@
                 in Stock
               </div>
             </div>
-          </div>
+        </li>
+          <%# <div class="col-6"> %>
+          <%# </div> %>
         <% end %>
+        </ul>
       </div>
     </div>
     <div class="form-schedule-card p-5 mx-3 rounded">

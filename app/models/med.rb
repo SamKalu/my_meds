@@ -7,4 +7,7 @@ class Med < ApplicationRecord
   validates :name, presence: true, uniqueness: true
   validates :description, presence: true
   validates :stock, presence: true
+
+
+
 end
