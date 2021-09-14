@@ -5,11 +5,13 @@
       <%# carer part beginn %>
       <div>
         <% if !current_user.carer_id %>
-          Sign in as <%= link_to current_user.carer.first_name, impersonate_user_path(current_user.carer), method: :post %>
+          <i class="fas fa-info-circle mr-2"></i>Login as <%= link_to current_user.carer.first_name, impersonate_user_path(current_user.carer), method: :post %>
         <% else %>
           <% if current_user != true_user%>
-            You (<%= true_user.first_name %>) are signed in as <%= current_user.first_name %>
-            <%= link_to "Back to admin", stop_impersonating_users_path, method: :post %>
+            <i class="fas fa-info-circle mr-2"></i>You (<%= true_user.first_name %>) are signed in as <%= current_user.first_name %>
+            <%= link_to stop_impersonating_users_path, method: :post do%>
+              Back to my profil
+            <% end %>
           <% end %>
         <% end %>
       </div>
