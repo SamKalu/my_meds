@@ -9,6 +9,8 @@ class IntakesController < ApplicationController
   def take
     @intake = Intake.find(params[:id])
     @intake.taken = true
+    @intake.schedule.med.stock -= 1
+    @intake.schedule.med.save
     authorize @intake
     @intake.save
     head 200
