@@ -19,6 +19,10 @@
 @import "pages/landing_page";
 @import "pages/login";
 
+
+// Individual pages
+@import "pages/treatment_show";
+
 body {
   background: $bg_main;
   // background-image: asset-url("app_bg.svg");
