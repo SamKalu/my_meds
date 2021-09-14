@@ -23,22 +23,29 @@
     <div class="container text-center pl-0">
       <div class="treatment-card-container">
         <ul style="list-style-type: none" class="treatment-card-grid">
-        <% @treatment.schedules.each do  |schedule|%>
-        <li>
-            <div class="med-long-card treatment-card border-muted" data-display-cards-target="trigger" data-action="click->display-cards#show" id="med_<%= schedule.med.id %>">
-              <%= cl_image_tag schedule.med.photo.key %>
-              <div class="textbox">
-                <h2><%= schedule.med.name %></h2>
-              </div>
-              <div class="p-3">
-                <p class="textbold"><%= schedule.med.stock %></p>
-                in Stock
-              </div>
-            </div>
-        </li>
-          <%# <div class="col-6"> %>
-          <%# </div> %>
-        <% end %>
+          <% if @treatment.schedules.empty? %>
+            <p class="text-left w-75">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Itaque, veniam eos! Perspiciatis, provident adipisci. Inventore, natus, nam laudantium nulla impedit sunt voluptas laborum accusamus quaerat cupiditate ullam molestias cumque non.</p>
+            <%= link_to new_treatment_schedule_path(@treatment), class:"btn-small mx-2" do%>
+              <i class="fas fa-plus"></i> Add a Med
+            <% end %>
+          <% else %>
+            <% @treatment.schedules.each do  |schedule|%>
+              <li>
+                <div class="med-long-card treatment-card border-muted" data-display-cards-target="trigger" data-action="click->display-cards#show" id="med_<%= schedule.med.id %>">
+                  <%= cl_image_tag schedule.med.photo.key %>
+                  <div class="textbox">
+                    <h2><%= schedule.med.name %></h2>
+                  </div>
+                  <div class="p-3">
+                    <p class="textbold"><%= schedule.med.stock %></p>
+                    in Stock
+                  </div>
+                </div>
+              </li>
+              <%# <div class="col-6"> %>
+              <%# </div> %>
+            <% end %>
+          <% end %>
         </ul>
       </div>
     </div>
