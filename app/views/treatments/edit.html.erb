@@ -1,9 +1,9 @@
 <div class="main-container-treatment p-5 w-50">
-    <%= link_to treatment_path(@treatment), class:"btn-small" do %>
-      <i class="fas fa-arrow-circle-left"></i> Back
-    <% end %>
+  <%= link_to treatment_path(@treatment), class:"btn-small" do %>
+    <i class="fas fa-arrow-circle-left"></i> Back
+  <% end %>
   <h2 class="mt-4">Edit Treatment</h2>
-    <hr class="mb-3">
+  <hr class="mb-3">
   <%= simple_form_for(@treatment) do |f| %>
     <%= f.input :name,
                 input_html: { autocomplete: "name"} %>

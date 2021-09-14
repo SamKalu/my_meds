@@ -1,54 +1,45 @@
-  <div class="p-5 container main-container black px-0 login text-center justify-content-between">
-
+<div class="p-5 container main-container black px-0 login text-center justify-content-between">
   <h2>Sign up </h2>
-
-
-    <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <div class="row">
+  <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <div class="row">
       <%= f.error_notification %>
-        <div class="col-md-6">
-          <%= f.input :email,
+      <div class="col-md-6">
+        <%= f.input :email,
                       required: true,
                       autofocus: true,
                       input_html: { autocomplete: "email" }%>
-          <%= f.input :password,
+        <%= f.input :password,
                       required: true,
                       # hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
                       input_html: { autocomplete: "new-password" } %>
-          <%= f.input :password_confirmation,
+        <%= f.input :password_confirmation,
                       required: true,
                       input_html: { autocomplete: "new-password" } %>
-        </div>
-        <div class="col-md-6">
-          <%= f.input :first_name,
+      </div>
+      <div class="col-md-6">
+        <%= f.input :first_name,
                       required: true,
                       input_html: { autocomplete: "first-name" } %>
-          <%= f.input :last_name,
+        <%= f.input :last_name,
                       required: true,
                       input_html: { autocomplete: "last-name" } %>
-
-          <%= f.input :birthday, label: 'Date of Birth',
+        <%= f.input :birthday, label: 'Date of Birth',
                       required: false,
                       input_html: { autocomplete: "date-of-birth" } %>
-        </div>
-
-  </div>
-
-          <div class="btn-wraper d-flex justify-content-center">
-        <%= f.input :blood_type,
+      </div>
+    </div>
+    <div class="btn-wraper d-flex justify-content-center">
+      <%= f.input :blood_type,
                     :collection => %w[O- O+ A- A+ B- B+ AB- AB+],
                     prompt: "Choose your blood type",
                     required: false,
                     input_html: { autocomplete: "blood-type" } %>
     </div>
-
-          <div class="btn-wraper d-flex justify-content-center mt-3">
-
-          <%= f.button :submit, "Sign up", class: "primary-btn-white mb-3" %>
-      </div>
-
-    <% end %>
-
+    <div class="btn-wraper d-flex justify-content-center mt-3">
+      <%= button_tag(class: "primary-btn-white mb-3 btn-block border-none") do %>
+        <i class="fas fa-user-plus mr-2"></i>Sign up
+      <% end %>
+    </div>
+  <% end %>
   <%= render "devise/shared/links" %>
-
-  </div>
+</div>

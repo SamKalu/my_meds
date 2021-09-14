@@ -1,8 +1,7 @@
 <h1>Meds#show</h1>
- <p><%= @med.name %></p>
- <p><%= @med.description %></p>
- <small><%= @med.stock %><small>
-
-<%= link_to "Edit", edit_med_path %>
-<%= link_to "Delete", med_path(@med), method: :delete, data: {confirm: "Are you sure?"} %>
-<%= link_to "All Meds", meds_path %>
+<p><%= @med.name %></p>
+<p><%= @med.description %></p>
+<small><%= @med.stock %><small>
+    <%= link_to "Edit", edit_med_path %>
+    <%= link_to "Delete", med_path(@med), method: :delete, data: {confirm: "Are you sure?"} %>
+    <%= link_to "All Meds", meds_path %>
