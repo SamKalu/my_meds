@@ -4,4 +4,8 @@ class IntakePolicy < ApplicationPolicy
       scope.all
     end
   end
+
+  def take?
+    record.user == user
+  end
 end
