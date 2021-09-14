@@ -108,12 +108,11 @@
   border-radius: $border-radius;
   background-color: white;
   width: 600px;
-  opacity: 0.9;
-  transition: opacity 0.3s ease;
+  transition: transform 0.3s ease;
+  transform: translateY(2px);
 
   &:hover {
-  opacity: 1;
-
+    transform: translateY(0px);
   }
 
   i {
@@ -178,6 +177,7 @@
 
 .notifications-container {
     width: 30%;
+    transform: translateY(2px);
 
 }
 
@@ -188,7 +188,7 @@
 .extend-schedules-card {
   box-shadow: $box-shadow;
   border-radius: 0 0 $border-radius  $border-radius;
-  background-color: $light-gray;
+  background-color: $white;
   width: 550px;
   margin-left: 25px;
   opacity: 0.9;
