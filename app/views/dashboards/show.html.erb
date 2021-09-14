@@ -5,75 +5,12 @@
 <div class="main-container-treatment d-flex">
   <div class="schedules-container" data-controller="intakes-taken">
 
-    <%= link_to intakes_path(anchor: "time04") do %>
-      <div class="long-card p-3 mt-3">
-        <div class="d-flex justify-content-between align-items-center">
-              <p> Morning</p>
-              <i class="fas fa-mug-hot"></i>
-        </div>
-      </div>
-    <% end %>
 
-    <div class="extend-schedules-card p-3">
-      <div class="schedules-intakes d-flex row">
-        <% @morning_intakes.each do |intake| %>
-          <div class="medcard-schedule mr-2 col-md-4" data-intakes-taken-target="meds">
-            <%= cl_image_tag intake.schedule.med.photo.key%>
-            <div class="med-info d-flex align-items-center">
-              <p><%= intake.schedule.med.name %></p>
-              <small><%= intake.due_date.strftime("%H:%M") %></small>
-              <div class ="icon-btn def-dark wider p-2" data-intakes-taken-target="btn" data-action="click->intakes-taken#taken">
-                  <i class="fas fa-pills"></i>
-              </div>
-            </div>
-          </div>
-        <% end %>
-      </div>
-    </div>
+    <%= render "intakes/intakes_schedule", intakes: @morning_intakes, title: "Morning" %>
+    <%= render "intakes/intakes_schedule", intakes: @afternoon_intakes, title: "Afternoon" %>
+    <%= render "intakes/intakes_schedule", intakes: @evening_intakes, title: "Morning" %>
 
-    <%= link_to intakes_path(anchor: "time16") do %>
-      <div class="long-card p-3 mt-3">
-        <div class="d-flex justify-content-between align-items-center">
-              <p> Afternoon</p>
-              <i class="fas fa-sun"></i>
-        </div>
-      </div>
-    <% end %>
-    <div class="extend-schedules-card p-3">
-      <div class="schedules-intakes d-flex ">
-        <% @afternoon_intakes.each do |intake| %>
-          <div class="medcard-schedule mr-2">
-            <%= cl_image_tag intake.schedule.med.photo.key%>
-            <div class="med-info d-flex flex-column">
-              <p><%= intake.schedule.med.name %></p>
-              <small><%= intake.due_date.strftime("%H:%M") %></small>
-            </div>
-          </div>
-        <% end %>
-      </div>
-      </div>
 
-    <%= link_to intakes_path(anchor: "time22") do %>
-      <div class="long-card p-3 mt-3">
-        <div class="d-flex justify-content-between align-items-center">
-              <p> Evening</p>
-              <i class="fas fa-moon"></i>
-            </div>
-          </div>
-    <% end %>
-    <div class="extend-schedules-card p-3">
-      <div class="schedules-intakes d-flex">
-        <% @evening_intakes.each do |intake| %>
-          <div class="medcard-schedule mr-2">
-            <%= cl_image_tag intake.schedule.med.photo.key%>
-            <div class="med-info d-flex flex-column">
-              <p><%= intake.schedule.med.name %></p>
-              <small><%= intake.due_date.strftime("%H:%M") %></small>
-            </div>
-          </div>
-        <% end %>
-      </div>
-    </div>
   </div>
 
   <div class="notifications-container my-5">

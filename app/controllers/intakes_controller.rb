@@ -6,10 +6,12 @@ class IntakesController < ApplicationController
     @intakes = policy_scope(Intake)
   end
 
-  def update
+  def take
     @intake = Intake.find(params[:id])
-    @intake.update
-    redirect_to dashboard_path
+    @intake.taken = true
+    authorize @intake
+    @intake.save
+    head 200
   end
 
   private

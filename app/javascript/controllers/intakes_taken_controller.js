@@ -1,15 +1,22 @@
 import { Controller } from "stimulus";
+import { csrfToken } from "@rails/ujs";
+
 
 export default class extends Controller {
   static targets = ['meds', 'btn'];
 
-  connect() {
-    console.log(this.medsTarget);
-    console.log(this.btnTarget);
-  }
-
   taken(event) {
-    console.log('TODO: toggle status of intake - taken to true + -1 stock of med');
+    const intakeId = event.currentTarget.dataset.id
+    const url = `/intakes/${intakeId}/take`
+    fetch(url , {
+      method: 'POST',
+      headers: { 'X-CSRF-Token': csrfToken() }
+    })
+      .then(response => {
+        if (response.status == 200) {
+          this.medsTargets.find(x => x.id === `intake-${intakeId}`).classList.add("taken");
+        }
+      })
   }
 
 }
