@@ -107,7 +107,7 @@
   box-shadow: $box-shadow;
   border-radius: $border-radius;
   background-color: white;
-  width: 600px;
+  width: 90%;
   transition: transform 0.3s ease;
   transform: translateY(2px);
 
@@ -189,26 +189,37 @@
   box-shadow: $box-shadow;
   border-radius: 0 0 $border-radius  $border-radius;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   background-color: $white;
-  width: 550px;
-  margin-left: 25px;
+  width: 80%;
+  margin-left: 5%;
   opacity: 0.9;
   transition: opacity 0.3s ease;
   .medcard-schedule {
     box-shadow: $box-shadow;
+    border-radius: $border-radius;
     height: 80px;
-    margin: 0 8px;
+    margin: 8px;
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 0;
+    cursor: pointer;
     p {
       font-size: 16px;
       margin: 0;
     }
     img {
-      height: 30px;
+      height: 100%;
+      width: 40%;
+      object-fit: cover;
+      border-radius: $border-radius;
     }
+  }
+
+  .not-taken {
+    background-color: $red-stock-end;
   }
 
   .taken {
@@ -220,9 +231,9 @@
   }
 }
 
-.schedules-intakes {
-  justify-content: space-around;
-}
+// .schedules-intakes {
+//   justify-content: space-around;
+// }
 
 .schedules-container {
   overflow-y: auto;
