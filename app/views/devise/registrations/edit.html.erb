@@ -37,12 +37,14 @@
             prompt: "Choose your blood type",
             required: false,
             input_html: { autocomplete: "blood-type" } %>
+            <%= f.input :avatar, as: :file %>
           </div>
         </div>
       </div>
     </div>
-    <div class="form-actions d-flex justify-content-center">
-      <%= f.button :submit, "Update", class:"primary-btn-blue pb-3" %>
-    </div>
-  <% end %>
+  </div>
+  <div class="form-actions d-flex justify-content-center">
+    <%= f.button :submit, "Update", class:"primary-btn-blue pb-3" %>
+  </div>
+<% end %>
 </div>

@@ -9,4 +9,15 @@ class User < ApplicationRecord
 
   validates :first_name, presence: true
   validates :last_name, presence: true
+  has_one :carer, class_name: "User", foreign_key: "carer_id", dependent: :nullify
+
+  has_one_attached :avatar
+
+  def avatar_url
+    if avatar.attached?
+      avatar.service_url
+    else
+      img_photo = "default_avatar_new.jpg"
+    end
+  end
 end

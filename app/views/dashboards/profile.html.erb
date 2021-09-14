@@ -2,32 +2,45 @@
   <div class="main-container-treatment p-5">
     <div class="d-flex justify-content-between align-items-center border-bottom border-muted pb-2">
       <h2>Profile</h2>
-      <%= link_to edit_user_registration_path, class:"btn-small" do%>
+      <%# carer part beginn %>
+      <div>
+        <% if !current_user.carer_id %>
+          Sign in as <%= link_to current_user.carer.first_name, impersonate_user_path(current_user.carer), method: :post %>
+        <% else %>
+          <% if current_user != true_user%>
+            You (<%= true_user.first_name %>) are signed in as <%= current_user.first_name %>
+            <%= link_to "Back to admin", stop_impersonating_users_path, method: :post %>
+          <% end %>
+        <% end %>
+      </div>
+      <%= link_to edit_user_registration_path, data: { turbolinks: false}, class:"btn-small" do%>
         <i class="fas fa-edit"></i> Edit
       <% end %>
     </div>
-    <div class="row pt-3">
-      <div class="col-md-6 d-flex flex-column justify-content-center align-items-center">
-        <%= image_tag "walter.png", class: "  profile-avatar"%>
-      </div>
-      <div class="col-md-6">
-        <label for="Firstname" class="mt-0">Firstname</label>
-        <li class="rounded list-group-item profile-field">
-          <%= @user.first_name %>
-        </li>
-        <label for="Lastname" class="mt-4">Lastname</label>
-        <li class="rounded list-group-item profile-field">
-          <%= @user.last_name %>
-        </li>
-        <label for="Bloodtype" class="mt-4">Bloodtype</label>
-        <li class="rounded list-group-item profile-field">
-          <%= @user.blood_type %>
-        </li>
-        <label for="Birhtday" class="mt-4">Birhtday</label>
-        <li class="rounded list-group-item profile-field">
-          <%= @user.birthday %>
-        </li>
-      </div>
+  </div>
+  <%# carer part ends %>
+  <div class="row pt-3">
+    <div class="col-md-6 d-flex flex-column justify-content-center align-items-center">
+      <%= image_tag @user.avatar_url, class: "profile-avatar"%>
+    </div>
+    <div class="col-md-6">
+      <label for="Firstname" class="mt-0">Firstname</label>
+      <li class="rounded list-group-item profile-field">
+        <%= @user.first_name %>
+      </li>
+      <label for="Lastname" class="mt-4">Lastname</label>
+      <li class="rounded list-group-item profile-field">
+        <%= @user.last_name %>
+      </li>
+      <label for="Bloodtype" class="mt-4">Bloodtype</label>
+      <li class="rounded list-group-item profile-field">
+        <%= @user.blood_type %>
+      </li>
+      <label for="Birhtday" class="mt-4">Birhtday</label>
+      <li class="rounded list-group-item profile-field">
+        <%= @user.birthday %>
+      </li>
     </div>
   </div>
+</div>
 </div>

@@ -4,6 +4,71 @@ User.destroy_all
 puts "Destroyed DB"
 puts "Creating new DB..."
 
+ben = User.create!(
+  email: "ben@a.com",
+  password: "password",
+  first_name: "Ben",
+  last_name: "A",
+  blood_type: Faker::Blood.group,
+  birthday: Date.new(1982, 11, 13)
+)
+
+walter = User.create!(
+  email: "walter@k.com",
+  password: "password",
+  first_name: "Walter",
+  last_name: "K",
+  blood_type: Faker::Blood.group,
+  birthday: Date.new(1941, 12, 24),
+  carer_id: ben.id
+)
+
+puts "Creating meds"
+med_names = [ ["Astrovastax", "Gegen erhöhte Blutcholesterinwerte" , 10 ], 
+              ["Betmiga", "Reduziert die Aktivität der überaktiven Harnblase", 56],
+              ["CardiaxASS", "Thrombozyten-Aggeragtionshemmer", 80],
+              ["Condrosulf", "Gegen Schmerzen und Einschränkung der Beweglichkeit der Gelenke" , 90],
+              ["Duodart","Gegegen Prostatavergrösserung",103],
+              ["Perindopril-Indapamid-Mepha", "Gegen arterieller Hypertonie / Bluthochdruck ", 46],
+              ["Ryzodec","Insulin", 15],
+              ["Alkohol-Tupfer","Zur Desinfektion der Haut vor dem Spritzen",87],
+              ["Clickfine", "Nadel für Insulin-Pens", 60],
+              ["Contour-next", " Sensoren (zur Messung des Blutzuckers)", 150],
+              ["Microlet", "Lanzetten", 150],
+              ["Microlet-next", "Stecher für Lanzetten", 73],
+              ["Contour-next-ONE", "Blutzucker-Messgerät", 11],
+              ["Actilife","Vitamine", 32] ]
+
+med_names.each do |med|
+  med = Med.new(
+    name: med[0],
+    description: med[1],
+    stock: med[2],
+    user_id: walter.id
+  )
+  img_photo = File.open("#{Rails.root}/app/assets/images/med_samples/#{med.name}.jpg")
+  med.photo.attach(io: img_photo, filename: 'pillphoto.jpg', content_type: 'image/jpg' )
+  med.save!
+end
+
+puts "Creating treatments"
+Treatment.create!(
+  name: "Bloodpressure",
+  user_id: walter.id
+)
+
+Treatment.create!(
+  name: "Vitamines",
+  user_id: walter.id
+)
+
+Treatment.create!(
+  name: "Pain relief",
+  user_id: walter.id
+)
+
+puts "Creating fake users"
+
 5.times do
   test_user = User.create!(
     email: Faker::Internet.email,
@@ -64,3 +129,4 @@ puts "Creating new DB..."
   puts "Created schedules for #{test_user.first_name}"
 end
 puts "DB Created succesfully!"
+
