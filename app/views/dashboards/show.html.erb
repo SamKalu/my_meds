@@ -8,21 +8,16 @@
 
     <%= render "intakes/intakes_schedule", intakes: @morning_intakes, title: "Morning" %>
     <%= render "intakes/intakes_schedule", intakes: @afternoon_intakes, title: "Afternoon" %>
-    <%= render "intakes/intakes_schedule", intakes: @evening_intakes, title: "Morning" %>
+    <%= render "intakes/intakes_schedule", intakes: @evening_intakes, title: "Evening" %>
 
 
   </div>
 
-  <div class="notifications-container my-5">
-    <div class="rounded alert-danger p-3 mb-2" role="alert">
-      Walter, please, your pills, man!
+    <div class="notifications-container mt-3">
+      <div class="rounded alert-danger p-3 mb-2" role="alert">
+        <i class="fas fa-info-circle mr-2"></i>Walter, you are running out of Paracetamol!
+      </div>
+
     </div>
-     <div class="rounded alert-danger p-3 mb-2" role="alert">
-      Okay, do what you want, Walter, as always
-    </div>
-     <div class="rounded alert-danger p-3 mb-2" role="alert">
-      I feel useless...
-    </div>
-  </div>
 </div>
 </div>

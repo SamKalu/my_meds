@@ -2,7 +2,7 @@
       <div class="long-card p-3 mt-3">
         <div class="d-flex justify-content-between align-items-center">
               <p> <%= title %></p>
-              <% if title == "Morning " %>
+              <% if title == "Morning" %>
                 <i class="fas fa-mug-hot"></i>
               <% elsif title == "Afternoon" %>
                 <i class="fas fa-sun"></i>
@@ -14,18 +14,22 @@
     <% end %>
 
 <div class="extend-schedules-card p-3">
-      <div class="schedules-intakes d-flex row">
-        <% intakes.each do |intake| %>
-          <div class="medcard-schedule mr-2 col-md-4 <%= "taken" if intake.taken? %>" data-intakes-taken-target="meds" id="intake-<%= intake.id %>">
-            <%= cl_image_tag intake.schedule.med.photo.key%>
-            <div class="med-info d-flex align-items-center">
-              <p><%= intake.schedule.med.name %></p>
-              <small><%= intake.due_date.strftime("%H:%M") %></small>
-              <div class ="icon-btn def-dark wider p-2" data-intakes-taken-target="btn" data-action="click->intakes-taken#taken" data-id="<%= intake.id %>">
-                  <i class="fas fa-pills"></i>
-              </div>
+  <div class="schedules-intakes d-flex row">
+    <% if intakes.empty? %>
+      <small>No meds to take in the <%= title.downcase  %></small>
+    <% else %>
+      <% intakes.each do |intake| %>
+        <div class="medcard-schedule mr-2 col-md-4 <%= "taken" if intake.taken? %>" data-intakes-taken-target="meds" id="intake-<%= intake.id %>">
+          <%= cl_image_tag intake.schedule.med.photo.key%>
+          <div class="med-info d-flex align-items-center">
+            <p><%= intake.schedule.med.name %></p>
+            <small><%= intake.due_date.strftime("%H:%M") %></small>
+            <div class ="icon-btn def-dark wider p-2" data-intakes-taken-target="btn" data-action="click->intakes-taken#taken" data-id="<%= intake.id %>">
+                <i class="fas fa-pills"></i>
             </div>
           </div>
-        <% end %>
-      </div>
-    </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
