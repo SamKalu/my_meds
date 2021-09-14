@@ -1,23 +1,31 @@
 class SchedulesController < ApplicationController
   before_action :set_schedule, only: %i[edit update destroy]
+  layout "dashboard", only: %i[new edit]
 
   def new
     @treatment = Treatment.find(params[:treatment_id])
     @meds = policy_scope(Med)
     @schedule = Schedule.new
     authorize @schedule
+    @tab = "treatments"
   end
 
   def create
-    @schedule = Schedule.new(schedules_params)
+    @meds = Med.where(id: params[:schedule][:med])
     @treatment = Treatment.find(params[:treatment_id])
-    @schedule.treatment = @treatment
-    authorize @schedule
-    if @schedule.save
-      redirect_to dashboard_path
-    else
-      render :new
+    @meds.each do |med|
+      @schedule = Schedule.new(schedules_params)
+      @schedule.treatment = @treatment
+      @schedule.med = med
+      authorize @schedule
+      @schedule.save
     end
+    redirect_to treatment_path(@treatment)
+    # if @schedule.save
+    # else
+    #   @meds = policy_scope(Med)
+    #   render :new
+    # end
   end
 
   def edit

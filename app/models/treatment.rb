@@ -3,5 +3,5 @@ class Treatment < ApplicationRecord
   has_many :schedules, dependent: :destroy
   has_many :meds, through: :schedules
 
-  validates :name, presence: true
+  validates :name, presence: true, uniqueness: { scope: :user_id}
 end

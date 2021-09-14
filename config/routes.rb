@@ -6,13 +6,14 @@ Rails.application.routes.draw do
   resources :treatments do
     resources :schedules, only: %i[new create]
   end
-  
-  resource :dashboard, only: [:show] do 
+
+  resource :dashboard, only: [:show] do
     collection do
       get :docs
       get :profile
     end
   end
-  
+
   resources :schedules, only: %i[edit update destroy]
+  resources :intakes, only: %i[index]
 end

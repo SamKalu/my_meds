@@ -193,9 +193,11 @@
   margin-left: 25px;
   opacity: 0.9;
   transition: opacity 0.3s ease;
-  .medcard {
-    height: 140px;
+  .medcard-schedule {
+    height: 80px;
     margin: 0 8px;
+    display: flex;
+    justify-content: space-between;
     p {
       font-size: 16px;
     }
@@ -212,4 +214,8 @@
 
 .prompt-user {
   font-size: $body-font-size !important;
+}
+
+.no-margin-main-row {
+  margin: 0;
 }
