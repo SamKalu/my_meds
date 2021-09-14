@@ -17,7 +17,7 @@
   font-weight: bold;
 }
 
-.weekday-checkbox:checked + .checkbox-label-weekdays {
+.weekday-checkbox:checked + .checkbox-label-weekdays, .checkbox-label-weekdays.active {
   background-color: $light-gray;
 }
 

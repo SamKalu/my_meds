@@ -1,0 +1,37 @@
+.times-display {
+  display: flex;
+  margin-bottom: 16px;
+
+  & p {
+    margin: 4px;
+    text-align: center;
+    margin-bottom: 0;
+    width: 56px;
+    border-radius: 15px;
+    border: none;
+    background-color: #F4F4F4;
+  }
+}
+
+.weekday-display {
+  display: flex;
+  align-items: center;
+
+  & .active {
+    margin: 4px;
+  }
+}
+
+.treatment-show {
+  padding: 16px;
+  width: 376px;
+  height: 120px;
+}
+
+.treatment-card {
+  cursor: pointer;
+}
+
+.treatment-card-selected {
+  background-color: $green;
+}
