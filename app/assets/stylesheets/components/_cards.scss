@@ -189,23 +189,35 @@
   box-shadow: $box-shadow;
   border-radius: 0 0 $border-radius  $border-radius;
   background-color: $light-gray;
+  display: flex;
+  justify-content: space-evenly;
   width: 550px;
   margin-left: 25px;
   opacity: 0.9;
   transition: opacity 0.3s ease;
   .medcard-schedule {
+    box-shadow: $box-shadow;
     height: 80px;
     margin: 0 8px;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     p {
       font-size: 16px;
+      margin: 0;
+    }
+    img {
+      height: 30px;
     }
   }
 
-.stock {
+  .stock {
   font-size: 18px;
+  }
 }
+
+.schedules-intakes {
+  justify-content: space-around;
 }
 
 .schedules-container {
