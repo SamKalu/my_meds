@@ -11,8 +11,6 @@
           <% @intakes.each do |intake| %>
             <% if intake.due_date.strftime("%H") == hour.strftime("%H") %>
               <%= intake.schedule.med.name %>
-              <%= intake.schedule.med.photo.key %>
-              <%= intake.due_date.strftime("%H %M") %>
             <% end %>
         <% end %>
       </div>
