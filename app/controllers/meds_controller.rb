@@ -36,7 +36,7 @@ class MedsController < ApplicationController
 
   def update
     if @med.update(med_params)
-      redirect_to @med
+      redirect_to meds_path
     else
       render :edit
     end

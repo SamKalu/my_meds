@@ -5,13 +5,13 @@
   background: white;
   text-decoration: none !important;
   border-radius: 8px;
-  opacity: 0.6;
+    opacity: 1;
   width: 260px;
   transition: opacity 0.3s ease;
 
   &:hover {
     color: $black;
-    opacity: 1;
+  background: rgba(white, 0.6);
  box-shadow: $box-shadow;  }
 }
 
@@ -45,12 +45,10 @@
   font-weight: bold;
 
   &:hover {
-    opacity: 0.6;
+    background: rgba($blue-main, 0.6);
     color: $black;
     box-shadow: $box-shadow;
   }
-
-
 }
 
 .btn-small, .submit-schedule-button {
@@ -62,11 +60,10 @@
   font-size: 15px;
   text-decoration: none !important;
   transition: opacity 0.3s ease;
-  opacity: 1;
   font-weight: bold;
 
   &:hover {
-  opacity: 0.6;
+    background: rgba($blue-main, 0.6);
     color: $black;
     box-shadow: $box-shadow;
     // 1px 4px 10px rgba(0,0,0,0.2);
@@ -78,22 +75,25 @@
 }
 
 .icon-btn {
-  width: 50px;
-  color: $black;
-  background: $blue-main;
-  padding: 5px 5px;
-  border-radius: $border-radius;
+  // width: 50px;
+  // color: $black;
+  // background: $blue-main;
+  // padding: 5px 5px;
+  // border-radius: $border-radius;
+  background: none;
+  color: red;
   font-size: 15px;
   text-decoration: none !important;
   transition: opacity 0.3s ease;
   opacity: 1;
+  font-size: $body-font-size;
 
-  &:hover {
-  opacity: 0.6;
-    color: $black;
-    box-shadow: $box-shadow;
-    // 1px 4px 10px rgba(0,0,0,0.2);
-  }
+  // &:hover {
+  // opacity: 0.6;
+  //   color: $black;
+  //   box-shadow: $box-shadow;
+  //   // 1px 4px 10px rgba(0,0,0,0.2);
+  // }
 }
 
 .wider {
