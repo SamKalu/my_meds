@@ -3,8 +3,8 @@ class SchedulesController < ApplicationController
   layout "dashboard", only: %i[new edit]
 
   def new
-    @treatment = Treatment.find(params[:treatment_id])
-    @meds = policy_scope(Med)
+    @treatment = Treatment.includes(:meds).find(params[:treatment_id])
+    @meds = policy_scope(Med).with_attached_photo.where.not(id: @treatment.meds.pluck(:id))
     @schedule = Schedule.new
     authorize @schedule
     @tab = "treatments"
