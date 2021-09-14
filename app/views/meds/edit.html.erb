@@ -1,23 +1,27 @@
 <div class="container pt-5">
   <div class="border-bottom border-muted pb-4">
-      <%= link_to meds_path, class: "btn-small" do%>
+    <%= link_to meds_path, class: "btn-small" do%>
       <i class="fas fa-arrow-circle-left def-dark"></i> Back
     <% end %>
   </div>
-  <%= simple_form_for(@med) do |f| %>
-    <div class="short-inputs">
+  <div class="d-flex justify-content-left mt-3">
+    <div class="img-show mr-5">
+      <%= med_img(@med) %>
+    </div>
+    <%= simple_form_for(@med) do |f| %>
       <%= f.input :name,
                   input_html: { autocomplete: "name"} %>
       <%= f.input :description,
                   input_html: { autocomplete: "description"} %>
       <%= f.input :stock,
                   input_html: { autocomplete: "stock"} %>
-    </div>
-
-  <div class="btn-wraper d-flex justify-content-center mt-3">
-    <%= f.submit "Edit Med", class: "primary-btn-blue pb-3 border-none"  %>
- </div>
-
-  <% end %>
-
+      <div class="btn-wraper d-flex justify-content-center mt-3">
+        <%= f.submit "Edit Med", class: "btn-small border-none mx-3"   %>
+        <%= link_to @med,
+            method: :delete, data: {confirm: "Are you sure?"},   class:"btn-small" do %>
+          <i class="far fa-trash-alt"></i> Delete
+        <% end %>
+      </div>
+    <% end %>
+  </div>
 </div>
