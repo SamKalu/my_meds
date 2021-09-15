@@ -13,6 +13,8 @@ ben = User.create!(
   blood_type: Faker::Blood.group,
   birthday: Date.new(1982, 11, 13)
 )
+ben_photo = File.open("#{Rails.root}/app/assets/images/profile_pics/ben.JPG")
+ben.avatar.attach(io: ben_photo, filename: 'avatar_ben.jpg', content_type: 'image/jpg' )
 puts "...and there was Beni"
 
 puts "And God said, let there be Walter..."
@@ -25,6 +27,8 @@ walter = User.create!(
   birthday: Date.new(1941, 12, 24),
   carer_id: ben.id
 )
+walter_photo = File.open("#{Rails.root}/app/assets/images/profile_pics/walter.jpeg")
+walter.avatar.attach(io: walter_photo, filename: 'avatar_walter.jpg', content_type: 'image/jpg' )
 puts "...and there was Walter"
 puts "God saw that Walter was good and he made Beni his carer. 'Take your meds' -said Beni, and so he did"
 
