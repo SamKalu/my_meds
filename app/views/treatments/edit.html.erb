@@ -2,11 +2,13 @@
   <%= link_to treatment_path(@treatment), class:"btn-small" do %>
     <i class="fas fa-arrow-circle-left"></i> Back
   <% end %>
-  <h2 class="mt-4">Edit Treatment</h2>
+  <h2 class="mt-4">Update Treatment</h2>
   <hr class="mb-3">
   <%= simple_form_for(@treatment) do |f| %>
     <%= f.input :name,
                 input_html: { autocomplete: "name"} %>
-    <%= f.submit nil, class:"primary-btn-blue btn-sm border-none" %>
+    <%= button_tag(class: "primary-btn-blue pb-3 border-none") do %>
+      <i class="fas fa-save mr-2"></i>Update Treatment
+    <% end %>
   <% end %>
 </div>

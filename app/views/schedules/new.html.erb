@@ -1,12 +1,11 @@
-<div class="treatment-container p-5">
-  <%= link_to treatment_path(@treatment), class: "btn-small" do%>
-    <i class="fas fa-arrow-circle-left def-dark"></i> Back
-  <% end %>
-  <div class="header-treatments d-flex justify-content-between mt-4">
-    <h2>New schedule for <%= @treatment.name %></h2>
+<div class="treatment-container h-100 d-flex flex-column p-5">
+  <div class="header-container border-bottom">
+    <%= link_to treatment_path(@treatment), class: "btn-small" do%>
+      <i class="fas fa-arrow-circle-left def-dark"></i> Back
+    <% end %>
+      <h2 class="mt-4 mb-4">New schedule for <%= @treatment.name %></h2>
   </div>
-  <hr class="mb-5">
-  <div data-controller="new-schedule" class="form-container-meds">
+  <div data-controller="new-schedule" class="form-container-meds h-100 flex-grow-1 mt-4">
     <%= simple_form_for [ @treatment, @schedule ],  data: { new_schedule_target: 'form'} do |f| %>
       <div class="med-cards">
         <%= f.input :med, as: :check_boxes, collection: @meds, input_html: { multiple: true, class: "d-none med-checkbox" }, include_hidden: false,
@@ -18,11 +17,12 @@
         <div class="schedule-times d-flex align-items-center">
           <div data-new-schedule-target="times" class="times-input">
             <% @schedule.times.each do |time| %>
-              <input id="time" type="time" name="schedule[times][]" style="margin-right: -4px" class="datepicker" value="<%= time %>">
+              <input id="time" type="time" name="schedule[times][]" style="margin-left: 3px" class="datepicker" value="<%= time %>">
             <% end %>
-            <input id="time" type="time" name="schedule[times][]" style="margin-right: -4px" class="datepicker">
+            <input id="time" type="time" name="schedule[times][]" style="margin-left: 3px" class="datepicker">
           </div>
-          <i class="fas fa-plus-circle mx-3" data-action="click->new-schedule#addnewtime" ></i>
+          <i class="fas fa-minus-circle mx-3" data-action="click->new-schedule#removetime" ></i>
+          <i class="fas fa-plus-circle mx-1" data-action="click->new-schedule#addnewtime" ></i>
         </div>
         <%= f.input :weekdays, as: :check_boxes,
                     collection: Schedule::WEEKDAYS,

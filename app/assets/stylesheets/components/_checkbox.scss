@@ -24,6 +24,9 @@
 
 .schedule_weekdays {
   display: flex;
+  padding: 8px 0 0 8px;
+  margin-bottom: 4px;
+  justify-self: center;
 
   .form-check {
     padding-right: 2px;
@@ -91,7 +94,8 @@
   height: 100px;
   border: 1px solid #dee2e6 !important;
   transition: background-color 0.5s ease;
-
+  user-select: none;
+  
   & h2 {
     flex-grow: 1;
     text-align: center;
