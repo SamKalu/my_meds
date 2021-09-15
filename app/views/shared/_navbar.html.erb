@@ -9,7 +9,7 @@
     <ul class="navbar-nav mr-auto">
       <li class="my-auto">
         <% if current_user != true_user%>
-          <span class="badge badge-warning p-2 mr-2" ><i class="fas fa-info-circle mr-2"></i>You are signed in as <%= current_user.first_name %></span>
+          <span class="badge badge-warning p-2 mr-2" ><i class="fas fa-info-circle mr-2"></i>You are caring for <%= current_user.first_name %></span>
           <%= link_to stop_impersonating_users_path, method: :post do%>
             <i class="fas fa-arrow-circle-left mr-2"></i>Back to my profile
           <% end %>
