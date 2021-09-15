@@ -15,6 +15,11 @@ Rails.application.routes.draw do
   end
 
   resources :schedules, only: %i[edit update destroy]
+
+  resources :users, only: [] do
+    post :impersonate, on: :member
+    post :stop_impersonating, on: :collection
+
   resources :intakes, only: %i[index] do
     member do
       post :take
