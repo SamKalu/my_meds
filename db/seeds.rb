@@ -28,7 +28,7 @@ walter = User.create!(
 puts "...and there was Walter"
 puts "God saw that Walter was good and he made Beni his carer. 'Take your meds' -said Beni, and so he did"
 
-puts "Creating meds"
+puts "Creating meds for Walter"
 med_names = [ ["Astrovastax", "Gegen erhöhte Blutcholesterinwerte" , 10 ], 
               ["Betmiga", "Reduziert die Aktivität der überaktiven Harnblase", 56],
               ["CardiaxASS", "Thrombozyten-Aggeragtionshemmer", 80],
@@ -56,7 +56,7 @@ med_names.each do |med|
   med.save!
 end
 
-puts "Creating treatments"
+puts "Creating treatments for Walter"
 Treatment.create!(
   name: "Bloodpressure",
   user_id: walter.id
