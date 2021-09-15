@@ -1,14 +1,14 @@
 <div class="db-navbar">
   <%= link_to dashboard_path,  class:"db-menubtn btn-left #{'btn-active' if @tab == 'home'}" do %>
-    <i class="fas fa-street-view"></i> Home 
+    <i class="fas fa-street-view"></i> Home
   <% end %>
   <%= link_to meds_path,  class:"db-menubtn #{'btn-active' if @tab == 'meds'}" do %>
     <i class="fas fa-th"></i> Inventory
   <% end %>
   <%= link_to treatments_path,  class:"db-menubtn #{'btn-active' if @tab == 'treatments'}" do %>
-    <i class="fas fa-hand-holding-medical"></i> Treatments  
+    <i class="fas fa-hand-holding-medical"></i> Treatments
   <% end %>
-  <%= link_to "",  class:"db-menubtn #{'btn-active' if @tab == 'docs'}" do %>
+  <%= link_to documents_path,  class:"db-menubtn #{'btn-active' if @tab == 'documents'}" do %>
     <i class="fas fa-notes-medical"></i> Documents
   <%end %>
   <%= link_to profile_dashboard_path,  class:"db-menubtn btn-right #{'btn-active' if @tab == 'profile'}" do %>

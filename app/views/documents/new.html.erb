@@ -1,0 +1,17 @@
+<div class="container p-5">
+ <%= link_to documents_path, class:"btn-small" do%>
+    <i class="fas fa-arrow-circle-left"></i> Back
+  <% end %>
+  <h2 class="mt-4">New document</h2>
+
+  <%= simple_form_for(@document) do |f| %>
+    <%= f.input :title %>
+    <%= f.input :description %>
+    <p>File</p>
+    <%= f.input :photo, as: :file, label: false %>
+  <div class="btn-wraper d-flex justify-content-center mt-3">
+    <%= f.submit "Save", class:"primary-btn-blue pb-3 border-none" %>
+  </div>
+
+  <% end %>
+</div>

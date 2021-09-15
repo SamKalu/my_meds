@@ -26,8 +26,8 @@ class DashboardsController < ApplicationController
     skip_policy_scope # this should be deleted !!!!!!!
   end
 
-  def docs
-    @tab = "docs"
+  def documents
+    @tab = "documents"
     skip_policy_scope # this should be deleted !!!!!!!
   end
 

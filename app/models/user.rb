@@ -6,6 +6,7 @@ class User < ApplicationRecord
   has_many :treatments, dependent: :destroy
   has_many :contacts, dependent: :destroy
   has_many :schedules, through: :meds
+  has_many :documents, dependent: :destroy
 
   validates :first_name, presence: true
   validates :last_name, presence: true
