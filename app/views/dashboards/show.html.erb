@@ -10,9 +10,17 @@
     </div>
 
     <div class="notifications-container mt-5">
+    <% ["morning", 'afternoon', 'evening'] .each do |time| %>
+      <% if eval("@#{time}_intakes").any? { |intake| intake.should_be_taken? } %>
+        <div class="rounded alert-danger p-3 mb-2" role="alert">
+          <i class="fas fa-info-circle mr-2"></i>Walter, you need to take all your <%= time %> Meds!
+        </div>
+      <% end %>
+    <% end %>
+
       <% @meds.each do |med|%>
         <% if med.stock <= 10  %>
-          <div class="rounded alert-danger p-3 mb-2" role="alert">
+          <div class="rounded alert-warning p-3 mb-2" role="alert">
             <i class="fas fa-info-circle mr-2"></i>Walter, you are running out of <%= med.name %>!
           </div>
         <% end %>

@@ -1,26 +1,24 @@
-<%= link_to intakes_path(anchor: "time10") do %>
-      <div class="long-card schedule_daytime p-3 mt-5">
-        <div class="d-flex justify-content-between align-items-center">
-          <div class="daytime_logo">
-            <% if title == "Morning" %>
-              <i class="fas fa-mug-hot"></i>
-            <% elsif title == "Afternoon" %>
-              <i class="fas fa-sun"></i>
-            <% else %>
-              <i class="fas fa-moon"></i>
-            <% end %>
-            <p><%= title %></p>
-          </div>
-          <% unless intakes.empty? %>
-            <% if intakes.all? { |intake| intake.taken? }%>
-              <i class="fas fa-check-circle"></i>
-            <% elsif intakes.any? { |intake| intake.should_be_taken? } %>
-              <i class="fas fa-info-circle"></i>
-            <% end %>
-          <% end %>
-        </div>
-      </div>
+<div class="long-card schedule_daytime p-3 mt-5">
+  <div class="d-flex justify-content-between align-items-center">
+    <div class="daytime_logo">
+      <% if title == "Morning" %>
+        <i class="fas fa-mug-hot"></i>
+      <% elsif title == "Afternoon" %>
+        <i class="fas fa-sun"></i>
+      <% else %>
+        <i class="fas fa-moon"></i>
+      <% end %>
+      <p><%= title %></p>
+    </div>
+    <% unless intakes.empty? %>
+      <% if intakes.all? { |intake| intake.taken? }%>
+        <i class="fas fa-check-circle"></i>
+      <% elsif intakes.any? { |intake| intake.should_be_taken? } %>
+        <i class="fas fa-info-circle"></i>
+      <% end %>
     <% end %>
+  </div>
+</div>
 
 <div class="extend-schedules-card p-3">
     <% if intakes.empty? %>
@@ -28,7 +26,7 @@
     <% else %>
       <% intakes.each do |intake| %>
         <div>
-          <div class="medcard-schedule mr-2" data-intakes-taken-target="meds" id="intake-<%= intake.id %>">
+          <div class="medcard-schedule mr-2" data-intakes-taken-target="meds" id="intake-<%= intake.id %>" >
             <%= cl_image_tag intake.schedule.med.photo.key%>
             <div class="med-info">
               <div>
