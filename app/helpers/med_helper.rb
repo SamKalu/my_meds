@@ -1,5 +1,5 @@
 module MedHelper
-   def med_img(med, options = { class: "" })
+  def med_img(med, options = { class: "" })
     if med.photo.attached?
       cl_image_tag med.photo.key, options
     else
