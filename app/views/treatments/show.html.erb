@@ -5,8 +5,10 @@
   <div class="header-treatments d-flex justify-content-between mt-4">
     <h2><%= @treatment.name %></h2>
     <div class="btn-wraper">
-      <%= link_to new_treatment_schedule_path(@treatment), class:"btn-small mx-2" do%>
-        <i class="fas fa-plus"></i> Add a Med
+      <% if !@treatment.schedules.empty? %>
+        <%= link_to new_treatment_schedule_path(@treatment), class:"btn-small mx-2" do%>
+          <i class="fas fa-plus"></i> Add more
+        <% end %>
       <% end %>
       <%= link_to edit_treatment_path, class:"btn-small mx-2" do%>
         <i class="fas fa-edit"> </i> Edit
@@ -17,36 +19,54 @@
     </div>
   </div>
   <hr class="mb-5">
-  <div class="treatment-layout d-flex">
-    <div class="container text-center">
-      <div class="row justify-content-between">
-        <ul style="list-style-type: none">
-        <% @treatment.schedules.each do  |schedule|%>
-        <li>
-            <div class="med-long-card border border-muted">
-              <%= cl_image_tag schedule.med.photo.key %>
-              <div class="textbox">
-                <h2><%= schedule.med.name %></h2>
-              </div>
-              <div class="p-3">
-                <p class="textbold"><%= schedule.med.stock %></p>
-                in Stock
-              </div>
-            </div>
-        </li>
-          <%# <div class="col-6"> %>
-          <%# </div> %>
-        <% end %>
+  <div class="treatment-layout d-flex" data-controller="display-cards">
+    <div class="container text-center pl-0">
+      <div class="treatment-card-container">
+        <ul style="list-style-type: none" class="treatment-card-grid">
+          <% if @treatment.schedules.empty? %>
+            <p class="text-left w-75">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Itaque, veniam eos! Perspiciatis, provident adipisci. Inventore, natus, nam laudantium nulla impedit sunt voluptas laborum accusamus quaerat cupiditate ullam molestias cumque non.</p>
+            <%= link_to new_treatment_schedule_path(@treatment), class:"btn-small mx-2" do%>
+              <i class="fas fa-plus"></i> Add a Med
+            <% end %>
+          <% else %>
+            <% @treatment.schedules.each do  |schedule|%>
+              <li>
+                <div class="med-long-card treatment-card border-muted" data-display-cards-target="trigger" data-action="click->display-cards#show" id="med_<%= schedule.med.id %>">
+                  <%= cl_image_tag schedule.med.photo.key %>
+                  <div class="textbox">
+                    <h2><%= schedule.med.name %></h2>
+                  </div>
+                  <div class="p-3">
+                    <p class="textbold"><%= schedule.med.stock %></p>
+                    in Stock
+                  </div>
+                </div>
+              </li>
+              <%# <div class="col-6"> %>
+              <%# </div> %>
+            <% end %>
+          <% end %>
         </ul>
       </div>
     </div>
-    <div class="form-schedule-card p-5 mx-3 rounded">
-      <% @treatment.schedules.each do |schedule| %>
-        <div class="time-align">
-          <i class="fas fa-bell"></i>
-          <% schedule.times.each do |time| %>
-            <%= time %>.
-          <% end %>
+    <div class="form-schedule-card treatment-show rounded">
+      <% @treatment.schedules.group_by {|sch| sch.med}.values.each do |med_schedules| %>
+        <div class="schedule-display d-none" data-display-cards-target="output" id="med_<%= med_schedules.first.med.id %>">
+          <div class="times-display">
+            <% med_schedules.each do |schedule| %>
+              <i class="fas fa-bell"></i>
+              <% schedule.times.each do |time| %>
+                <p><%= time %></p>
+              <% end %>
+            <% end %>
+          </div>
+          <div class="weekday-display">
+            <% Schedule::WEEKDAYS.each do |weekday| %>
+              <div class="checkbox-label-weekdays <%= med_schedules.any? {|schedule| schedule.weekdays.include?(weekday.second)} ? "active" : "" %>">
+                <%= weekday.first %>
+              </div>
+            <% end %>
+          </div>
         </div>
       <% end %>
     </div>
