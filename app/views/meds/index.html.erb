@@ -18,25 +18,38 @@
     <% elsif @meds.count < 3 %>
       <div class="row justify-content-center">
       <% else %>
-        <div class="row justify-content-between no-margin-main-row">
+        <div class="row justify-content no-margin-main-row">
         <% end %>
         <% @meds.each do |med| %>
           <div class="col-md-3 col-xl-2">
             <%# <%= link_to med_path(med) do  %>
-              <div class="medcard text-center border border-muted my-3">
+              <div class="medcard text-center border border-muted my-3" data-controller="restock-med">
+                <%= link_to edit_med_path(med), class: "w-100" do %>
+                  <div id="wrapper">
                 <%= med_img(med) %>
-                <div class="text-box mt-2">
+                <p class="text text-center">Click to update</p>
+                  </div>
+                  <% end %>
+                <div class="text-box">
                   <h3 class="med-name textbold"><%= med.name%></h3>
                   <%# <% end %>
                   <p class="med-desc text-muted "><%= med.description %></p>
-                  <p class="border border-muted"><span class="text-muted">Stock:</span> <strong class="stock"><%= med.stock %> </strong></p>
-                </div>
-                <%= link_to edit_med_path(med), class:"icon-btn wider" do %>
-               <i class="fas fa-edit"></i> Manage
-               <% end %>
-                <%= link_to med,
-                    method: :delete, data: {confirm: "Are you sure?"},   class:"icon-btn wider" do %>
-                  <i class="far fa-trash-alt"></i> Delete
+                  <p data-restock-med-target="restock" class="">
+                    <span class="text-muted">Stock:</span>
+                    <strong class="stock">
+                      <%= med.stock %>
+                    </strong>
+                    <i data-action="click->restock-med#displayForm"class="fas fa-edit icon-stock"></i>
+                 </p>
+              </div>
+                  <%= simple_form_for med, html: {class: "d-none", data: { restock_med_target:"form"} } do |f| %>
+                  <div class="d-flex align-items-baseline justify-content-center">
+                  <p>Stock:</p>
+                    <%= f.input :stock, wrapper_html: {class:"w-50"},input_html: { class: "stock-input"}, label: false %>
+                  </div>
+                    <%= f.submit "OK", class:"btn-small-2" %>
+
+
                 <% end %>
               </div>
             </div>
