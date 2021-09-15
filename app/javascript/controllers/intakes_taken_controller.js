@@ -14,7 +14,8 @@ export default class extends Controller {
     })
       .then(response => {
         if (response.status == 200) {
-          this.medsTargets.find(x => x.id === `intake-${intakeId}`).classList.add("taken");
+          this.medsTargets.find(x => x.id === `intake-${intakeId}`).classList.toggle("taken");
+          this.btnTargets.find(x => x.dataset.id === `${intakeId}`).innerText = "Med taken"
         }
       })
   }

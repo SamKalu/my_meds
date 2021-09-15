@@ -1,15 +1,15 @@
 <div class="px-5 py-4">
   <div class="d-flex justify-content-between align-items-center border-bottom border-muted pb-2">
     <h2>Your schedule</h2>
-</div>
-<div class="main-container-treatment d-flex">
-  <div class="schedules-container" data-controller="intakes-taken">
-    <%= render "intakes/intakes_schedule", intakes: @morning_intakes, title: "Morning" %>
-    <%= render "intakes/intakes_schedule", intakes: @afternoon_intakes, title: "Afternoon" %>
-    <%= render "intakes/intakes_schedule", intakes: @evening_intakes, title: "Evening" %>
   </div>
+  <div class="main-container-treatment d-flex">
+    <div class="schedules-container" data-controller="intakes-taken">
+      <%= render "intakes/intakes_schedule", intakes: @morning_intakes, title: "Morning" %>
+      <%= render "intakes/intakes_schedule", intakes: @afternoon_intakes, title: "Afternoon" %>
+      <%= render "intakes/intakes_schedule", intakes: @evening_intakes, title: "Evening" %>
+    </div>
 
-  <div class="notifications-container mt-5">
+    <div class="notifications-container mt-5">
       <% @meds.each do |med|%>
         <% if med.stock <= 10  %>
           <div class="rounded alert-danger p-3 mb-2" role="alert">
@@ -17,5 +17,14 @@
           </div>
         <% end %>
       <% end %>
+      <div class="weather_location" data-controller="weather-forecast">
+         <p data-weather-forecast-target="city"> Weather in Barcelona </p>
+         <small data-weather-forecast-target="date">15/09/21</small>
+         <br>
+         <small data-weather-forecast-target="weather">Cloudy ☁</small>
+         <br>
+         <small data-weather-forecast-target="temp"> 25</small>
+      </div>
+    </div>
   </div>
 </div>

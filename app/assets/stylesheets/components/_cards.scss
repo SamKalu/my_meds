@@ -201,34 +201,33 @@
 }
 
 .extend-schedules-card {
-  box-shadow: $box-shadow;
   border-radius: 0 0 $border-radius  $border-radius;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 8px;
-  background-color: $white;
-  width: 80%;
+  background-color: white;
   margin-left: 5%;
+  width: 80%;
   opacity: 0.9;
   transition: opacity 0.3s ease;
   .medcard-schedule {
     box-shadow: $box-shadow;
     border-radius: $border-radius;
+    background-color: white;
     height: 80px;
     margin: 8px;
     width: 100%;
     display: flex;
     align-items: center;
-    padding: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
     p {
       font-size: 16px;
       margin: 0;
+      margin-bottom: 8px;
     }
     img {
       height: 100%;
-      width: 40%;
+      width: 30%;
       object-fit: cover;
-      border-radius: $border-radius 0px 0px $border-radius;
+      border-radius: $border-radius;
     }
   }
 
@@ -240,8 +239,31 @@
     background-color: $red-stock-end;
   }
 
+  @-webkit-keyframes taken {
+    0% {
+        background-color: #6fcf97c4;
+
+    }
+    22% {
+        background-color: $green_v;
+        opacity:1;
+    }
+    77% {
+        background-color: #80eeae;
+    }
+    90% {
+        background-color: #abebc6;
+    }
+    100% {
+        background-color: #d1f0de;
+    }
+}
+
   .taken {
-    background-color: $green_v;
+    -webkit-animation-name: taken;
+    -webkit-animation-duration: 1500ms;
+    -webkit-animation-iteration-count: 1;
+    -webkit-animation-timing-function: ease-in-out;
   }
 
   .stock {
@@ -251,11 +273,9 @@
   .med-info{
     width: 100%;
     display: flex;
-    justify-content: center;
-  }
-
-  .block-infos {
-    display: grid;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px;
   }
 }
 

@@ -82,3 +82,24 @@
   border-radius: 100px;
   border: 4px solid white;
 }
+
+.daytime_logo {
+  display: inline-flex;
+}
+
+.schedule_daytime p{
+  margin-left: 4px;
+}
+.schedule_daytime .fa-check-circle {
+  color: $green_v;
+}
+
+.schedule_daytime .fa-info-circle {
+  color: #971c1f;
+}
+
+.weather_location {
+  height: 20vh;
+  background-color: $blue_main;
+  border-radius: $border-radius;
+}
