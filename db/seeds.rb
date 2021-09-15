@@ -1,4 +1,3 @@
-
 puts "Destroying DB..."
 User.destroy_all
 puts "Destroyed DB"
@@ -32,6 +31,22 @@ walter.avatar.attach(io: walter_photo, filename: 'avatar_walter.jpg', content_ty
 puts "...and there was Walter"
 puts "God saw that Walter was good and he made Beni his carer. 'Take your meds' -said Beni, and so he did"
 
+puts "Creating treatments for Walter"
+blood_pressure = Treatment.create!(
+  name: "Bloodpressure",
+  user_id: walter.id
+)
+
+vitamines = Treatment.create!(
+  name: "Vitamines",
+  user_id: walter.id
+)
+
+pain_relief = Treatment.create!(
+  name: "Pain relief",
+  user_id: walter.id
+)
+
 puts "Creating meds for Walter"
 med_names = [ ["Astrovastax", "Gegen erhöhte Blutcholesterinwerte" , 10 ], 
               ["Betmiga", "Reduziert die Aktivität der überaktiven Harnblase", 56],
@@ -53,27 +68,64 @@ med_names.each do |med|
     name: med[0],
     description: med[1],
     stock: med[2],
-    user_id: walter.id
+    user: walter
   )
   img_photo = File.open("#{Rails.root}/app/assets/images/med_samples/#{med.name}.jpg")
   med.photo.attach(io: img_photo, filename: 'pillphoto.jpg', content_type: 'image/jpg' )
   med.save!
 end
 
-puts "Creating treatments for Walter"
-Treatment.create!(
-  name: "Bloodpressure",
-  user_id: walter.id
+puts "#{Med.count} meds created"
+
+puts "Creating schedule for walter"
+puts "Morning schedule"
+s1 = Schedule.create!(
+  times: ["08:00"],
+  weekdays: ["monday", "tuesday", "wednesday", "friday"],
+  status: 0,
+  med: walter.meds.find_by(name: "Astrovastax"), 
+  treatment: blood_pressure
 )
 
-Treatment.create!(
-  name: "Vitamines",
-  user_id: walter.id
+s2 = Schedule.create!(
+  times: ["08:00"],
+  weekdays: ["monday", "tuesday", "wednesday", "friday"],
+  status: 0,
+  med: walter.meds.find_by(name: "Ryzodec"), 
+  treatment: blood_pressure
 )
 
-Treatment.create!(
-  name: "Pain relief",
-  user_id: walter.id
+
+s3 = Schedule.create!(
+  times: ["08:00"],
+  weekdays: ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"],
+  status: 0,
+  med: walter.meds.find_by(name: "Actilife"), 
+  treatment: vitamines
+)
+
+s4 = Schedule.create!(
+  times: ["08:00"],
+  weekdays: ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"],
+  status: 0,
+  med: walter.meds.find_by(name: "Betmiga"), 
+  treatment: blood_pressure
+)
+
+s5 = Schedule.create!(
+  times: ["19:00"],
+  weekdays: ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"],
+  status: 0,
+  med: walter.meds.find_by(name: "Condrosulf"), 
+  treatment: pain_relief
+)
+
+s6 = Schedule.create!(
+  times: ["08:00"],
+  weekdays: ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"],
+  status: 0,
+  med: walter.meds.find_by(name: "Perindopril-Indapamid-Mepha"), 
+  treatment: blood_pressure
 )
 
 puts "Creating fake users"
