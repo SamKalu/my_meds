@@ -20,4 +20,8 @@ class SchedulePolicy < ApplicationPolicy
   def update?
     record.med.user == user
   end
+
+  def destroy?
+    record.med.user == user
+  end
 end

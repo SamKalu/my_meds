@@ -10,12 +10,16 @@
   justify-content: space-between;
 }
 
+.med-cards {
+  height: 100%;
+  overflow-y: auto;
+}
+
 .med-cards .schedule_med{
   display: grid;
   grid-template-columns: 1fr 1fr;
   overflow-y: scroll;
   grid-gap: 16px;
-  height: 50vh;
 
   &::-webkit-scrollbar {
    display: none;
@@ -28,19 +32,18 @@
 
 .form-date-time {
   background-color: $blue_selected;
-  height: 144px;
+  height: fit-content;
   width: 324px;
   border-radius: 5px;
+  position: sticky;
+  top: 0;
 }
 
 .times-input{
   padding: 8px;
-}
-
-.schedule_weekdays{
-  padding: 8px 0 0 8px;
-  margin-bottom: 0;
-  justify-self: center;
+  input {
+    margin-top: 4px;
+  }
 }
 
 .med-name {
