@@ -9,7 +9,7 @@
     <%= render "intakes/intakes_schedule", intakes: @evening_intakes, title: "Evening" %>
   </div>
 
-  <div class="notifications-container mt-3">
+  <div class="notifications-container mt-5">
       <% @meds.each do |med|%>
         <% if med.stock <= 10  %>
           <div class="rounded alert-danger p-3 mb-2" role="alert">

@@ -1,20 +1,26 @@
-<h1> Your daily intakes</h1>
-
-  <h2> for <%= Time.now.strftime("%A, %b %d") %></h2>
-  <div class="calendar-scroll">
-  <% (0...24).map{ |h| Time.parse("#{h}:00")}.each do |hour| %>
-    <div id="time<%= hour.strftime("%H") %>" >
-      <h3>
-        <%= hour.strftime("%H:00") %>
-      </h3>
-      <div>
-          <% @intakes.each do |intake| %>
-            <% if intake.due_date.strftime("%H") == hour.strftime("%H") %>
-              <%= intake.schedule.med.name %>
-            <% end %>
-        <% end %>
-      </div>
-      <hr>
+<div class="px-5 py-4">
+    <%= link_to dashboard_path, class: "btn-small" do%>
+        <i class="fas fa-arrow-circle-left def-dark"></i> Back
+      <% end %>
+    <div class="text-center">
+    <h1> Your daily intakes</h1>
+    <h2> for <%= Time.now.strftime("%A, %b %d") %></h2>
     </div>
-  <% end %>
-  </div>
+      <div class="calendar-scroll">
+      <% (0...24).map{ |h| Time.parse("#{h}:00")}.each do |hour| %>
+        <div id="time<%= hour.strftime("%H") %>" >
+          <h3>
+            <%= hour.strftime("%H:00") %>
+          </h3>
+          <div>
+              <% @intakes.each do |intake| %>
+                <% if intake.due_date.strftime("%H") == hour.strftime("%H") %>
+                  <%= intake.schedule.med.name %>
+                <% end %>
+            <% end %>
+          </div>
+          <hr>
+        </div>
+      <% end %>
+      </div>
+</div>
