@@ -31,6 +31,14 @@
   height: 120px;
 }
 
+.treatment-container {
+  overflow-y: auto;
+  
+  &::-webkit-scrollbar {
+    display: none;
+   }
+}
+
 .treatment-card {
   cursor: pointer;
   margin-right: 16px;

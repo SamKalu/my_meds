@@ -10,7 +10,7 @@ class Schedule < ApplicationRecord
   delegate :user, to: :med
 
   def clean_arrays
-    self.times = times.reject(&:empty?)
+    self.times = times.reject(&:empty?).uniq
   end
 
   WEEKDAYS = [['MO', 'monday'],
