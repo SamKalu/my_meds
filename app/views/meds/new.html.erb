@@ -16,10 +16,11 @@
       </div>
     </div>
     <div class="btn-wraper d-flex justify-content-center mt-3">
-      <%= f.submit "Save", class:"primary-btn-blue pb-3 border-none"  %>
-    </div>
-  <% end %>
-</div>
-<%# </div> %>
-<%# <%= f.submit "+ Create Treatment" , class:"primary-btn-blue border-none" %>
-<%# , wrapper_html: { class: 'input-wrapper pt-4'}, input_html: { class: 'd-none' }, label_html: { class: 'primary-btn-blue'}, label: 'Upload a photo'  %>
+      <%= button_tag(class: "primary-btn-blue pb-3 border-none") do %>
+        <i class="fas fa-save mr-2"></i>Save
+      <% end %>
+    <% end %>
+  </div>
+  <%# </div> %>
+  <%# <%= f.submit "+ Create Treatment" , class:"primary-btn-blue border-none" %>
+  <%# , wrapper_html: { class: 'input-wrapper pt-4'}, input_html: { class: 'd-none' }, label_html: { class: 'primary-btn-blue'}, label: 'Upload a photo'  %>

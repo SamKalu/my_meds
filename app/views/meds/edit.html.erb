@@ -15,11 +15,13 @@
                   input_html: { autocomplete: "description"} %>
       <%= f.input :stock,
                   input_html: { autocomplete: "stock"} %>
-      <div class="btn-wraper d-flex justify-content-center mt-3">
-        <%= f.submit "Edit Med", class: "btn-small border-none mx-3"   %>
+      <div class="btn-wraper d-flex justify-content-between mt-3">
+        <%= button_tag(class: "btn-small border-none") do %>
+          <i class="fas fa-save"></i> Save
+        <% end %>
         <%= link_to @med,
-            method: :delete, data: {confirm: "Are you sure?"},   class:"btn-small" do %>
-          <i class="far fa-trash-alt"></i> Delete
+            method: :delete, data: {confirm: "Are you sure?"},   class:"btn-small border-none" do %>
+          <i class="fas fa-trash-alt"></i> Delete
         <% end %>
       </div>
     <% end %>
