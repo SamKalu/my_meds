@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: 'users/registrations' }
   root to: 'pages#home'
   resources :meds
+  resources :documents
 
   resources :treatments do
     resources :schedules, only: %i[new create]
@@ -9,7 +10,6 @@ Rails.application.routes.draw do
 
   resource :dashboard, only: [:show] do
     collection do
-      get :docs
       get :profile
     end
   end

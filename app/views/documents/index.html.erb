@@ -1,0 +1,45 @@
+<div class="main-container-treatment-2 p-5">
+  <div class="d-flex justify-content-between align-items-center border-bottom border-muted pb-2">
+    <h1>Documents</h1>
+      <% if !@documents.empty? %>
+        <%= link_to new_document_path, class:"btn-small wider" do %>
+        <i class="fas fa-plus"></i> New document
+      <% end %>
+    <% end %>
+  </div>
+
+  <% if @documents.empty? %>
+
+    <div class="mt-5 d-flex flex-column">
+        <p class="text-black prompt-user">Add your first document here</p>
+        <%= link_to new_document_path, class:"primary-btn-blue mt-2" do %>
+          <i class="fas fa-plus"></i> Add a document
+        <% end %>
+        <% else %>
+  <div class="row pt-5">
+    <% @documents.each do |doc| %>
+      <div class="col-md-3">
+        <div class="card p-3 text-center">
+          <h3 class="m-1"><%= doc.title %></h3>
+          <p class="m-1"><%= doc.description %> </p>
+          <%= link_to "http://www.africau.edu/images/default/sample.pdf", target: "_blank" do%>
+            <% image_tag "placeholder-pdf.jpg", class: "pb-3 m-1 img-placeholder" %>
+          <% end %>
+
+      <div class="pb-3">
+      <%= link_to edit_document_path(doc), class:"btn-small mr-2" do%>
+        <i class="fas fa-edit"></i> Edit
+      <% end %>
+
+      <%= link_to document_path(doc), method: :delete, data: {confirm: "Are you sure?"}, class:"btn-small" do %>
+       <i class="fas fa-trash-alt"></i> Delete
+      <% end %>
+
+      </div>
+        </div>
+      </div>
+      <% end %>
+    <% end %>
+  </div>
+
+</div>

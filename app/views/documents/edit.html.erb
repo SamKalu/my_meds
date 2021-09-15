@@ -1,0 +1,23 @@
+<div class="container p-5">
+  <div class="border-bottom border-muted pb-4">
+    <%= link_to documents_path, class:"btn-small" do%>
+        <i class="fas fa-arrow-circle-left"></i> Back
+      <% end %>
+  </div>
+
+
+    <%= simple_form_for(@document) do |f| %>
+        <%= f.input :title,
+                    input_html: { autocomplete: "name"} %>
+        <%= f.input :description,
+                    input_html: { autocomplete: "description"} %>
+        <p>File</p>
+        <%= f.input :photo, as: :file, label: false %>
+
+
+  <div class="btn-wraper d-flex justify-content-center mt-3">
+          <%= f.submit "Edit Document", class: "btn-small border-none mx-3 wider"   %>
+
+  </div>
+    <% end %>
+</div>
