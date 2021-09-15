@@ -60,10 +60,10 @@ class DashboardsController < ApplicationController
     end
   end
 
-
   def generate_intakes
     @schedules.each do |schedule|
       next unless schedule.weekdays.include?(Time.now.strftime("%A").downcase)
+
       schedule.times.each do |time|
         date_time = Time.zone.parse(time)
         @intakes << Intake.find_or_create_by(due_date: date_time, schedule: schedule)
@@ -71,7 +71,6 @@ class DashboardsController < ApplicationController
     end
   end
 end
-
 
 # def home_schedule (this section is no longer needed with the intakes table)
 #   midnight = Time.parse("00:00")
@@ -93,9 +92,8 @@ end
 #   end
 # end
 
-
-#schedule >> daily intake
-  #date_time = []
-  #iterate schedule.time
-    #Montrose.r(every: :week, on: :schedule.weekdays, at: Time.parse(time))
-    #r = Montrose.daily(between: (DateTime.now.beginning_of_day..DateTime.now.end_of_day), on: schedule.weekdays.reject(&:empty?).map(&:capitalize), at: Time.parse(time))
+# schedule >> daily intake
+# date_time = []
+# iterate schedule.time
+# Montrose.r(every: :week, on: :schedule.weekdays, at: Time.parse(time))
+# r = Montrose.daily(between: (DateTime.now.beginning_of_day..DateTime.now.end_of_day), on: schedule.weekdays.reject(&:empty?).map(&:capitalize), at: Time.parse(time))

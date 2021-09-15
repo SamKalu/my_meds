@@ -17,7 +17,7 @@ class User < ApplicationRecord
     if avatar.attached?
       avatar.service_url
     else
-      img_photo = "default_avatar_new.jpg"
+      "default_avatar_new.jpg"
     end
   end
 end
