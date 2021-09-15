@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   resources :users, only: [] do
     post :impersonate, on: :member
     post :stop_impersonating, on: :collection
+  end
 
   resources :intakes, only: %i[index] do
     member do
