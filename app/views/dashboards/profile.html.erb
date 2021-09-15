@@ -4,10 +4,10 @@
     <%# carer part beginn %>
     <div>
       <% if !current_user.carer.nil? %>
-        <i class="fas fa-info-circle mr-2"></i>Login as <%= link_to current_user.carer.first_name, impersonate_user_path(current_user.carer), method: :post %>
+        <i class="fas fa-info-circle mr-2"></i>Care for <%= link_to current_user.carer.first_name, impersonate_user_path(current_user.carer), method: :post %>
       <% else %>
         <% if current_user != true_user%>
-          <i class="fas fa-info-circle mr-2"></i>You (<%= true_user.first_name %>) are signed in as <%= current_user.first_name %>
+          <i class="fas fa-info-circle mr-2"></i><%= true_user.first_name %>, you are caring for <%= current_user.first_name %>
           <%= link_to stop_impersonating_users_path, method: :post do%>
             Back to my profile
           <% end %>
