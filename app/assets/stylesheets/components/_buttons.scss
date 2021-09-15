@@ -115,7 +115,7 @@
 // }
 
 .submit-schedule-button {
-  margin-left: 56px;
+  margin-left: 88px;
 }
 
 // .sumbit-schedule {
@@ -126,6 +126,58 @@
 //   background: white;
 //   border-radius: 2px;
 // }
+
+.btn-small-2 {
+  width: 100px;
+  color: $black;
+  background: $blue-main;
+  padding: 2px 10px;
+  border-radius: $border-radius;
+  font-size: 15px;
+  text-decoration: none !important;
+  transition: opacity 0.3s ease;
+  font-weight: bold;
+  border: none;
+}
+
+.edit-tag {
+opacity: 0;
+&:hover {
+ opacity: 1;
+}
+}
+
+#wrapper {
+  position: relative;
+  &:hover {
+    background-color: white;
+  }
+}
+
+
+#wrapper .text {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  height: 100%;
+  background-color: #ffffffb3;
+  margin: 0;
+  padding-top: 16px;
+  color: $black;
+}
+#wrapper:hover .text {
+    opacity: 1;
+
+}
+
+.text {
+  font-weight: bold;
+  font-size: 20px;
+  // background-color: rgba(white, 0.8);
+  padding: 0px 20px;
+}
 
 .button{
   padding: 18px 50px;

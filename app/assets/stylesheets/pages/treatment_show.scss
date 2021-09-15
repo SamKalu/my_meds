@@ -1,0 +1,69 @@
+.times-display {
+  display: flex;
+  margin-bottom: 16px;
+  align-items: center;
+  margin-left: 8px;
+
+  & p {
+    margin: 0;
+    margin-left: 8px;
+    text-align: center;
+    width: 56px;
+    border-radius: 15px;
+    border: none;
+    background-color: #F4F4F4;
+  }
+}
+
+.weekday-display {
+  display: flex;
+  align-items: center;
+  width: 100%;
+
+  & .active {
+    margin: 4px;
+  }
+}
+
+.treatment-show {
+  padding: 16px;
+  width: 400px;
+  height: 120px;
+}
+
+.treatment-card {
+  cursor: pointer;
+  margin-right: 16px;
+  width: 100%;
+  user-select: none;
+  transition: background-color .5s ease;
+  img {
+    border-radius: $border-radius 0 0 $border-radius;
+  }
+}
+
+.treatment-card-selected {
+  background-color: $blue_main;
+}
+
+
+.treatment-card-container {
+  overflow-y: scroll;
+  grid-gap: 16px;
+  height: 50vh;
+
+  &::-webkit-scrollbar {
+   display: none;
+  }
+}
+
+.treatment-card-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: 100%;
+  padding-left: 0;
+
+  & li {
+    margin-right: 8px;
+  }
+}

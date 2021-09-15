@@ -1,89 +1,21 @@
 <div class="px-5 py-4">
   <div class="d-flex justify-content-between align-items-center border-bottom border-muted pb-2">
     <h2>Your schedule</h2>
+</div>
+<div class="main-container-treatment d-flex">
+  <div class="schedules-container" data-controller="intakes-taken">
+    <%= render "intakes/intakes_schedule", intakes: @morning_intakes, title: "Morning" %>
+    <%= render "intakes/intakes_schedule", intakes: @afternoon_intakes, title: "Afternoon" %>
+    <%= render "intakes/intakes_schedule", intakes: @evening_intakes, title: "Evening" %>
   </div>
-  <div class="main-container-treatment d-flex">
-    <div class="schedules-container">
-      <%= link_to intakes_path(anchor: "time04") do %>
-        <div class="long-card p-3 mt-3">
-          <div class="d-flex justify-content-between align-items-center">
-            <p> Morning</p>
-            <i class="fas fa-mug-hot"></i>
+
+  <div class="notifications-container mt-3">
+      <% @meds.each do |med|%>
+        <% if med.stock <= 10  %>
+          <div class="rounded alert-danger p-3 mb-2" role="alert">
+            <i class="fas fa-info-circle mr-2"></i>Walter, you are running out of <%= med.name %>!
           </div>
-        </div>
+        <% end %>
       <% end %>
-      <div class="extend-schedules-card p-3">
-        <div class="schedules-morning d-flex">
-          <% if @morning_intakes.empty? %>
-            <small>No meds to take in the morning</small>
-          <% else %>
-            <% @morning_intakes.each do |intake| %>
-              <div class="medcard-schedule mr-2">
-                <%= cl_image_tag intake.schedule.med.photo.key%>
-                <div class="med-info d-flex flex-column">
-                  <p><%= intake.schedule.med.name %></p>
-                  <small><%= intake.due_date.strftime("%H:%M") %></small>
-                </div>
-              </div>
-            <% end %>
-          <% end %>
-        </div>
-      </div>
-      <%= link_to intakes_path(anchor: "time16") do %>
-        <div class="long-card p-3 mt-3">
-          <div class="d-flex justify-content-between align-items-center">
-            <p> Afternoon</p>
-            <i class="fas fa-sun"></i>
-          </div>
-        </div>
-      <% end %>
-      <div class="extend-schedules-card p-3">
-        <div class="schedules-afternoon d-flex ">
-          <% if @afternoon_intakes.empty? %>
-            <small>No meds to take in the afternoon</small>
-          <% else %>
-            <% @afternoon_intakes.each do |intake| %>
-              <div class="medcard-schedule mr-2">
-                <%= cl_image_tag intake.schedule.med.photo.key%>
-                <div class="med-info d-flex flex-column">
-                  <p><%= intake.schedule.med.name %></p>
-                  <small><%= intake.due_date.strftime("%H:%M") %></small>
-                </div>
-              </div>
-            <% end %>
-          <% end %>
-        </div>
-      </div>
-      <%= link_to intakes_path(anchor: "time22") do %>
-        <div class="long-card p-3 mt-3">
-          <div class="d-flex justify-content-between align-items-center">
-            <p> Evening</p>
-            <i class="fas fa-moon"></i>
-          </div>
-        </div>
-      <% end %>
-      <div class="extend-schedules-card p-3">
-        <div class="schedules-afternoon d-flex">
-          <% if @evening_intakes.empty? %>
-            <small>No meds to take in the evening</small>
-          <% else %>
-            <% @evening_intakes.each do |intake| %>
-              <div class="medcard-schedule mr-2">
-                <%= cl_image_tag intake.schedule.med.photo.key%>
-                <div class="med-info d-flex flex-column">
-                  <p><%= intake.schedule.med.name %></p>
-                  <small><%= intake.due_date.strftime("%H:%M") %></small>
-                </div>
-              </div>
-            <% end %>
-          <% end %>
-        </div>
-      </div>
-    </div>
-    <div class="notifications-container mt-3">
-      <div class="rounded alert-danger p-3 mb-2" role="alert">
-        <i class="fas fa-info-circle mr-2"></i>Walter, you are running out of Paracetamol!
-      </div>
-    </div>
   </div>
 </div>
