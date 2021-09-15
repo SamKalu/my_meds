@@ -88,7 +88,7 @@ puts "Creating fake users"
   puts "Finding #{test_user.first_name}'s meds and pictures for them..."
 
   med_names = ["levothyroxine", "rosuvastatin", "albuterol", "esomeprazole", "fluticasone", "lisdexamfetamine", "rivotril", "xanax", "viagra", "Simvastatin", "Omeprazole", "Metformin", "Azithromycin"]
-  10.times do
+  5.times do
     med = Med.new(
       name: med_names.shuffle!.pop,
       description: Faker::Quotes::Shakespeare.romeo_and_juliet_quote,
@@ -102,7 +102,7 @@ puts "Creating fake users"
   
   puts "Created #{test_user.meds.count} meds for #{test_user.first_name}"
   
-  2.times do
+  1.times do
     Contact.create!(
       full_name: Faker::Name.name,
       description: Faker::Relationship.familial,
@@ -123,15 +123,6 @@ puts "Creating fake users"
   end
 
   puts "Created #{test_user.treatments.count} treatments for #{test_user.first_name}"
-
-  1.times do
-    Schedule.create!(
-      med: test_user.meds.sample,
-      treatment: test_user.treatments.sample
-    )
-  end
-
-  puts "Created schedules for #{test_user.first_name}"
 end
 puts "DB Created succesfully!"
 
