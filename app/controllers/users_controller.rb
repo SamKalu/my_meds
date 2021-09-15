@@ -10,12 +10,12 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     authorize @user
     impersonate_user(@user)
-    redirect_to root_path
+    redirect_to profile_dashboard_path
   end
 
   def stop_impersonating
     authorize current_user
     stop_impersonating_user
-    redirect_to root_path
+    redirect_to profile_dashboard_path
   end
 end

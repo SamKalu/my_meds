@@ -1,24 +1,22 @@
 <div class="px-5 py-4">
-  <div class="main-container-treatment p-5">
-    <div class="d-flex justify-content-between align-items-center border-bottom border-muted pb-2">
-      <h2>Profile</h2>
-      <%# carer part beginn %>
-      <div>
-        <% if !current_user.carer_id %>
-          <i class="fas fa-info-circle mr-2"></i>Login as <%= link_to current_user.carer.first_name, impersonate_user_path(current_user.carer), method: :post %>
-        <% else %>
-          <% if current_user != true_user%>
-            <i class="fas fa-info-circle mr-2"></i>You (<%= true_user.first_name %>) are signed in as <%= current_user.first_name %>
-            <%= link_to stop_impersonating_users_path, method: :post do%>
-              Back to my profil
-            <% end %>
+  <div class="d-flex justify-content-between align-items-center border-bottom border-muted pb-2">
+    <h2>Profile</h2>
+    <%# carer part beginn %>
+    <div>
+      <% if !current_user.carer_id %>
+        <i class="fas fa-info-circle mr-2"></i>Login as <%= link_to current_user.carer.first_name, impersonate_user_path(current_user.carer), method: :post %>
+      <% else %>
+        <% if current_user != true_user%>
+          <i class="fas fa-info-circle mr-2"></i>You (<%= true_user.first_name %>) are signed in as <%= current_user.first_name %>
+          <%= link_to stop_impersonating_users_path, method: :post do%>
+            Back to my profile
           <% end %>
         <% end %>
-      </div>
-      <%= link_to edit_user_registration_path, data: { turbolinks: false}, class:"btn-small" do%>
-        <i class="fas fa-edit"></i> Edit
       <% end %>
     </div>
+    <%= link_to edit_user_registration_path, data: { turbolinks: false}, class:"btn-small" do%>
+      <i class="fas fa-edit"></i> Edit
+    <% end %>
   </div>
   <%# carer part ends %>
   <div class="row pt-3">
