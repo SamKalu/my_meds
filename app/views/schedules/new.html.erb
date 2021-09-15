@@ -22,7 +22,8 @@
             <% end %>
             <input id="time" type="time" name="schedule[times][]" style="margin-right: -4px" class="datepicker">
           </div>
-          <i class="fas fa-plus-circle mx-3" data-action="click->new-schedule#addnewtime" ></i>
+          <i class="fas fa-minus-circle mx-3" data-action="click->new-schedule#removetime" ></i>
+          <i class="fas fa-plus-circle mx-1" data-action="click->new-schedule#addnewtime" ></i>
         </div>
         <%= f.input :weekdays, as: :check_boxes,
                     collection: Schedule::WEEKDAYS,
