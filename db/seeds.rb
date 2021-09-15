@@ -4,6 +4,7 @@ User.destroy_all
 puts "Destroyed DB"
 puts "Creating new DB..."
 
+puts "And God said, let there be Beni..."
 ben = User.create!(
   email: "ben@a.com",
   password: "password",
@@ -12,7 +13,9 @@ ben = User.create!(
   blood_type: Faker::Blood.group,
   birthday: Date.new(1982, 11, 13)
 )
+puts "...and there was Beni"
 
+puts "And God said, let there be Walter..."
 walter = User.create!(
   email: "walter@k.com",
   password: "password",
@@ -22,6 +25,8 @@ walter = User.create!(
   birthday: Date.new(1941, 12, 24),
   carer_id: ben.id
 )
+puts "...and there was Walter"
+puts "God saw that Walter was good and he made Beni his carer. 'Take your meds' -said Beni, and so he did"
 
 puts "Creating meds"
 med_names = [ ["Astrovastax", "Gegen erhöhte Blutcholesterinwerte" , 10 ], 
