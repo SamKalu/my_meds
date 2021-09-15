@@ -3,7 +3,7 @@
     <h2>Profile</h2>
     <%# carer part beginn %>
     <div>
-      <% if !current_user.carer_id %>
+      <% if !current_user.carer.nil? %>
         <i class="fas fa-info-circle mr-2"></i>Login as <%= link_to current_user.carer.first_name, impersonate_user_path(current_user.carer), method: :post %>
       <% else %>
         <% if current_user != true_user%>
