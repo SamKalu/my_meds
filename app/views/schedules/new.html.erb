@@ -17,9 +17,9 @@
         <div class="schedule-times d-flex align-items-center">
           <div data-new-schedule-target="times" class="times-input">
             <% @schedule.times.each do |time| %>
-              <input id="time" type="time" name="schedule[times][]" style="margin-right: -4px" class="datepicker" value="<%= time %>">
+              <input id="time" type="time" name="schedule[times][]" style="margin-left: 3px" class="datepicker" value="<%= time %>">
             <% end %>
-            <input id="time" type="time" name="schedule[times][]" style="margin-right: -4px" class="datepicker">
+            <input id="time" type="time" name="schedule[times][]" style="margin-left: 3px" class="datepicker">
           </div>
           <i class="fas fa-plus-circle mx-3" data-action="click->new-schedule#addnewtime" ></i>
         </div>

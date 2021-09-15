@@ -41,6 +41,10 @@ class SchedulesController < ApplicationController
     end
   end
 
+  def destroy
+    @schedule.destroy
+    redirect_to treatment_path(@schedule.treatment)
+  end
   private
 
   def schedules_params

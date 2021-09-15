@@ -8,6 +8,8 @@ class Schedule < ApplicationRecord
   before_validation :clean_arrays
   validates :med, presence: true, uniqueness: { scope: :treatment_id }
   delegate :user, to: :med
+  validates :times, presence: true
+  validates :weekdays, presence: true
 
   def clean_arrays
     self.times = times.reject(&:empty?).uniq
