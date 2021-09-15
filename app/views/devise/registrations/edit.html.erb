@@ -44,7 +44,9 @@
     </div>
   </div>
   <div class="form-actions d-flex justify-content-center">
-    <%= f.button :submit, "Update", class:"primary-btn-blue pb-3" %>
+    <%= button_tag(class: "primary-btn-blue pb-3 border-none") do %>
+      <i class="fas fa-save mr-2"></i>Update
+    <% end %>
   </div>
 <% end %>
 </div>
