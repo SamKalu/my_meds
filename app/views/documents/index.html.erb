@@ -1,6 +1,6 @@
 <div class="main-container-treatment-2 p-5">
   <div class="d-flex justify-content-between align-items-center border-bottom border-muted pb-2">
-    <h1>Documents</h1>
+    <h1><strong>Documents</strong></h1>
       <% if !@documents.empty? %>
         <%= link_to new_document_path, class:"btn-small wider" do %>
         <i class="fas fa-plus"></i> New document
@@ -11,15 +11,15 @@
   <% if @documents.empty? %>
 
     <div class="mt-5 d-flex flex-column">
-        <p class="text-black prompt-user">Add your first document here</p>
+        <p class="text-black prompt-user">Click on the button below to add your first document</p>
         <%= link_to new_document_path, class:"primary-btn-blue mt-2" do %>
           <i class="fas fa-plus"></i> Add a document
         <% end %>
         <% else %>
-  <div class="row pt-5">
+  <div class="row pt-3">
     <% @documents.each do |doc| %>
-      <div class="col-md-3">
-        <div class="card p-3 text-center">
+          <div class="col-md-4 col-xl-3">
+        <div class="card p-3 text-center my-3">
           <h3 class="m-1"><%= doc.title %></h3>
           <p class="m-1"><%= doc.description %> </p>
           <%= link_to "http://www.africau.edu/images/default/sample.pdf", target: "_blank" do%>

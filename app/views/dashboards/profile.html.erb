@@ -1,6 +1,6 @@
-<div class="px-5 py-4">
-  <div class="d-flex justify-content-between align-items-center border-bottom border-muted pb-2">
-    <h2>Profile</h2>
+<div class="px-5 py-5">
+  <div class="d-flex justify-content-between justify-content-between border-bottom border-muted align-items-center pb-2 treatment-header">
+    <h1><strong>Profile</strong></h1>
     <%# carer part beginn %>
     <div>
       <%# carer sees his careperson %>
@@ -16,7 +16,7 @@
       <% end %>
       <%# user sees his carer %>
       <% if true_user.carer_id %>
-        My carer is <%=User.find_by(id: current_user.carer_id).first_name%> <%= image_tag User.find_by(id: current_user.carer_id).avatar_url, class: "profile-avatar-mini" %>
+        My carer is <%= @carer.first_name %> <%= image_tag @carer.avatar_url, class: "profile-avatar-mini" %>
       <% end %>
     </div>
     <%# carer part ends %>
@@ -29,19 +29,19 @@
       <%= image_tag @user.avatar_url, class: "profile-avatar"%>
     </div>
     <div class="col-md-6">
-      <label for="Firstname" class="mt-0">Firstname</label>
+      <label for="Firstname" class="mt-0">First Name</label>
       <li class="rounded list-group-item profile-field">
         <%= @user.first_name %>
       </li>
-      <label for="Lastname" class="mt-4">Lastname</label>
+      <label for="Lastname" class="mt-4">Last Name</label>
       <li class="rounded list-group-item profile-field">
         <%= @user.last_name %>
       </li>
-      <label for="Bloodtype" class="mt-4">Bloodtype</label>
+      <label for="Bloodtype" class="mt-4">Blood Type</label>
       <li class="rounded list-group-item profile-field">
         <%= @user.blood_type %>
       </li>
-      <label for="Birthday" class="mt-4">Birthday</label>
+      <label for="Birthday" class="mt-4">Date of Birth</label>
       <li class="rounded list-group-item profile-field">
         <%= @user.birthday %>
       </li>

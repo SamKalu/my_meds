@@ -1,6 +1,6 @@
 <div class="main-container-treatment-2 h-100 p-5 d-flex flex-column">
-  <div class="d-flex justify-content-between border-bottom border-muted pb-2">
-    <h2>Medicine Inventory </h2>
+  <div class="d-flex justify-content-between justify-content-between border-bottom border-muted align-items-center pb-2 treatment-header">
+    <h1><strong>Medication Inventory</strong></h1>
     <% if !@meds.empty? %>
       <%= link_to new_med_path, class:"btn-small wider" do %>
         <i class="fas fa-plus"></i> New med

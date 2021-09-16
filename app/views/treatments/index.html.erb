@@ -1,6 +1,6 @@
 <div class="main-container-treatment p-5">
-  <div class="d-flex justify-content-between justify-content-between border-bottom border-muted align-items-center pb-2">
-    <h2>Treatments</h2>
+  <div class="d-flex justify-content-between justify-content-between border-bottom border-muted align-items-center pb-2 treatment-header">
+    <h1><strong>Treatments</strong></h1>
     <% if ! @treatments.empty? %>
       <%= link_to new_treatment_path, class:"btn-small wider" do %>
         <i class="fas fa-plus"></i> Create treatment

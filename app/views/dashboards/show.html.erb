@@ -1,6 +1,6 @@
 <div class="p-5 h-100">
-  <div class="d-flex justify-content-between align-items-center border-bottom border-muted pb-2">
-    <h2>Your schedule</h2>
+  <div class="d-flex justify-content-between align-items-center  border-bottom border-muted pb-2 treatment-header">
+    <h1><strong>Your Schedule for Today</strong></h1>
   </div>
   <div class="main-container-treatment mt-5 d-flex">
     <div class="schedules-container">
@@ -8,7 +8,6 @@
       <%= render "intakes/intakes_schedule", intakes: @afternoon_intakes, title: "Afternoon" %>
       <%= render "intakes/intakes_schedule", intakes: @evening_intakes, title: "Evening" %>
     </div>
-
     <div class="notifications-container">
     <div>
       <% ["morning", 'afternoon', 'evening'] .each do |time| %>
@@ -18,7 +17,6 @@
           </div>
         <% end %>
       <% end %>
-
         <% @meds.each do |med|%>
           <% if med.stock <= 10  %>
             <div class="rounded alert-warning p-3 mb-2" role="alert">
