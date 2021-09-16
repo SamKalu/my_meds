@@ -12,7 +12,7 @@
   &:hover {
     // color: $black;
     background-color: rgba(white, 0.6);
-    box-shadow: $box-shadow;  
+    box-shadow: $box-shadow;
   }
 }
 
@@ -194,6 +194,26 @@ opacity: 0;
   &:hover {
     // color: $black;
     background-color: rgba(white, 0.6);
-    box-shadow: $box-shadow;  
+    box-shadow: $box-shadow;
   }
+}
+
+
+.med-intake-btn {
+  cursor: pointer;
+
+  .fa-check-circle {
+    color: $green_v;
+  }
+
+  .fa-info-circle {
+    color: #971c1f;
+  }
+}
+.med-intake-btn > p {
+  margin: 0 !important;
+}
+
+.med-intake-btn i {
+  line-height: 1.5rem
 }

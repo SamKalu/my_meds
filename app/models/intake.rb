@@ -9,7 +9,7 @@ class Intake < ApplicationRecord
 
   def taken_status
     return "Med taken" if taken?
-    return "Time to take your med!" if should_be_taken?
-    "Not yet" if taken == false && due_date.strftime("%H%M") > Time.now.strftime("%H%M")
+    return "Mark med as taken" if should_be_taken?
+    # "" if taken == false && due_date.strftime("%H%M") > Time.now.strftime("%H%M")
   end
 end
