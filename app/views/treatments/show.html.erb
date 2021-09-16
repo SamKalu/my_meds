@@ -34,7 +34,7 @@
             <% @treatment.schedules.each do  |schedule|%>
               <li>
                 <div class="med-long-card treatment-card border-muted" data-display-cards-target="trigger" data-action="click->display-cards#show" id="med_<%= schedule.med.id %>">
-                  <%= cl_image_tag schedule.med.photo.key %>
+                  <%= med_img schedule.med %>
                   <div class="textbox">
                     <h2><%= schedule.med.name %></h2>
                   </div>
@@ -56,7 +56,7 @@
         <div class="schedule-display d-none" data-display-cards-target="output" id="med_<%= med_schedules.first.med.id %>">
           <div class="times-display">
             <% med_schedules.each do |schedule| %>
-            <%# TODO: Fix divs for grid %>
+              <%# TODO: Fix divs for grid %>
               <i class="fas fa-bell"></i>
               <div class="times-each-display">
                 <% schedule.times.each do |time| %>
@@ -72,9 +72,9 @@
               </div>
             <% end %>
           </div>
-            <%= link_to schedule_path(med_schedules.first), method: :delete, data: {confirm: "Are you sure?"} do%>
-              <i class="fas fa-trash-alt"></i> Delete
-            <% end %>
+          <%= link_to schedule_path(med_schedules.first), method: :delete, data: {confirm: "Are you sure?"} do%>
+            <i class="fas fa-trash-alt"></i> Delete
+          <% end %>
         </div>
       <% end %>
     </div>
