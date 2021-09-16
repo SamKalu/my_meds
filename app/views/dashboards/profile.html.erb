@@ -3,22 +3,27 @@
     <h2>Profile</h2>
     <%# carer part beginn %>
     <div>
+      <%# carer sees his careperson %>
       <% if !current_user.carer.nil? %>
-        <i class="fas fa-info-circle mr-2"></i>Care for <%= link_to current_user.carer.first_name, impersonate_user_path(current_user.carer), method: :post %>
+        Care for <%= link_to current_user.carer.first_name, impersonate_user_path(current_user.carer), method: :post %> <%= image_tag current_user.carer.avatar_url, class: "profile-avatar-mini" %>
       <% else %>
         <% if current_user != true_user%>
           <i class="fas fa-info-circle mr-2"></i><%= true_user.first_name %>, you are caring for <%= current_user.first_name %>
           <%= link_to stop_impersonating_users_path, method: :post do%>
-            Back to my profile
+            <i class="fas fa-arrow-circle-left mr-2"></i>Back to my profile
           <% end %>
         <% end %>
       <% end %>
+      <%# user sees his carer %>
+      <% if true_user.carer_id %>
+        My carer is <%=User.find_by(id: current_user.carer_id).first_name%> <%= image_tag User.find_by(id: current_user.carer_id).avatar_url, class: "profile-avatar-mini" %>
+      <% end %>
     </div>
+    <%# carer part ends %>
     <%= link_to edit_user_registration_path, data: { turbolinks: false}, class:"btn-small" do%>
       <i class="fas fa-edit"></i> Edit
     <% end %>
   </div>
-  <%# carer part ends %>
   <div class="row pt-3">
     <div class="col-md-6 d-flex flex-column justify-content-center align-items-center">
       <%= image_tag @user.avatar_url, class: "profile-avatar"%>
