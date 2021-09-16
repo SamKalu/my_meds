@@ -7,8 +7,7 @@ class DashboardsController < ApplicationController
     @tab = "home" # this is to set the dashboard navtab-button get active
     @schedules = policy_scope(Schedule)
     @meds = policy_scope(Med)
-    @intakes = []
-    generate_intakes
+    @intakes = generate_intakes
     @morning_intakes = []
     @afternoon_intakes = []
     @evening_intakes = []
@@ -61,14 +60,16 @@ class DashboardsController < ApplicationController
   end
 
   def generate_intakes
+    intakes = []
     @schedules.each do |schedule|
       next unless schedule.weekdays.include?(Time.now.strftime("%A").downcase)
 
       schedule.times.each do |time|
         date_time = Time.zone.parse(time)
-        @intakes << Intake.find_or_create_by(due_date: date_time, schedule: schedule)
+        intakes << Intake.find_or_create_by(due_date: date_time, schedule: schedule)
       end
     end
+    intakes.sort_by(&:due_date)
   end
 end
 

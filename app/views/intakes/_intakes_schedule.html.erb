@@ -1,44 +1,53 @@
-<div class="long-card schedule_daytime p-3 mt-5">
-  <div class="d-flex justify-content-between align-items-center">
-    <div class="daytime_logo">
-      <% if title == "Morning" %>
-        <i class="fas fa-mug-hot"></i>
-      <% elsif title == "Afternoon" %>
-        <i class="fas fa-sun"></i>
-      <% else %>
-        <i class="fas fa-moon"></i>
-      <% end %>
-      <p><%= title %></p>
+<div data-controller="intakes-taken" >
+  <div class="long-card schedule_daytime p-3 <%= title == "Morning" ? "" : "mt-5" %>" >
+    <div class="d-flex justify-content-between align-items-center">
+      <div class="daytime_logo">
+        <% if title == "Morning" %>
+          <i class="fas fa-mug-hot"></i>
+        <% elsif title == "Afternoon" %>
+          <i class="fas fa-sun"></i>
+        <% else %>
+          <i class="fas fa-moon"></i>
+        <% end %>
+        <p><%= title %></p>
+      </div>
+      <div data-intakes-taken-target="icon" data-name="<%= title %>">
+        <% unless intakes.empty? %>
+          <% if intakes.all? { |intake| intake.taken? }%>
+            <i class="fas fa-check-circle"></i>
+          <% elsif intakes.any? { |intake| intake.should_be_taken? } %>
+            <i class="fas fa-info-circle"></i>
+          <% end %>
+        <% end %>
+      </div>
     </div>
-    <% unless intakes.empty? %>
-      <% if intakes.all? { |intake| intake.taken? }%>
-        <i class="fas fa-check-circle"></i>
-      <% elsif intakes.any? { |intake| intake.should_be_taken? } %>
-        <i class="fas fa-info-circle"></i>
-      <% end %>
-    <% end %>
   </div>
-</div>
 
-<div class="extend-schedules-card p-3">
-    <% if intakes.empty? %>
-      <small>No meds to take in the <%= title.downcase  %></small>
-    <% else %>
-      <% intakes.each do |intake| %>
-        <div>
-          <div class="medcard-schedule mr-2" data-intakes-taken-target="meds" id="intake-<%= intake.id %>" >
-            <%= cl_image_tag intake.schedule.med.photo.key%>
-            <div class="med-info">
-              <div>
-                <p><%= intake.schedule.med.name %></p>
-                <small><%= intake.due_date.strftime("%H:%M")%> <i class="far fa-clock"></i></small>
-              </div>
-              <div>
-                <i class="fas fa-pills" data-intakes-taken-target="btn" data-action="click->intakes-taken#taken" data-id="<%= intake.id %>"> <%= intake.taken_status %></i>
+  <div class="extend-schedules-card p-3">
+      <% if intakes.empty? %>
+        <small>No meds to take in the <%= title.downcase  %></small>
+      <% else %>
+        <% intakes.each do |intake| %>
+          <div>
+            <div class="medcard-schedule mr-2" data-intakes-taken-target="meds" id="intake-<%= intake.id %>" >
+              <%= med_img intake.schedule.med %>
+              <div class="med-info">
+                <div>
+                  <p><%= intake.schedule.med.name %></p>
+                  <small><%= intake.due_date.strftime("%H:%M")%> <i class="far fa-clock"></i></small>
+                </div>
+                <div class="d-flex med-intake-btn" data-intakes-taken-target="btn" data-action="click->intakes-taken#taken" data-id="<%= intake.id %>">
+                  <%if intake.taken?  %>
+                    <i class="fas fa-check-circle mr-2"></i>
+                  <% elsif intake.should_be_taken? %>
+                    <i class="fas fa-info-circle mr-2"></i>
+                  <% end %>
+                  <p><%= intake.taken_status %></p>
+                </div>
               </div>
             </div>
           </div>
-        </div>
+        <% end %>
       <% end %>
-    <% end %>
+  </div>
 </div>

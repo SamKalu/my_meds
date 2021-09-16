@@ -19,7 +19,7 @@ class DocumentsController < ApplicationController
     authorize @document
   end
 
-   def create
+  def create
     @tab = "documents"
     @document = Document.new(document_params)
     authorize @document

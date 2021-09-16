@@ -159,7 +159,7 @@
   }
 
 .main-container-treatment {
-
+  height: 85%;
   // width: 1250px;
   overflow: hidden;
 
@@ -193,7 +193,9 @@
 .notifications-container {
     width: 30%;
     transform: translateY(2px);
-
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .scroll {
@@ -205,8 +207,6 @@
   background-color: white;
   margin-left: 5%;
   width: 80%;
-  height: 20vh;
-  overflow: scroll;
   opacity: 0.9;
   transition: opacity 0.3s ease;
   .fas {
@@ -246,29 +246,30 @@
 
   @-webkit-keyframes taken {
     0% {
-        background-color: #6fcf97c4;
+        background-color: $blue_main;
 
     }
     22% {
-        background-color: $green_v;
+        background-color: $blue_selected;
         opacity:1;
     }
     77% {
-        background-color: #80eeae;
+        background-color: #46cbf7;
     }
     90% {
-        background-color: #abebc6;
+        background-color: $blue_main;
     }
     100% {
-        background-color: #d1f0de;
+        background-color: #c8eaf5;
     }
 }
 
   .taken {
-    -webkit-animation-name: taken;
-    -webkit-animation-duration: 1500ms;
-    -webkit-animation-iteration-count: 1;
-    -webkit-animation-timing-function: ease-in-out;
+    animation:  taken 1500ms 1 ease-in-out;
+    // -webkit-animation-name: taken;
+    // -webkit-animation-duration: 1500ms;
+    // -webkit-animation-iteration-count: 1;
+    // -webkit-animation-timing-function: ease-in-out;
   }
 
   .stock {
@@ -289,7 +290,11 @@
 // }
 
 .schedules-container {
-  overflow-y: auto;
+  overflow-y: scroll;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 .prompt-user {
