@@ -18,8 +18,8 @@
         <% else %>
   <div class="row pt-3">
     <% @documents.each do |doc| %>
-      <div class="col-md-3">
-        <div class="card p-3 text-center">
+          <div class="col-md-4 col-xl-3">
+        <div class="card p-3 text-center my-3">
           <h3 class="m-1"><%= doc.title %></h3>
           <p class="m-1"><%= doc.description %> </p>
           <%= link_to "http://www.africau.edu/images/default/sample.pdf", target: "_blank" do%>

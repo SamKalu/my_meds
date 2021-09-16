@@ -12,7 +12,7 @@
       <div class="med-cards">
         <%= f.input :med, as: :check_boxes, collection: @meds, input_html: { multiple: true, class: "d-none med-checkbox" }, include_hidden: false,
                     item_label_class: "checkbox-label-meds",
-                    label_method: lambda { |med| "#{cl_image_tag med.photo.key} <h2 class=\"med-name\">#{med.name}</h2>".html_safe },
+                    label_method: lambda { |med| "#{med_img med} <h2 class=\"med-name\">#{med.name}</h2>".html_safe },
                     legend_tag: false  %>
       </div>
       <div class="form-date-time rounded">
