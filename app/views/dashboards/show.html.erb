@@ -12,7 +12,7 @@
     <div>
       <% ["morning", 'afternoon', 'evening'] .each do |time| %>
         <% if eval("@#{time}_intakes").any? { |intake| intake.should_be_taken? } %>
-          <div class="rounded alert-danger p-3 mb-2" role="alert" id="<%= time %>-alert">
+          <div class="rounded alert-danger p-3 mb-2" role="alert" id="<%= time.capitalize %>-alert">
             <i class="fas fa-info-circle mr-2"></i><%= current_user.first_name %>, you need to take all your <%= time %> Meds!
           </div>
         <% end %>
