@@ -8,67 +8,65 @@ ben = User.create!(
   email: "ben@a.com",
   password: "password",
   first_name: "Ben",
-  last_name: "A",
-  blood_type: Faker::Blood.group,
-  birthday: Date.new(1982, 11, 13)
+  last_name: "Ravindra",
+  blood_type: "O-",
+  birthday: Date.new(1982,1, 13)
 )
 ben_photo = File.open("#{Rails.root}/app/assets/images/profile_pics/ben.JPG")
 ben.avatar.attach(io: ben_photo, filename: 'avatar_ben.jpg', content_type: 'image/jpg' )
 puts "...and there was Beni"
 
-puts "And God said, let there be Walter..."
-walter = User.create!(
-  email: "walter@k.com",
+puts "And God said, let there be John..."
+john = User.create!(
+  email: "john@w.com",
   password: "password",
-  first_name: "Walter",
-  last_name: "K",
-  blood_type: Faker::Blood.group,
-  birthday: Date.new(1941, 12, 24),
+  first_name: "John",
+  last_name: "Wayne",
+  blood_type: "O+",
+  birthday: Date.new(1951,8, 10),
   carer_id: ben.id
 )
-walter_photo = File.open("#{Rails.root}/app/assets/images/profile_pics/walter.jpeg")
-walter.avatar.attach(io: walter_photo, filename: 'avatar_walter.jpg', content_type: 'image/jpg' )
-puts "...and there was Walter"
-puts "God saw that Walter was good and he made Beni his carer. 'Take your meds' -said Beni, and so he did"
+john_photo = File.open("#{Rails.root}/app/assets/images/profile_pics/john_w.jpg")
+john.avatar.attach(io: john_photo, filename: 'avatar_john.jpg', content_type: 'image/jpg' )
+puts "...and there was John"
+puts "God saw that John was good and he made Beni his carer. 'Take your meds' -said Beni, and so he did"
 
-puts "Creating treatments for Walter"
+puts "Creating treatments for John"
 blood_pressure = Treatment.create!(
   name: "Bloodpressure",
-  user_id: walter.id
+  user_id: john.id
 )
 
 vitamines = Treatment.create!(
   name: "Vitamines",
-  user_id: walter.id
+  user_id: john.id
 )
 
 pain_relief = Treatment.create!(
   name: "Pain relief",
-  user_id: walter.id
+  user_id: john.id
 )
 
-puts "Creating meds for Walter"
-med_names = [ ["Astrovastax", "Gegen erhöhte Blutcholesterinwerte" , 10 ], 
-              ["Betmiga", "Reduziert die Aktivität der überaktiven Harnblase", 56],
+puts "Creating meds for John"
+med_names = [ ["Astrovastax", "Against elevated blood cholesterol" , 10 ],
               ["CardiaxASS", "Thrombozyten-Aggeragtionshemmer", 80],
-              ["Condrosulf", "Gegen Schmerzen und Einschränkung der Beweglichkeit der Gelenke" , 90],
-              ["Duodart","Gegegen Prostatavergrösserung",103],
-              ["Perindopril-Indapamid-Mepha", "Gegen arterieller Hypertonie / Bluthochdruck ", 46],
+              ["Condrosulf", " Against pain and restriction of mobility of joints" , 90],
+              ["Perindopril", "High blood pressure", 46],
               ["Ryzodec","Insulin", 15],
-              ["Alkohol-Tupfer","Zur Desinfektion der Haut vor dem Spritzen",87],
-              ["Clickfine", "Nadel für Insulin-Pens", 60],
-              ["Contour-next", " Sensoren (zur Messung des Blutzuckers)", 150],
-              ["Microlet", "Lanzetten", 150],
-              ["Microlet-next", "Stecher für Lanzetten", 73],
-              ["Contour-next-ONE", "Blutzucker-Messgerät", 11],
-              ["Actilife","Vitamine", 32] ]
+              ["Alkohol-Tupfer","For disinfection",87],
+              ["Clickfine", "Senior vitamin", 60],
+              ["Dafalgan", "Pain killer", 150],
+              ["Microlet-next", "Against migraine", 73],
+              ["Aspirin", "For Headache", 11],
+              ["Actilife","Senior vitamin", 32],
+              ["Antibiotic","Antibiotic", 52] ]
 
 med_names.each do |med|
   med = Med.new(
     name: med[0],
     description: med[1],
     stock: med[2],
-    user: walter
+    user: john
   )
   img_photo = File.open("#{Rails.root}/app/assets/images/med_samples/#{med.name}.jpg")
   med.photo.attach(io: img_photo, filename: 'pillphoto.jpg', content_type: 'image/jpg' )
@@ -77,30 +75,21 @@ end
 
 puts "#{Med.count} meds created"
 
-puts "Creating schedule for walter"
+puts "Creating schedule for John"
 puts "Morning schedule"
 s1 = Schedule.create!(
   times: ["08:00"],
-  weekdays: ["monday", "tuesday", "wednesday", "friday"],
+  weekdays: ["monday", "tuesday", "wednesday", "thursday", "friday"],
   status: 0,
-  med: walter.meds.find_by(name: "Astrovastax"), 
+  med: john.meds.find_by(name: "Astrovastax"), 
   treatment: blood_pressure
 )
-
-s2 = Schedule.create!(
-  times: ["08:00"],
-  weekdays: ["monday", "tuesday", "wednesday", "friday"],
-  status: 0,
-  med: walter.meds.find_by(name: "Ryzodec"), 
-  treatment: blood_pressure
-)
-
 
 s3 = Schedule.create!(
   times: ["08:00"],
   weekdays: ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"],
   status: 0,
-  med: walter.meds.find_by(name: "Actilife"), 
+  med: john.meds.find_by(name: "Actilife"), 
   treatment: vitamines
 )
 
@@ -108,23 +97,15 @@ s4 = Schedule.create!(
   times: ["08:00"],
   weekdays: ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"],
   status: 0,
-  med: walter.meds.find_by(name: "Betmiga"), 
+  med: john.meds.find_by(name: "Ryzodec"), 
   treatment: blood_pressure
-)
-
-s5 = Schedule.create!(
-  times: ["19:00"],
-  weekdays: ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"],
-  status: 0,
-  med: walter.meds.find_by(name: "Condrosulf"), 
-  treatment: pain_relief
 )
 
 s6 = Schedule.create!(
   times: ["08:00"],
   weekdays: ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"],
   status: 0,
-  med: walter.meds.find_by(name: "Perindopril-Indapamid-Mepha"), 
+  med: john.meds.find_by(name: "Perindopril"), 
   treatment: blood_pressure
 )
 
