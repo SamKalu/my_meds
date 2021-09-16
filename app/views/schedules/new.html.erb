@@ -1,9 +1,11 @@
 <div class="treatment-container h-100 d-flex flex-column p-5">
-  <div class="header-container border-bottom">
-    <%= link_to treatment_path(@treatment), class: "btn-small" do%>
-      <i class="fas fa-arrow-circle-left def-dark"></i> Back
-    <% end %>
-    <h2 class="mt-4 mb-4">New schedule for <%= @treatment.name %></h2>
+  <div class="border-bottom border-muted align-items-center pb-2 treatment-header">
+    <div class="d-flex align-items-center">
+      <%= link_to treatment_path(@treatment), class: "btn-small mb-2" do%>
+        <i class="fas fa-arrow-circle-left def-dark"></i> Back
+      <% end %>
+      <h1 class="ml-2 mb-2"><strong>Create new schedule for <%= @treatment.name %> treatment</strong></h1>
+    </div>
   </div>
   <div data-controller="new-schedule" class="form-container-meds h-100 flex-grow-1 mt-4">
     <%= simple_form_for [ @treatment, @schedule ],  data: { new_schedule_target: 'form'} do |f| %>
@@ -13,7 +15,7 @@
                     label_method: lambda { |med| "#{med_img med} <h2 class=\"med-name\">#{med.name}</h2>".html_safe },
                     legend_tag: false  %>
       </div>
-      <div class="form-date-time">
+      <div class="form-date-time rounded">
         <div class="schedule-times d-flex align-items-center">
           <div data-new-schedule-target="times" class="times-input">
             <% @schedule.times.each do |time| %>

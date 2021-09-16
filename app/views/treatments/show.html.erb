@@ -1,13 +1,15 @@
 <div class="treatment-container p-5">
-  <%= link_to treatments_path, class: "btn-small" do%>
-    <i class="fas fa-arrow-circle-left def-dark"></i> Back
-  <% end %>
-  <div class="header-treatments d-flex justify-content-between mt-4">
-    <h2><%= @treatment.name %></h2>
+  <div class="d-flex justify-content-between justify-content-between border-bottom border-muted align-items-center pb-2 treatment-header">
+    <div class="d-flex align-items-center">
+      <%= link_to treatments_path, class: "btn-small mb-2" do%>
+        <i class="fas fa-arrow-circle-left def-dark"></i> Back
+      <% end %>
+      <h1 class="ml-2 mb-2"><strong><%= @treatment.name %></strong></h1>
+    </div>
     <div class="btn-wraper">
       <% if !@treatment.schedules.empty? %>
         <%= link_to new_treatment_schedule_path(@treatment), class:"btn-small mx-2" do%>
-          <i class="fas fa-plus"></i> Add more
+          <i class="fas fa-plus"></i> Add more meds
         <% end %>
       <% end %>
       <%= link_to edit_treatment_path, class:"btn-small mx-2" do%>
@@ -18,13 +20,12 @@
       <% end %>
     </div>
   </div>
-  <hr class="mb-5">
-  <div class="treatment-layout d-flex" data-controller="display-cards">
+  <div class="treatment-layout p-3 my-3 d-flex" data-controller="display-cards">
     <div class="container text-center pl-0">
       <div class="treatment-card-container">
         <% if @treatment.schedules.empty? %>
           <div class="empty-meds-display">
-            <p class="text-left w-75">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Itaque, veniam eos! Perspiciatis, provident adipisci. Inventore, natus, nam laudantium nulla impedit sunt voluptas laborum accusamus quaerat cupiditate ullam molestias cumque non.</p>
+            <p class="text-left w-75">Here you can group all your medications that you use in one particular treatment, to treat a specific pain or any grouping of your liking</p>
             <%= link_to new_treatment_schedule_path(@treatment), class:"btn-small mx-2" do%>
               <i class="fas fa-plus"></i> Add a Med
             <% end %>
@@ -52,6 +53,9 @@
       </div>
     </div>
     <div class="form-schedule-card treatment-show rounded">
+      <div class="schedule-display text-center" data-display-cards-target="output">
+        <p id="schedule-display-auto-text"><strong>Click any medication to display it's schedule here!</strong></p>
+      </div>
       <% @treatment.schedules.group_by {|sch| sch.med}.values.each do |med_schedules| %>
         <div class="schedule-display d-none" data-display-cards-target="output" id="med_<%= med_schedules.first.med.id %>">
           <div class="times-display">

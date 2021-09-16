@@ -11,6 +11,7 @@ export default class extends Controller {
     if (event.currentTarget.classList.contains("treatment-card-selected")) {
       event.currentTarget.classList.remove("treatment-card-selected");
       elementToShow.classList.add("d-none");
+      this.outputTargets[0].classList.remove("d-none");
     } else {
       this.triggerTargets.forEach( (el) => el.classList.remove("treatment-card-selected"))
       const selectedCard = event.currentTarget
