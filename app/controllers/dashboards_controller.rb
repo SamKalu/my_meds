@@ -35,6 +35,7 @@ class DashboardsController < ApplicationController
     @tab = "profile"
     skip_policy_scope # this should be deleted !!!!!!!
     @user = current_user
+    @carer = User.find_by(id: current_user.carer_id)
   end
 
   def edit_profile

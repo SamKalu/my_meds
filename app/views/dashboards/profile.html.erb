@@ -16,7 +16,7 @@
       <% end %>
       <%# user sees his carer %>
       <% if true_user.carer_id %>
-        My carer is <%=User.find_by(id: current_user.carer_id).first_name%> <%= image_tag User.find_by(id: current_user.carer_id).avatar_url, class: "profile-avatar-mini" %>
+        My carer is <%= @carer.first_name %> <%= image_tag @carer.avatar_url, class: "profile-avatar-mini" %>
       <% end %>
     </div>
     <%# carer part ends %>
