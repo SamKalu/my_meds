@@ -1,0 +1,5 @@
+meta_product_name: "My Meds"
+meta_title: "My Meds - Never forget about taking your meds again."
+meta_description: "The right place to keep track your healthcare."
+meta_image: "og_image.png" # should exist in `app/assets/images/`
+#twitter_account: "@product_twitter_account"   # required for Twitter Cards
