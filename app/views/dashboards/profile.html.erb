@@ -10,7 +10,7 @@
         <% if current_user != true_user%>
           <i class="fas fa-info-circle mr-2"></i><%= true_user.first_name %>, you are caring for <%= current_user.first_name %>
           <%= link_to stop_impersonating_users_path, method: :post do%>
-            <i class="fas fa-arrow-circle-left mr-2"></i>Back to my profile
+            <i class="fas fa-arrow-circle-left mx-2"></i>Back to my profile
           <% end %>
         <% end %>
       <% end %>
