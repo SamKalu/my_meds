@@ -22,14 +22,14 @@
             <%= f.input :last_name,
                   required: false,
                   input_html: { autocomplete: "last-name" } %>
-            <%= f.input :birthday, required: false %>
+            <%= f.input :birthday, required: false, label: 'Date of Birth' %>      
           </div>
           <div class="col-md-6">
-            <%= f.input :password,
+            <%= f.input :password, label: "New Password",
                   hint: "leave it blank if you don't want to change it",
                   required: false,
                   input_html: { autocomplete: "new-password" } %>
-            <%= f.input :password_confirmation,
+            <%= f.input :password_confirmation, label: "Confirm New Password",
                   required: false,
                   input_html: { autocomplete: "new-password" } %>
             <%= f.input :blood_type, 
@@ -37,7 +37,7 @@
             prompt: "Choose your blood type",
             required: false,
             input_html: { autocomplete: "blood-type" } %>
-            <%= f.input :avatar, as: :file %>
+            <%= f.input :avatar, as: :file, label: "Profile Picture" %>
           </div>
         </div>
       </div>

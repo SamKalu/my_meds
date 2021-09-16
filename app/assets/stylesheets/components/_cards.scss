@@ -46,7 +46,6 @@
 }
 
 .medcard {
-  // width: 130px;
   height: 250px;
   display: flex;
   flex-direction: column;
@@ -61,17 +60,12 @@
     height: 70px;
     width: 100%;
     object-fit: cover;
-
-    // &:hover{
-    //   opacity: 0.5;
-    // }
   }
 
   h3 {
     color: $black;
   }
   .textbox {
-    // position: relative;
     display: flex;
     justify-content: space-between;
     line-height: 2;
@@ -105,17 +99,15 @@
     overflow: hidden;
     text-overflow: ellipsis;
   }
+
   .textbold {
     font-weight: bold;
   }
-.stock-input {
-  background-image: none;
-  padding-right: 0.75rem;
-}
-  // &:hover {
-  //    box-shadow: 1px 4px 10px rgba(0,0,0,0.2);
-  // }
 
+  .stock-input {
+    background-image: none;
+    padding-right: 0.75rem;
+  }
 }
 
 .long-card {
@@ -183,7 +175,6 @@
 
   // width: 1250px;
   overflow: hidden;
-
 }
 
 .schedules-container {
