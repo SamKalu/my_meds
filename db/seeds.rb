@@ -31,33 +31,17 @@ john.avatar.attach(io: john_photo, filename: 'avatar_john.jpg', content_type: 'i
 puts "...and there was John"
 puts "God saw that John was good and he made Beni his carer. 'Take your meds' -said Beni, and so he did"
 
-puts "Creating treatments for John"
-blood_pressure = Treatment.create!(
-  name: "Bloodpressure",
-  user_id: john.id
-)
-
-vitamines = Treatment.create!(
-  name: "Vitamines",
-  user_id: john.id
-)
-
-pain_relief = Treatment.create!(
-  name: "Pain relief",
-  user_id: john.id
-)
-
 puts "Creating meds for John"
-med_names = [ ["Astrovastax", "Against elevated blood cholesterol" , 10 ],
-              ["CardiaxASS", "Thrombozyten-Aggeragtionshemmer", 80],
+med_names = [ ["Astrovastax", "Against elevated blood cholesterol" , 9 ],
+              ["Cardiax", "Thrombozyten-Aggeragtionshemmer", 80],
               ["Condrosulf", " Against pain and restriction of mobility of joints" , 90],
               ["Perindopril", "High blood pressure", 46],
               ["Ryzodec","Insulin", 15],
               ["Alkohol-Tupfer","For disinfection",87],
               ["Clickfine", "Senior vitamin", 60],
               ["Dafalgan", "Pain killer", 150],
-              ["Microlet-next", "Against migraine", 73],
-              ["Aspirin", "For Headache", 11],
+              ["Microlet", "Against migraine", 73],
+              ["Aspirin", "For Headache", 14],
               ["Actilife","Senior vitamin", 32],
               ["Antibiotic","Antibiotic", 52] ]
 
@@ -75,8 +59,18 @@ end
 
 puts "#{Med.count} meds created"
 
+puts "Creating treatments for John"
+blood_pressure = Treatment.create!(
+  name: "Bloodpressure",
+  user_id: john.id
+)
+
+vitamines = Treatment.create!(
+  name: "Vitamines",
+  user_id: john.id
+)
+
 puts "Creating schedule for John"
-puts "Morning schedule"
 s1 = Schedule.create!(
   times: ["08:00"],
   weekdays: ["monday", "tuesday", "wednesday", "thursday", "friday"],
@@ -108,10 +102,11 @@ s6 = Schedule.create!(
   med: john.meds.find_by(name: "Perindopril"), 
   treatment: blood_pressure
 )
+puts "Morning schedule is created for John"
 
 puts "Creating fake users"
 
-5.times do
+2.times do
   test_user = User.create!(
     email: Faker::Internet.email,
     password: "password",
@@ -125,7 +120,7 @@ puts "Creating fake users"
   puts "Finding #{test_user.first_name}'s meds and pictures for them..."
 
   med_names = ["levothyroxine", "rosuvastatin", "albuterol", "esomeprazole", "fluticasone", "lisdexamfetamine", "rivotril", "xanax", "viagra", "Simvastatin", "Omeprazole", "Metformin", "Azithromycin"]
-  5.times do
+  2.times do
     med = Med.new(
       name: med_names.shuffle!.pop,
       description: Faker::Quotes::Shakespeare.romeo_and_juliet_quote,
